@@ -1,0 +1,8883 @@
+{
+  "source": "fe8.gba",
+  "address": "0x08803d64",
+  "stride": 52,
+  "count": 256,
+  "entries": [
+    {
+      "id": 1,
+      "name": "EIRIKA",
+      "name_text_id": 530,
+      "default_class": 2,
+      "default_class_name": "EIRIKA_LORD",
+      "affinity": 6,
+      "affinity_name": "LIGHT",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 5,
+        "con": 0
+      },
+      "growths": {
+        "hp": 70,
+        "pow": 40,
+        "skl": 60,
+        "spd": 60,
+        "def": 30,
+        "res": 30,
+        "lck": 60
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 1,
+          "rank": "E"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "SETH",
+      "name_text_id": 531,
+      "default_class": 7,
+      "default_class_name": "PALADIN",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 1,
+      "bases": {
+        "hp": 7,
+        "pow": 7,
+        "skl": 9,
+        "spd": 5,
+        "def": 3,
+        "res": 5,
+        "lck": 13,
+        "con": 0
+      },
+      "growths": {
+        "hp": 90,
+        "pow": 50,
+        "skl": 45,
+        "spd": 45,
+        "def": 40,
+        "res": 30,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "name": "GILLIAM",
+      "name_text_id": 532,
+      "default_class": 9,
+      "default_class_name": "ARMOR_KNIGHT",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 4,
+      "bases": {
+        "hp": 8,
+        "pow": 4,
+        "skl": 4,
+        "spd": 3,
+        "def": 0,
+        "res": 3,
+        "lck": 3,
+        "con": 1
+      },
+      "growths": {
+        "hp": 90,
+        "pow": 45,
+        "skl": 35,
+        "spd": 30,
+        "def": 55,
+        "res": 20,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "name": "FRANZ",
+      "name_text_id": 533,
+      "default_class": 5,
+      "default_class_name": "CAVALIER",
+      "affinity": 6,
+      "affinity_name": "LIGHT",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 2,
+        "skl": 3,
+        "spd": 2,
+        "def": 0,
+        "res": 1,
+        "lck": 2,
+        "con": 0
+      },
+      "growths": {
+        "hp": 80,
+        "pow": 40,
+        "skl": 40,
+        "spd": 50,
+        "def": 25,
+        "res": 20,
+        "lck": 40
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 1,
+          "rank": "E"
+        },
+        "lance": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "name": "MOULDER",
+      "name_text_id": 534,
+      "default_class": 69,
+      "default_class_name": "PRIEST",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 3,
+      "bases": {
+        "hp": 2,
+        "pow": 3,
+        "skl": 5,
+        "spd": 7,
+        "def": 1,
+        "res": 0,
+        "lck": 1,
+        "con": 4
+      },
+      "growths": {
+        "hp": 70,
+        "pow": 40,
+        "skl": 50,
+        "spd": 40,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "name": "VANESSA",
+      "name_text_id": 535,
+      "default_class": 72,
+      "default_class_name": "PEGASUS_KNIGHT",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 1,
+      "bases": {
+        "hp": 3,
+        "pow": 1,
+        "skl": 2,
+        "spd": 6,
+        "def": 3,
+        "res": 3,
+        "lck": 4,
+        "con": 0
+      },
+      "growths": {
+        "hp": 50,
+        "pow": 35,
+        "skl": 55,
+        "spd": 60,
+        "def": 20,
+        "res": 30,
+        "lck": 50
+      },
+      "attributes": 2113536,
+      "attribute_flags": [
+        "FEMALE",
+        "TRIANGLEATTACK_PEGASI"
+      ],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "name": "ROSS",
+      "name_text_id": 536,
+      "default_class": 61,
+      "default_class_name": "JOURNEYMAN",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 1,
+      "bases": {
+        "hp": 1,
+        "pow": 2,
+        "skl": 2,
+        "spd": 2,
+        "def": 2,
+        "res": 0,
+        "lck": 8,
+        "con": 0
+      },
+      "growths": {
+        "hp": 70,
+        "pow": 50,
+        "skl": 35,
+        "spd": 30,
+        "def": 25,
+        "res": 20,
+        "lck": 40
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 1,
+          "rank": "E"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "name": "NEIMI",
+      "name_text_id": 537,
+      "default_class": 26,
+      "default_class_name": "ARCHER_F",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 1,
+        "skl": 2,
+        "spd": 2,
+        "def": 0,
+        "res": 2,
+        "lck": 4,
+        "con": 0
+      },
+      "growths": {
+        "hp": 55,
+        "pow": 45,
+        "skl": 50,
+        "spd": 60,
+        "def": 15,
+        "res": 35,
+        "lck": 50
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "bow": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "name": "COLM",
+      "name_text_id": 538,
+      "default_class": 13,
+      "default_class_name": "THIEF",
+      "affinity": 6,
+      "affinity_name": "LIGHT",
+      "base_level": 2,
+      "bases": {
+        "hp": 2,
+        "pow": 1,
+        "skl": 3,
+        "spd": 1,
+        "def": 1,
+        "res": 1,
+        "lck": 8,
+        "con": 0
+      },
+      "growths": {
+        "hp": 75,
+        "pow": 40,
+        "skl": 40,
+        "spd": 65,
+        "def": 25,
+        "res": 20,
+        "lck": 45
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 1,
+          "rank": "E"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "name": "GARCIA",
+      "name_text_id": 539,
+      "default_class": 63,
+      "default_class_name": "FIGHTER",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 4,
+      "bases": {
+        "hp": 8,
+        "pow": 3,
+        "skl": 5,
+        "spd": 3,
+        "def": 3,
+        "res": 1,
+        "lck": 3,
+        "con": 3
+      },
+      "growths": {
+        "hp": 80,
+        "pow": 65,
+        "skl": 40,
+        "spd": 20,
+        "def": 25,
+        "res": 15,
+        "lck": 40
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 11,
+      "name": "INNES",
+      "name_text_id": 540,
+      "default_class": 27,
+      "default_class_name": "SNIPER",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 1,
+      "bases": {
+        "hp": 10,
+        "pow": 7,
+        "skl": 7,
+        "spd": 10,
+        "def": 5,
+        "res": 7,
+        "lck": 14,
+        "con": 1
+      },
+      "growths": {
+        "hp": 75,
+        "pow": 40,
+        "skl": 40,
+        "spd": 45,
+        "def": 20,
+        "res": 25,
+        "lck": 45
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "bow": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "name": "LUTE",
+      "name_text_id": 541,
+      "default_class": 38,
+      "default_class_name": "MAGE_F",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 1,
+      "bases": {
+        "hp": 1,
+        "pow": 5,
+        "skl": 3,
+        "spd": 5,
+        "def": 1,
+        "res": 1,
+        "lck": 8,
+        "con": 0
+      },
+      "growths": {
+        "hp": 45,
+        "pow": 65,
+        "skl": 30,
+        "spd": 45,
+        "def": 15,
+        "res": 40,
+        "lck": 45
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "anima": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "name": "NATASHA",
+      "name_text_id": 542,
+      "default_class": 74,
+      "default_class_name": "CLERIC",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 1,
+      "bases": {
+        "hp": 2,
+        "pow": 1,
+        "skl": 2,
+        "spd": 6,
+        "def": 2,
+        "res": 0,
+        "lck": 6,
+        "con": 0
+      },
+      "growths": {
+        "hp": 50,
+        "pow": 60,
+        "skl": 25,
+        "spd": 40,
+        "def": 15,
+        "res": 55,
+        "lck": 60
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 14,
+      "name": "CORMAG",
+      "name_text_id": 543,
+      "default_class": 31,
+      "default_class_name": "WYVERN_RIDER",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 9,
+      "bases": {
+        "hp": 10,
+        "pow": 7,
+        "skl": 6,
+        "spd": 5,
+        "def": 4,
+        "res": 2,
+        "lck": 4,
+        "con": 1
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 55,
+        "skl": 40,
+        "spd": 45,
+        "def": 25,
+        "res": 15,
+        "lck": 35
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 15,
+      "name": "EPHRAIM",
+      "name_text_id": 544,
+      "default_class": 1,
+      "default_class_name": "EPHRAIM_LORD",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 4,
+      "bases": {
+        "hp": 5,
+        "pow": 2,
+        "skl": 3,
+        "spd": 4,
+        "def": 1,
+        "res": 2,
+        "lck": 8,
+        "con": 0
+      },
+      "growths": {
+        "hp": 80,
+        "pow": 55,
+        "skl": 55,
+        "spd": 45,
+        "def": 35,
+        "res": 25,
+        "lck": 50
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 16,
+      "name": "FORDE",
+      "name_text_id": 545,
+      "default_class": 5,
+      "default_class_name": "CAVALIER",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 5,
+      "bases": {
+        "hp": 4,
+        "pow": 2,
+        "skl": 6,
+        "spd": 3,
+        "def": 2,
+        "res": 2,
+        "lck": 7,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 20,
+        "res": 25,
+        "lck": 35
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 31,
+          "rank": "D"
+        },
+        "lance": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 17,
+      "name": "KYLE",
+      "name_text_id": 546,
+      "default_class": 5,
+      "default_class_name": "CAVALIER",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 6,
+      "bases": {
+        "hp": 5,
+        "pow": 4,
+        "skl": 4,
+        "spd": 2,
+        "def": 3,
+        "res": 1,
+        "lck": 6,
+        "con": 1
+      },
+      "growths": {
+        "hp": 90,
+        "pow": 50,
+        "skl": 40,
+        "spd": 40,
+        "def": 25,
+        "res": 20,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 31,
+          "rank": "D"
+        },
+        "lance": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 18,
+      "name": "AMELIA",
+      "name_text_id": 547,
+      "default_class": 71,
+      "default_class_name": "RECRUIT",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 1,
+      "bases": {
+        "hp": 3,
+        "pow": 1,
+        "skl": 3,
+        "spd": 3,
+        "def": 2,
+        "res": 2,
+        "lck": 6,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 35,
+        "skl": 40,
+        "spd": 40,
+        "def": 30,
+        "res": 15,
+        "lck": 50
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 1,
+          "rank": "E"
+        }
+      }
+    },
+    {
+      "id": 19,
+      "name": "ARTUR",
+      "name_text_id": 548,
+      "default_class": 68,
+      "default_class_name": "MONK",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 2,
+      "bases": {
+        "hp": 1,
+        "pow": 5,
+        "skl": 5,
+        "spd": 6,
+        "def": 1,
+        "res": 1,
+        "lck": 2,
+        "con": 0
+      },
+      "growths": {
+        "hp": 55,
+        "pow": 50,
+        "skl": 50,
+        "spd": 40,
+        "def": 15,
+        "res": 55,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "light": {
+          "wexp": 1,
+          "rank": "E"
+        }
+      }
+    },
+    {
+      "id": 20,
+      "name": "GERIK",
+      "name_text_id": 549,
+      "default_class": 15,
+      "default_class_name": "MERCENARY",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 10,
+      "bases": {
+        "hp": 14,
+        "pow": 10,
+        "skl": 5,
+        "spd": 5,
+        "def": 6,
+        "res": 4,
+        "lck": 8,
+        "con": 4
+      },
+      "growths": {
+        "hp": 90,
+        "pow": 45,
+        "skl": 40,
+        "spd": 30,
+        "def": 35,
+        "res": 25,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 21,
+      "name": "TETHYS",
+      "name_text_id": 550,
+      "default_class": 77,
+      "default_class_name": "DANCER",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 1,
+      "bases": {
+        "hp": 4,
+        "pow": 0,
+        "skl": 0,
+        "spd": 5,
+        "def": 5,
+        "res": 3,
+        "lck": 10,
+        "con": 1
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 5,
+        "skl": 10,
+        "spd": 70,
+        "def": 30,
+        "res": 75,
+        "lck": 80
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 22,
+      "name": "MARISA",
+      "name_text_id": 551,
+      "default_class": 20,
+      "default_class_name": "MYRMIDON_F",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 5,
+      "bases": {
+        "hp": 8,
+        "pow": 4,
+        "skl": 3,
+        "spd": 3,
+        "def": 3,
+        "res": 2,
+        "lck": 9,
+        "con": 0
+      },
+      "growths": {
+        "hp": 75,
+        "pow": 30,
+        "skl": 55,
+        "spd": 60,
+        "def": 15,
+        "res": 25,
+        "lck": 50
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 23,
+      "name": "SALEH",
+      "name_text_id": 552,
+      "default_class": 39,
+      "default_class_name": "SAGE",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 2,
+      "bases": {
+        "hp": 10,
+        "pow": 11,
+        "skl": 14,
+        "spd": 10,
+        "def": 3,
+        "res": 8,
+        "lck": 11,
+        "con": 1
+      },
+      "growths": {
+        "hp": 50,
+        "pow": 30,
+        "skl": 25,
+        "spd": 40,
+        "def": 30,
+        "res": 35,
+        "lck": 40
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 71,
+          "rank": "C"
+        },
+        "anima": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "light": {
+          "wexp": 121,
+          "rank": "B"
+        }
+      }
+    },
+    {
+      "id": 24,
+      "name": "EWAN",
+      "name_text_id": 553,
+      "default_class": 62,
+      "default_class_name": "PUPIL",
+      "affinity": 6,
+      "affinity_name": "LIGHT",
+      "base_level": 2,
+      "bases": {
+        "hp": 2,
+        "pow": 2,
+        "skl": 2,
+        "spd": 4,
+        "def": 0,
+        "res": 0,
+        "lck": 5,
+        "con": 0
+      },
+      "growths": {
+        "hp": 50,
+        "pow": 45,
+        "skl": 40,
+        "spd": 35,
+        "def": 15,
+        "res": 40,
+        "lck": 50
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "anima": {
+          "wexp": 1,
+          "rank": "E"
+        }
+      }
+    },
+    {
+      "id": 25,
+      "name": "LARACHEL",
+      "name_text_id": 554,
+      "default_class": 75,
+      "default_class_name": "TROUBADOUR",
+      "affinity": 6,
+      "affinity_name": "LIGHT",
+      "base_level": 3,
+      "bases": {
+        "hp": 3,
+        "pow": 5,
+        "skl": 5,
+        "spd": 7,
+        "def": 3,
+        "res": 3,
+        "lck": 12,
+        "con": 0
+      },
+      "growths": {
+        "hp": 45,
+        "pow": 50,
+        "skl": 45,
+        "spd": 45,
+        "def": 15,
+        "res": 50,
+        "lck": 65
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 26,
+      "name": "DOZLA",
+      "name_text_id": 555,
+      "default_class": 67,
+      "default_class_name": "BERSERKER",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 1,
+      "bases": {
+        "hp": 19,
+        "pow": 9,
+        "skl": 5,
+        "spd": 2,
+        "def": 5,
+        "res": 6,
+        "lck": 4,
+        "con": 3
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 35,
+        "spd": 40,
+        "def": 30,
+        "res": 25,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 121,
+          "rank": "B"
+        }
+      }
+    },
+    {
+      "id": 27,
+      "name": "CHARACTER_0x1b",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 28,
+      "name": "RENNAC",
+      "name_text_id": 557,
+      "default_class": 51,
+      "default_class_name": "ROGUE",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 12,
+        "pow": 7,
+        "skl": 15,
+        "spd": 8,
+        "def": 7,
+        "res": 11,
+        "lck": 5,
+        "con": 0
+      },
+      "growths": {
+        "hp": 65,
+        "pow": 25,
+        "skl": 45,
+        "spd": 60,
+        "def": 25,
+        "res": 30,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 121,
+          "rank": "B"
+        }
+      }
+    },
+    {
+      "id": 29,
+      "name": "DUESSEL",
+      "name_text_id": 558,
+      "default_class": 53,
+      "default_class_name": "GREAT_KNIGHT",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 8,
+      "bases": {
+        "hp": 20,
+        "pow": 9,
+        "skl": 8,
+        "spd": 6,
+        "def": 6,
+        "res": 6,
+        "lck": 8,
+        "con": 2
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 55,
+        "skl": 40,
+        "spd": 30,
+        "def": 45,
+        "res": 30,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "axe": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 30,
+      "name": "MYRRH",
+      "name_text_id": 559,
+      "default_class": 60,
+      "default_class_name": "MANAKETE_MYRRH",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 1,
+      "bases": {
+        "hp": 3,
+        "pow": 3,
+        "skl": 1,
+        "spd": 3,
+        "def": 0,
+        "res": 5,
+        "lck": 3,
+        "con": 0
+      },
+      "growths": {
+        "hp": 130,
+        "pow": 90,
+        "skl": 85,
+        "spd": 65,
+        "def": 150,
+        "res": 30,
+        "lck": 30
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 31,
+      "name": "KNOLL",
+      "name_text_id": 560,
+      "default_class": 45,
+      "default_class_name": "SHAMAN",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 9,
+      "bases": {
+        "hp": 5,
+        "pow": 10,
+        "skl": 8,
+        "spd": 6,
+        "def": 0,
+        "res": 6,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 70,
+        "pow": 50,
+        "skl": 40,
+        "spd": 35,
+        "def": 10,
+        "res": 45,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "dark": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 32,
+      "name": "JOSHUA",
+      "name_text_id": 561,
+      "default_class": 19,
+      "default_class_name": "MYRMIDON",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 5,
+      "bases": {
+        "hp": 8,
+        "pow": 4,
+        "skl": 4,
+        "spd": 5,
+        "def": 3,
+        "res": 2,
+        "lck": 7,
+        "con": 0
+      },
+      "growths": {
+        "hp": 80,
+        "pow": 35,
+        "skl": 55,
+        "spd": 55,
+        "def": 20,
+        "res": 20,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 33,
+      "name": "SYRENE",
+      "name_text_id": 562,
+      "default_class": 73,
+      "default_class_name": "FALCON_KNIGHT",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 1,
+      "bases": {
+        "hp": 7,
+        "pow": 6,
+        "skl": 6,
+        "spd": 8,
+        "def": 5,
+        "res": 8,
+        "lck": 12,
+        "con": 1
+      },
+      "growths": {
+        "hp": 70,
+        "pow": 40,
+        "skl": 50,
+        "spd": 60,
+        "def": 20,
+        "res": 50,
+        "lck": 30
+      },
+      "attributes": 2113536,
+      "attribute_flags": [
+        "FEMALE",
+        "TRIANGLEATTACK_PEGASI"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 71,
+          "rank": "C"
+        },
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 34,
+      "name": "TANA",
+      "name_text_id": 563,
+      "default_class": 72,
+      "default_class_name": "PEGASUS_KNIGHT",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 4,
+      "bases": {
+        "hp": 6,
+        "pow": 3,
+        "skl": 4,
+        "spd": 8,
+        "def": 3,
+        "res": 5,
+        "lck": 8,
+        "con": 0
+      },
+      "growths": {
+        "hp": 65,
+        "pow": 45,
+        "skl": 40,
+        "spd": 65,
+        "def": 20,
+        "res": 25,
+        "lck": 60
+      },
+      "attributes": 2113536,
+      "attribute_flags": [
+        "FEMALE",
+        "TRIANGLEATTACK_PEGASI"
+      ],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 35,
+      "name": "LYON_CC",
+      "name_text_id": 564,
+      "default_class": 79,
+      "default_class_name": "NECROMANCER",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 14,
+      "bases": {
+        "hp": 26,
+        "pow": 13,
+        "skl": 9,
+        "spd": 6,
+        "def": 14,
+        "res": 11,
+        "lck": 4,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 55,
+        "spd": 55,
+        "def": 45,
+        "res": 55,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "dark": {
+          "wexp": 251,
+          "rank": "S"
+        }
+      }
+    },
+    {
+      "id": 36,
+      "name": "ORSON_CC",
+      "name_text_id": 566,
+      "default_class": 7,
+      "default_class_name": "PALADIN",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 13,
+      "bases": {
+        "hp": 25,
+        "pow": 11,
+        "skl": 11,
+        "spd": 7,
+        "def": 6,
+        "res": 8,
+        "lck": 6,
+        "con": 1
+      },
+      "growths": {
+        "hp": 80,
+        "pow": 55,
+        "skl": 45,
+        "spd": 40,
+        "def": 45,
+        "res": 30,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 37,
+      "name": "GLEN_CC",
+      "name_text_id": 586,
+      "default_class": 33,
+      "default_class_name": "WYVERN_LORD",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 12,
+      "bases": {
+        "hp": 21,
+        "pow": 11,
+        "skl": 12,
+        "spd": 6,
+        "def": 8,
+        "res": 4,
+        "lck": 7,
+        "con": 1
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 45,
+        "skl": 50,
+        "spd": 45,
+        "def": 35,
+        "res": 40,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 38,
+      "name": "SELENA_CC",
+      "name_text_id": 568,
+      "default_class": 42,
+      "default_class_name": "MAGE_KNIGHT_F",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 11,
+      "bases": {
+        "hp": 19,
+        "pow": 10,
+        "skl": 8,
+        "spd": 10,
+        "def": 8,
+        "res": 11,
+        "lck": 10,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 55,
+        "spd": 40,
+        "def": 20,
+        "res": 30,
+        "lck": 25
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 121,
+          "rank": "B"
+        },
+        "anima": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 39,
+      "name": "VALTER_CC",
+      "name_text_id": 567,
+      "default_class": 35,
+      "default_class_name": "WYVERN_KNIGHT",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 13,
+      "bases": {
+        "hp": 25,
+        "pow": 12,
+        "skl": 10,
+        "spd": 9,
+        "def": 6,
+        "res": 11,
+        "lck": 3,
+        "con": 1
+      },
+      "growths": {
+        "hp": 80,
+        "pow": 40,
+        "skl": 55,
+        "spd": 50,
+        "def": 20,
+        "res": 20,
+        "lck": 15
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 251,
+          "rank": "S"
+        }
+      }
+    },
+    {
+      "id": 40,
+      "name": "RIEV_CC",
+      "name_text_id": 582,
+      "default_class": 43,
+      "default_class_name": "BISHOP",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 16,
+      "bases": {
+        "hp": 28,
+        "pow": 10,
+        "skl": 17,
+        "spd": 15,
+        "def": 13,
+        "res": 10,
+        "lck": 9,
+        "con": 0
+      },
+      "growths": {
+        "hp": 75,
+        "pow": 45,
+        "skl": 50,
+        "spd": 40,
+        "def": 20,
+        "res": 45,
+        "lck": 15
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "light": {
+          "wexp": 251,
+          "rank": "S"
+        }
+      }
+    },
+    {
+      "id": 41,
+      "name": "CAELLACH_CC",
+      "name_text_id": 580,
+      "default_class": 17,
+      "default_class_name": "HERO",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 12,
+      "bases": {
+        "hp": 25,
+        "pow": 13,
+        "skl": 5,
+        "spd": 3,
+        "def": 7,
+        "res": 11,
+        "lck": 14,
+        "con": 2
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 45,
+        "spd": 45,
+        "def": 30,
+        "res": 20,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "axe": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 42,
+      "name": "FADO_CC",
+      "name_text_id": 603,
+      "default_class": 11,
+      "default_class_name": "GENERAL",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 11,
+      "bases": {
+        "hp": 25,
+        "pow": 12,
+        "skl": 10,
+        "spd": 9,
+        "def": 5,
+        "res": 8,
+        "lck": 5,
+        "con": 3
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 55,
+        "skl": 40,
+        "spd": 30,
+        "def": 45,
+        "res": 25,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "axe": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 43,
+      "name": "ISMAIRE_CC",
+      "name_text_id": 608,
+      "default_class": 22,
+      "default_class_name": "SWORDMASTER_F",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 9,
+      "bases": {
+        "hp": 14,
+        "pow": 10,
+        "skl": 9,
+        "spd": 11,
+        "def": 4,
+        "res": 12,
+        "lck": 12,
+        "con": 0
+      },
+      "growths": {
+        "hp": 75,
+        "pow": 30,
+        "skl": 60,
+        "spd": 55,
+        "def": 20,
+        "res": 25,
+        "lck": 30
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 44,
+      "name": "HAYDEN_CC",
+      "name_text_id": 604,
+      "default_class": 29,
+      "default_class_name": "RANGER",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 10,
+      "bases": {
+        "hp": 16,
+        "pow": 10,
+        "skl": 8,
+        "spd": 8,
+        "def": 6,
+        "res": 9,
+        "lck": 17,
+        "con": 1
+      },
+      "growths": {
+        "hp": 70,
+        "pow": 40,
+        "skl": 45,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 40
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "bow": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 45,
+      "name": "CHARACTER_0x2d",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 46,
+      "name": "CHARACTER_0x2e",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 47,
+      "name": "CHARACTER_0x2f",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 48,
+      "name": "CHARACTER_0x30",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 49,
+      "name": "CHARACTER_0x31",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 50,
+      "name": "CHARACTER_0x32",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 51,
+      "name": "CHARACTER_0x33",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 52,
+      "name": "CHARACTER_0x34",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 53,
+      "name": "CHARACTER_0x35",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 54,
+      "name": "CHARACTER_0x36",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 55,
+      "name": "CHARACTER_0x37",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 56,
+      "name": "CHARACTER_0x38",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 57,
+      "name": "CHARACTER_0x39",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 58,
+      "name": "CHARACTER_0x3a",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 59,
+      "name": "SUMMON_LYON",
+      "name_text_id": 753,
+      "default_class": 7,
+      "default_class_name": "PALADIN",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 3,
+        "skl": 2,
+        "spd": 3,
+        "def": 0,
+        "res": 0,
+        "lck": 20,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 60,
+        "skl": 45,
+        "spd": 30,
+        "def": 0,
+        "res": 0,
+        "lck": 60
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 60,
+      "name": "CHARACTER_0x3c",
+      "name_text_id": 621,
+      "default_class": 49,
+      "default_class_name": "SUMMONER",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 18,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 50,
+        "pow": 30,
+        "skl": 35,
+        "spd": 32,
+        "def": 8,
+        "res": 40,
+        "lck": 45
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 1,
+          "rank": "E"
+        },
+        "dark": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 61,
+      "name": "CHARACTER_0x3d",
+      "name_text_id": 620,
+      "default_class": 49,
+      "default_class_name": "SUMMONER",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 9,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 50,
+        "pow": 30,
+        "skl": 35,
+        "spd": 32,
+        "def": 8,
+        "res": 40,
+        "lck": 45
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 1,
+          "rank": "E"
+        },
+        "dark": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 62,
+      "name": "SUMMON_KNOLL",
+      "name_text_id": 753,
+      "default_class": 7,
+      "default_class_name": "PALADIN",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 2,
+        "skl": 1,
+        "spd": 2,
+        "def": 0,
+        "res": 0,
+        "lck": 10,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 50,
+        "skl": 50,
+        "spd": 40,
+        "def": 0,
+        "res": 0,
+        "lck": 55
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 63,
+      "name": "SUMMON_EWAN",
+      "name_text_id": 753,
+      "default_class": 7,
+      "default_class_name": "PALADIN",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 1,
+        "skl": 2,
+        "spd": 1,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 70,
+        "skl": 40,
+        "spd": 20,
+        "def": 0,
+        "res": 0,
+        "lck": 40
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 64,
+      "name": "LYON",
+      "name_text_id": 564,
+      "default_class": 79,
+      "default_class_name": "NECROMANCER",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 14,
+      "bases": {
+        "hp": 26,
+        "pow": 13,
+        "skl": 9,
+        "spd": 6,
+        "def": 14,
+        "res": 11,
+        "lck": 4,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 55,
+        "spd": 55,
+        "def": 45,
+        "res": 55,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "dark": {
+          "wexp": 251,
+          "rank": "S"
+        }
+      }
+    },
+    {
+      "id": 65,
+      "name": "MORVA",
+      "name_text_id": 565,
+      "default_class": 59,
+      "default_class_name": "MANAKETE_2",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 18,
+      "bases": {
+        "hp": 42,
+        "pow": 16,
+        "skl": 10,
+        "spd": 11,
+        "def": 3,
+        "res": 7,
+        "lck": 7,
+        "con": 0
+      },
+      "growths": {
+        "hp": 150,
+        "pow": 100,
+        "skl": 90,
+        "spd": 70,
+        "def": 160,
+        "res": 80,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 66,
+      "name": "ORSON_CH5X",
+      "name_text_id": 566,
+      "default_class": 7,
+      "default_class_name": "PALADIN",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 3,
+      "bases": {
+        "hp": 11,
+        "pow": 8,
+        "skl": 9,
+        "spd": 4,
+        "def": 5,
+        "res": 4,
+        "lck": 4,
+        "con": 1
+      },
+      "growths": {
+        "hp": 80,
+        "pow": 55,
+        "skl": 45,
+        "spd": 40,
+        "def": 45,
+        "res": 30,
+        "lck": 25
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 67,
+      "name": "VALTER",
+      "name_text_id": 567,
+      "default_class": 35,
+      "default_class_name": "WYVERN_KNIGHT",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 13,
+      "bases": {
+        "hp": 25,
+        "pow": 12,
+        "skl": 10,
+        "spd": 9,
+        "def": 6,
+        "res": 11,
+        "lck": 3,
+        "con": 1
+      },
+      "growths": {
+        "hp": 80,
+        "pow": 40,
+        "skl": 55,
+        "spd": 50,
+        "def": 20,
+        "res": 20,
+        "lck": 15
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 251,
+          "rank": "S"
+        }
+      }
+    },
+    {
+      "id": 68,
+      "name": "SELENA",
+      "name_text_id": 568,
+      "default_class": 42,
+      "default_class_name": "MAGE_KNIGHT_F",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 11,
+      "bases": {
+        "hp": 19,
+        "pow": 10,
+        "skl": 8,
+        "spd": 10,
+        "def": 8,
+        "res": 11,
+        "lck": 10,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 55,
+        "spd": 40,
+        "def": 20,
+        "res": 30,
+        "lck": 25
+      },
+      "attributes": 49152,
+      "attribute_flags": [
+        "FEMALE",
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 121,
+          "rank": "B"
+        },
+        "anima": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 69,
+      "name": "VALTER_PROLOGUE",
+      "name_text_id": 567,
+      "default_class": 35,
+      "default_class_name": "WYVERN_KNIGHT",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 5,
+      "bases": {
+        "hp": 14,
+        "pow": 6,
+        "skl": 7,
+        "spd": 6,
+        "def": 3,
+        "res": 5,
+        "lck": 2,
+        "con": 1
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 70,
+      "name": "BREGUET",
+      "name_text_id": 569,
+      "default_class": 9,
+      "default_class_name": "ARMOR_KNIGHT",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 4,
+      "bases": {
+        "hp": 3,
+        "pow": 3,
+        "skl": 0,
+        "spd": 1,
+        "def": 0,
+        "res": 0,
+        "lck": 2,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 71,
+      "name": "BONE",
+      "name_text_id": 570,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 4,
+      "bases": {
+        "hp": 3,
+        "pow": 1,
+        "skl": 3,
+        "spd": 0,
+        "def": 1,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 72,
+      "name": "BAZBA",
+      "name_text_id": 571,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 6,
+      "bases": {
+        "hp": 5,
+        "pow": 3,
+        "skl": 4,
+        "spd": 2,
+        "def": 2,
+        "res": 2,
+        "lck": 1,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 73,
+      "name": "ENTOUMBED_CH4",
+      "name_text_id": 597,
+      "default_class": 83,
+      "default_class_name": "ENTOUMBED",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 6,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 74,
+      "name": "SAAR",
+      "name_text_id": 572,
+      "default_class": 9,
+      "default_class_name": "ARMOR_KNIGHT",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 8,
+      "bases": {
+        "hp": 13,
+        "pow": 6,
+        "skl": 5,
+        "spd": 3,
+        "def": 2,
+        "res": 3,
+        "lck": 4,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 75,
+      "name": "NOVALA",
+      "name_text_id": 573,
+      "default_class": 45,
+      "default_class_name": "SHAMAN",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 10,
+      "bases": {
+        "hp": 12,
+        "pow": 8,
+        "skl": 7,
+        "spd": 4,
+        "def": 3,
+        "res": 5,
+        "lck": 7,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "dark": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 76,
+      "name": "MURRAY",
+      "name_text_id": 574,
+      "default_class": 5,
+      "default_class_name": "CAVALIER",
+      "affinity": 6,
+      "affinity_name": "LIGHT",
+      "base_level": 12,
+      "bases": {
+        "hp": 12,
+        "pow": 3,
+        "skl": 7,
+        "spd": 5,
+        "def": 1,
+        "res": 6,
+        "lck": 7,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 71,
+          "rank": "C"
+        },
+        "lance": {
+          "wexp": 121,
+          "rank": "B"
+        }
+      }
+    },
+    {
+      "id": 77,
+      "name": "TIRADO",
+      "name_text_id": 575,
+      "default_class": 11,
+      "default_class_name": "GENERAL",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 1,
+      "bases": {
+        "hp": 19,
+        "pow": 5,
+        "skl": 4,
+        "spd": 2,
+        "def": 1,
+        "res": 5,
+        "lck": 2,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 121,
+          "rank": "B"
+        },
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "axe": {
+          "wexp": 121,
+          "rank": "B"
+        }
+      }
+    },
+    {
+      "id": 78,
+      "name": "BINKS",
+      "name_text_id": 576,
+      "default_class": 64,
+      "default_class_name": "WARRIOR",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 5,
+      "bases": {
+        "hp": 14,
+        "pow": 8,
+        "skl": 5,
+        "spd": 2,
+        "def": 7,
+        "res": 8,
+        "lck": 3,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 121,
+          "rank": "B"
+        },
+        "bow": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 79,
+      "name": "PABLO",
+      "name_text_id": 577,
+      "default_class": 39,
+      "default_class_name": "SAGE",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 7,
+      "bases": {
+        "hp": 16,
+        "pow": 8,
+        "skl": 5,
+        "spd": 8,
+        "def": 2,
+        "res": 12,
+        "lck": 9,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 25,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 71,
+          "rank": "C"
+        },
+        "anima": {
+          "wexp": 121,
+          "rank": "B"
+        },
+        "light": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 80,
+      "name": "MAELDUIN_CHUNK",
+      "name_text_id": 597,
+      "default_class": 94,
+      "default_class_name": "MAELDUIN",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 9,
+      "bases": {
+        "hp": 15,
+        "pow": 6,
+        "skl": 6,
+        "spd": 2,
+        "def": 4,
+        "res": 8,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 81,
+      "name": "AIAS",
+      "name_text_id": 578,
+      "default_class": 53,
+      "default_class_name": "GREAT_KNIGHT",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 10,
+      "bases": {
+        "hp": 25,
+        "pow": 10,
+        "skl": 7,
+        "spd": 4,
+        "def": 8,
+        "res": 9,
+        "lck": 11,
+        "con": 1
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 35,
+        "spd": 35,
+        "def": 25,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "lance": {
+          "wexp": 121,
+          "rank": "B"
+        },
+        "axe": {
+          "wexp": 121,
+          "rank": "B"
+        }
+      }
+    },
+    {
+      "id": 82,
+      "name": "CARLYLE",
+      "name_text_id": 579,
+      "default_class": 21,
+      "default_class_name": "SWORDMASTER",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 11,
+      "bases": {
+        "hp": 20,
+        "pow": 6,
+        "skl": 6,
+        "spd": 8,
+        "def": 4,
+        "res": 8,
+        "lck": 8,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 65,
+        "skl": 10,
+        "spd": 10,
+        "def": 20,
+        "res": 20,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 83,
+      "name": "CAELLACH",
+      "name_text_id": 580,
+      "default_class": 17,
+      "default_class_name": "HERO",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 12,
+      "bases": {
+        "hp": 25,
+        "pow": 13,
+        "skl": 5,
+        "spd": 3,
+        "def": 7,
+        "res": 11,
+        "lck": 14,
+        "con": 2
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 45,
+        "spd": 45,
+        "def": 30,
+        "res": 20,
+        "lck": 20
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "axe": {
+          "wexp": 251,
+          "rank": "S"
+        }
+      }
+    },
+    {
+      "id": 84,
+      "name": "PABLO_2",
+      "name_text_id": 577,
+      "default_class": 39,
+      "default_class_name": "SAGE",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 7,
+      "bases": {
+        "hp": 14,
+        "pow": 8,
+        "skl": 5,
+        "spd": 8,
+        "def": 2,
+        "res": 12,
+        "lck": 9,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 71,
+          "rank": "C"
+        },
+        "anima": {
+          "wexp": 121,
+          "rank": "B"
+        },
+        "light": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 85,
+      "name": "CHARACTER_0x55",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 86,
+      "name": "GORGON_CHUNK",
+      "name_text_id": 597,
+      "default_class": 97,
+      "default_class_name": "GORGON",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 15,
+      "bases": {
+        "hp": 25,
+        "pow": 10,
+        "skl": 11,
+        "spd": 7,
+        "def": 5,
+        "res": 12,
+        "lck": 3,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 65,
+        "skl": 20,
+        "spd": 40,
+        "def": 15,
+        "res": 40,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "dark": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 87,
+      "name": "RIEV",
+      "name_text_id": 582,
+      "default_class": 43,
+      "default_class_name": "BISHOP",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 16,
+      "bases": {
+        "hp": 28,
+        "pow": 10,
+        "skl": 17,
+        "spd": 15,
+        "def": 13,
+        "res": 10,
+        "lck": 9,
+        "con": 0
+      },
+      "growths": {
+        "hp": 75,
+        "pow": 45,
+        "skl": 50,
+        "spd": 40,
+        "def": 20,
+        "res": 45,
+        "lck": 15
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "light": {
+          "wexp": 251,
+          "rank": "S"
+        }
+      }
+    },
+    {
+      "id": 88,
+      "name": "CHARACTER_0x58",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 89,
+      "name": "CHARACTER_0x59",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 90,
+      "name": "GHEB",
+      "name_text_id": 583,
+      "default_class": 64,
+      "default_class_name": "WARRIOR",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 5,
+      "bases": {
+        "hp": 17,
+        "pow": 10,
+        "skl": 3,
+        "spd": 0,
+        "def": 8,
+        "res": 5,
+        "lck": 1,
+        "con": 3
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "bow": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 91,
+      "name": "BERAN",
+      "name_text_id": 584,
+      "default_class": 29,
+      "default_class_name": "RANGER",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 7,
+      "bases": {
+        "hp": 22,
+        "pow": 8,
+        "skl": 7,
+        "spd": 7,
+        "def": 8,
+        "res": 9,
+        "lck": 6,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 35,
+        "spd": 35,
+        "def": 25,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 121,
+          "rank": "B"
+        },
+        "bow": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 92,
+      "name": "CYCLOPS_CHUNK",
+      "name_text_id": 597,
+      "default_class": 90,
+      "default_class_name": "CYCLOPS",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 9,
+      "bases": {
+        "hp": 18,
+        "pow": 7,
+        "skl": 3,
+        "spd": 3,
+        "def": 2,
+        "res": 10,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 35,
+        "spd": 35,
+        "def": 25,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 93,
+      "name": "WIGHT_CHUNK",
+      "name_text_id": 597,
+      "default_class": 86,
+      "default_class_name": "WIGHT",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 8,
+      "bases": {
+        "hp": 15,
+        "pow": 5,
+        "skl": 10,
+        "spd": 7,
+        "def": 4,
+        "res": 7,
+        "lck": 1,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 94,
+      "name": "DEATHGOYLE_CHUNK",
+      "name_text_id": 597,
+      "default_class": 100,
+      "default_class_name": "DEATHGOYLE",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 8,
+      "bases": {
+        "hp": 14,
+        "pow": 5,
+        "skl": 9,
+        "spd": 6,
+        "def": 4,
+        "res": 4,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 95,
+      "name": "CHARACTER_0x5f",
+      "name_text_id": 597,
+      "default_class": 83,
+      "default_class_name": "ENTOUMBED",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 7,
+        "pow": 2,
+        "skl": 2,
+        "spd": 1,
+        "def": 2,
+        "res": 2,
+        "lck": 1,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 35,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 96,
+      "name": "CHARACTER_0x60",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 97,
+      "name": "CHARACTER_0x61",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 98,
+      "name": "CHARACTER_0x62",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 99,
+      "name": "CHARACTER_0x63",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 100,
+      "name": "CHARACTER_0x64",
+      "name_text_id": 592,
+      "default_class": 13,
+      "default_class_name": "THIEF",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 101,
+      "name": "CHARACTER_0x65",
+      "name_text_id": 591,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 102,
+      "name": "BANDIT_CH5",
+      "name_text_id": 591,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 2,
+      "affinity_name": "THUNDER",
+      "base_level": 1,
+      "bases": {
+        "hp": 2,
+        "pow": 2,
+        "skl": 2,
+        "spd": 2,
+        "def": 2,
+        "res": 2,
+        "lck": 2,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 103,
+      "name": "CHARACTER_0x67",
+      "name_text_id": 591,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 104,
+      "name": "ONEILL",
+      "name_text_id": 585,
+      "default_class": 63,
+      "default_class_name": "FIGHTER",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 4,
+      "bases": {
+        "hp": 3,
+        "pow": 1,
+        "skl": 2,
+        "spd": 3,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "axe": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 105,
+      "name": "GLEN",
+      "name_text_id": 586,
+      "default_class": 33,
+      "default_class_name": "WYVERN_LORD",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 12,
+      "bases": {
+        "hp": 21,
+        "pow": 11,
+        "skl": 12,
+        "spd": 6,
+        "def": 8,
+        "res": 4,
+        "lck": 7,
+        "con": 1
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 121,
+          "rank": "B"
+        },
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 106,
+      "name": "ZONTA",
+      "name_text_id": 587,
+      "default_class": 15,
+      "default_class_name": "MERCENARY",
+      "affinity": 6,
+      "affinity_name": "LIGHT",
+      "base_level": 8,
+      "bases": {
+        "hp": 7,
+        "pow": 5,
+        "skl": 0,
+        "spd": 1,
+        "def": 2,
+        "res": 6,
+        "lck": 4,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 71,
+          "rank": "C"
+        }
+      }
+    },
+    {
+      "id": 107,
+      "name": "VIGARDE",
+      "name_text_id": 588,
+      "default_class": 11,
+      "default_class_name": "GENERAL",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 13,
+      "bases": {
+        "hp": 31,
+        "pow": 13,
+        "skl": 10,
+        "spd": 8,
+        "def": 7,
+        "res": 9,
+        "lck": 9,
+        "con": 2
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 50,
+        "skl": 10,
+        "spd": 10,
+        "def": 10,
+        "res": 15,
+        "lck": 30
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "lance": {
+          "wexp": 251,
+          "rank": "S"
+        },
+        "axe": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 108,
+      "name": "LYON_FINAL",
+      "name_text_id": 564,
+      "default_class": 79,
+      "default_class_name": "NECROMANCER",
+      "affinity": 4,
+      "affinity_name": "ICE",
+      "base_level": 18,
+      "bases": {
+        "hp": 55,
+        "pow": 20,
+        "skl": 15,
+        "spd": 10,
+        "def": 23,
+        "res": 21,
+        "lck": 9,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "staff": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "dark": {
+          "wexp": 251,
+          "rank": "S"
+        }
+      }
+    },
+    {
+      "id": 109,
+      "name": "ORSON",
+      "name_text_id": 566,
+      "default_class": 7,
+      "default_class_name": "PALADIN",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 13,
+      "bases": {
+        "hp": 25,
+        "pow": 11,
+        "skl": 11,
+        "spd": 7,
+        "def": 6,
+        "res": 8,
+        "lck": 6,
+        "con": 1
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        },
+        "lance": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 110,
+      "name": "CHARACTER_0x6e",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 111,
+      "name": "CHARACTER_0x6f",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 112,
+      "name": "CHARACTER_0x70",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 113,
+      "name": "CHARACTER_0x71",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 114,
+      "name": "CHARACTER_0x72",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 115,
+      "name": "CHARACTER_0x73",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 116,
+      "name": "CHARACTER_0x74",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 117,
+      "name": "CHARACTER_0x75",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 118,
+      "name": "CHARACTER_0x76",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 119,
+      "name": "CHARACTER_0x77",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 120,
+      "name": "CHARACTER_0x78",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 121,
+      "name": "CHARACTER_0x79",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 122,
+      "name": "CHARACTER_0x7a",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 123,
+      "name": "CHARACTER_0x7b",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 124,
+      "name": "CHARACTER_0x7c",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 125,
+      "name": "CHARACTER_0x7d",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 126,
+      "name": "CHARACTER_0x7e",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 127,
+      "name": "CHARACTER_0x7f",
+      "name_text_id": 589,
+      "default_class": 5,
+      "default_class_name": "CAVALIER",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 3,
+        "pow": 2,
+        "skl": 1,
+        "spd": 2,
+        "def": 2,
+        "res": 0,
+        "lck": 1,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 128,
+      "name": "CHARACTER_0x80",
+      "name_text_id": 589,
+      "default_class": 63,
+      "default_class_name": "FIGHTER",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 129,
+      "name": "CHARACTER_0x81",
+      "name_text_id": 589,
+      "default_class": 25,
+      "default_class_name": "ARCHER",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 130,
+      "name": "CHARACTER_0x82",
+      "name_text_id": 589,
+      "default_class": 63,
+      "default_class_name": "FIGHTER",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 2,
+        "pow": 0,
+        "skl": -1,
+        "spd": -3,
+        "def": 3,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 131,
+      "name": "SOLDIER_83",
+      "name_text_id": 589,
+      "default_class": 78,
+      "default_class_name": "SOLDIER",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 132,
+      "name": "CHARACTER_0x84",
+      "name_text_id": 589,
+      "default_class": 9,
+      "default_class_name": "ARMOR_KNIGHT",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 133,
+      "name": "CHARACTER_0x85",
+      "name_text_id": 589,
+      "default_class": 5,
+      "default_class_name": "CAVALIER",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 134,
+      "name": "CHARACTER_0x86",
+      "name_text_id": 589,
+      "default_class": 19,
+      "default_class_name": "MYRMIDON",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 135,
+      "name": "CHARACTER_0x87",
+      "name_text_id": 589,
+      "default_class": 15,
+      "default_class_name": "MERCENARY",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 136,
+      "name": "CHARACTER_0x88",
+      "name_text_id": 589,
+      "default_class": 13,
+      "default_class_name": "THIEF",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 137,
+      "name": "CHARACTER_0x89",
+      "name_text_id": 589,
+      "default_class": 37,
+      "default_class_name": "MAGE",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 138,
+      "name": "CHARACTER_0x8a",
+      "name_text_id": 589,
+      "default_class": 68,
+      "default_class_name": "MONK",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 139,
+      "name": "CHARACTER_0x8b",
+      "name_text_id": 589,
+      "default_class": 45,
+      "default_class_name": "SHAMAN",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 140,
+      "name": "CHARACTER_0x8c",
+      "name_text_id": 589,
+      "default_class": 75,
+      "default_class_name": "TROUBADOUR",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 141,
+      "name": "CHARACTER_0x8d",
+      "name_text_id": 590,
+      "default_class": 9,
+      "default_class_name": "ARMOR_KNIGHT",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 142,
+      "name": "CHARACTER_0x8e",
+      "name_text_id": 596,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 143,
+      "name": "CHARACTER_0x8f",
+      "name_text_id": 590,
+      "default_class": 5,
+      "default_class_name": "CAVALIER",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 144,
+      "name": "CHARACTER_0x90",
+      "name_text_id": 590,
+      "default_class": 45,
+      "default_class_name": "SHAMAN",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 145,
+      "name": "CHARACTER_0x91",
+      "name_text_id": 590,
+      "default_class": 37,
+      "default_class_name": "MAGE",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 146,
+      "name": "CHARACTER_0x92",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 147,
+      "name": "CHARACTER_0x93",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 148,
+      "name": "CHARACTER_0x94",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 149,
+      "name": "CHARACTER_0x95",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 150,
+      "name": "CHARACTER_0x96",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 151,
+      "name": "CHARACTER_0x97",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 152,
+      "name": "CHARACTER_0x98",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 153,
+      "name": "CHARACTER_0x99",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 154,
+      "name": "CHARACTER_0x9a",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 155,
+      "name": "CHARACTER_0x9b",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 156,
+      "name": "CHARACTER_0x9c",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 157,
+      "name": "CHARACTER_0x9d",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 158,
+      "name": "CHARACTER_0x9e",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 159,
+      "name": "CHARACTER_0x9f",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 160,
+      "name": "CHARACTER_0xa0",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 161,
+      "name": "CHARACTER_0xa1",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 162,
+      "name": "CHARACTER_0xa2",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 163,
+      "name": "CHARACTER_0xa3",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 164,
+      "name": "CHARACTER_0xa4",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 165,
+      "name": "CHARACTER_0xa5",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 166,
+      "name": "CHARACTER_0xa6",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 167,
+      "name": "CHARACTER_0xa7",
+      "name_text_id": 595,
+      "default_class": 15,
+      "default_class_name": "MERCENARY",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 168,
+      "name": "CHARACTER_0xa8",
+      "name_text_id": 593,
+      "default_class": 15,
+      "default_class_name": "MERCENARY",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 169,
+      "name": "CHARACTER_0xa9",
+      "name_text_id": 594,
+      "default_class": 15,
+      "default_class_name": "MERCENARY",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 170,
+      "name": "CHARACTER_0xaa",
+      "name_text_id": 597,
+      "default_class": 82,
+      "default_class_name": "REVENANT",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 171,
+      "name": "CHARACTER_0xab",
+      "name_text_id": 597,
+      "default_class": 83,
+      "default_class_name": "ENTOUMBED",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 172,
+      "name": "CHARACTER_0xac",
+      "name_text_id": 597,
+      "default_class": 84,
+      "default_class_name": "BONEWALKER",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 173,
+      "name": "CHARACTER_0xad",
+      "name_text_id": 597,
+      "default_class": 85,
+      "default_class_name": "BONEWALKER_BOW",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 174,
+      "name": "CHARACTER_0xae",
+      "name_text_id": 597,
+      "default_class": 86,
+      "default_class_name": "WIGHT",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 175,
+      "name": "CHARACTER_0xaf",
+      "name_text_id": 597,
+      "default_class": 87,
+      "default_class_name": "WIGHT_BOW",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 176,
+      "name": "CHARACTER_0xb0",
+      "name_text_id": 597,
+      "default_class": 88,
+      "default_class_name": "BAEL",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 177,
+      "name": "CHARACTER_0xb1",
+      "name_text_id": 597,
+      "default_class": 89,
+      "default_class_name": "ELDER_BAEL",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 178,
+      "name": "CHARACTER_0xb2",
+      "name_text_id": 597,
+      "default_class": 90,
+      "default_class_name": "CYCLOPS",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 179,
+      "name": "CHARACTER_0xb3",
+      "name_text_id": 597,
+      "default_class": 91,
+      "default_class_name": "MAUTHEDOOG",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 180,
+      "name": "CHARACTER_0xb4",
+      "name_text_id": 597,
+      "default_class": 92,
+      "default_class_name": "GWYLLGI",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 181,
+      "name": "CHARACTER_0xb5",
+      "name_text_id": 597,
+      "default_class": 93,
+      "default_class_name": "TARVOS",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 182,
+      "name": "CHARACTER_0xb6",
+      "name_text_id": 597,
+      "default_class": 94,
+      "default_class_name": "MAELDUIN",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 183,
+      "name": "CHARACTER_0xb7",
+      "name_text_id": 597,
+      "default_class": 95,
+      "default_class_name": "MOGALL",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 184,
+      "name": "CHARACTER_0xb8",
+      "name_text_id": 597,
+      "default_class": 96,
+      "default_class_name": "ARCH_MOGALL",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 185,
+      "name": "CHARACTER_0xb9",
+      "name_text_id": 597,
+      "default_class": 97,
+      "default_class_name": "GORGON",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 186,
+      "name": "MONSTER_BA",
+      "name_text_id": 598,
+      "default_class": 98,
+      "default_class_name": "GORGONEGG",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 100,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 187,
+      "name": "CHARACTER_0xbb",
+      "name_text_id": 597,
+      "default_class": 99,
+      "default_class_name": "GARGOYLE",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 188,
+      "name": "CHARACTER_0xbc",
+      "name_text_id": 597,
+      "default_class": 100,
+      "default_class_name": "DEATHGOYLE",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 189,
+      "name": "CHARACTER_0xbd",
+      "name_text_id": 597,
+      "default_class": 101,
+      "default_class_name": "DRACO_ZOMBIE",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 190,
+      "name": "FOMORTIIS",
+      "name_text_id": 602,
+      "default_class": 102,
+      "default_class_name": "DEMON_KING",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 20,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 10,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 32768,
+      "attribute_flags": [
+        "BOSS"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 191,
+      "name": "CHARACTER_0xbf",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 192,
+      "name": "FRELIAN",
+      "name_text_id": 610,
+      "default_class": 19,
+      "default_class_name": "MYRMIDON",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 193,
+      "name": "CHARACTER_0xc1",
+      "name_text_id": 610,
+      "default_class": 5,
+      "default_class_name": "CAVALIER",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 194,
+      "name": "CHARACTER_0xc2",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 195,
+      "name": "CHARACTER_0xc3",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 196,
+      "name": "CHARACTER_0xc4",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 197,
+      "name": "FADO",
+      "name_text_id": 603,
+      "default_class": 39,
+      "default_class_name": "SAGE",
+      "affinity": 1,
+      "affinity_name": "FIRE",
+      "base_level": 5,
+      "bases": {
+        "hp": 13,
+        "pow": 8,
+        "skl": 6,
+        "spd": 8,
+        "def": 2,
+        "res": 12,
+        "lck": 10,
+        "con": 3
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 198,
+      "name": "CHARACTER_0xc6",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 199,
+      "name": "HAYDEN",
+      "name_text_id": 604,
+      "default_class": 115,
+      "default_class_name": "PEER",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 1
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 200,
+      "name": "MANSEL",
+      "name_text_id": 606,
+      "default_class": 122,
+      "default_class_name": "PONTIFEX",
+      "affinity": 6,
+      "affinity_name": "LIGHT",
+      "base_level": 17,
+      "bases": {
+        "hp": 11,
+        "pow": 11,
+        "skl": 3,
+        "spd": 2,
+        "def": 5,
+        "res": 8,
+        "lck": 17,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 201,
+      "name": "KLIMT",
+      "name_text_id": 605,
+      "default_class": 43,
+      "default_class_name": "BISHOP",
+      "affinity": 7,
+      "affinity_name": "ANIMA",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 202,
+      "name": "DARA",
+      "name_text_id": 607,
+      "default_class": 47,
+      "default_class_name": "DRUID",
+      "affinity": 5,
+      "affinity_name": "DARK",
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 203,
+      "name": "ISMAIRE",
+      "name_text_id": 608,
+      "default_class": 116,
+      "default_class_name": "QUEEN",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 4,
+      "bases": {
+        "hp": 14,
+        "pow": 10,
+        "skl": 9,
+        "spd": 11,
+        "def": 4,
+        "res": 12,
+        "lck": 12,
+        "con": 0
+      },
+      "growths": {
+        "hp": 75,
+        "pow": 30,
+        "skl": 60,
+        "spd": 55,
+        "def": 20,
+        "res": 25,
+        "lck": 30
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 181,
+          "rank": "A"
+        }
+      }
+    },
+    {
+      "id": 204,
+      "name": "MESSENGER",
+      "name_text_id": 609,
+      "default_class": 72,
+      "default_class_name": "PEGASUS_KNIGHT",
+      "affinity": 3,
+      "affinity_name": "WIND",
+      "base_level": 1,
+      "bases": {
+        "hp": 3,
+        "pow": 2,
+        "skl": 2,
+        "spd": 5,
+        "def": 0,
+        "res": 2,
+        "lck": 7,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {
+        "lance": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    },
+    {
+      "id": 205,
+      "name": "CHARACTER_0xcd",
+      "name_text_id": 611,
+      "default_class": 9,
+      "default_class_name": "ARMOR_KNIGHT",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 206,
+      "name": "CHARACTER_0xce",
+      "name_text_id": 611,
+      "default_class": 9,
+      "default_class_name": "ARMOR_KNIGHT",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 40,
+        "skl": 50,
+        "spd": 45,
+        "def": 25,
+        "res": 25,
+        "lck": 20
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 207,
+      "name": "CHARACTER_0xcf",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 208,
+      "name": "CHARACTER_0xd0",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 209,
+      "name": "CHARACTER_0xd1",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 210,
+      "name": "CHARACTER_0xd2",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 211,
+      "name": "CHARACTER_0xd3",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 212,
+      "name": "CHARACTER_0xd4",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 213,
+      "name": "CHARACTER_0xd5",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 214,
+      "name": "CHARACTER_0xd6",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 215,
+      "name": "CHARACTER_0xd7",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 216,
+      "name": "CHARACTER_0xd8",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 217,
+      "name": "CHARACTER_0xd9",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 218,
+      "name": "CHARACTER_0xda",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 219,
+      "name": "CHARACTER_0xdb",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 220,
+      "name": "CHARACTER_0xdc",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 221,
+      "name": "CHARACTER_0xdd",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 222,
+      "name": "CHARACTER_0xde",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 223,
+      "name": "CHARACTER_0xdf",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 224,
+      "name": "CHARACTER_0xe0",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 225,
+      "name": "CHARACTER_0xe1",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 226,
+      "name": "CHARACTER_0xe2",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 227,
+      "name": "CHARACTER_0xe3",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 228,
+      "name": "CHARACTER_0xe4",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 229,
+      "name": "CHARACTER_0xe5",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 230,
+      "name": "CHARACTER_0xe6",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 231,
+      "name": "CHARACTER_0xe7",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 232,
+      "name": "CHARACTER_0xe8",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 233,
+      "name": "CHARACTER_0xe9",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 234,
+      "name": "CHARACTER_0xea",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 235,
+      "name": "CHARACTER_0xeb",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 236,
+      "name": "CHARACTER_0xec",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 237,
+      "name": "CHARACTER_0xed",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 238,
+      "name": "CHARACTER_0xee",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 239,
+      "name": "CHARACTER_0xef",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 240,
+      "name": "CHARACTER_0xf0",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 241,
+      "name": "CHARACTER_0xf1",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 242,
+      "name": "CHARACTER_0xf2",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 243,
+      "name": "CHARACTER_0xf3",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 244,
+      "name": "CHARACTER_0xf4",
+      "name_text_id": 614,
+      "default_class": 109,
+      "default_class_name": "CIVILIAN_M1",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 2,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 25,
+        "skl": 60,
+        "spd": 10,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 245,
+      "name": "CHARACTER_0xf5",
+      "name_text_id": 614,
+      "default_class": 110,
+      "default_class_name": "CIVILIAN_F1",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 2,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 25,
+        "skl": 60,
+        "spd": 10,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 246,
+      "name": "CHARACTER_0xf6",
+      "name_text_id": 614,
+      "default_class": 111,
+      "default_class_name": "CIVILIAN_M2",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 2,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 25,
+        "skl": 60,
+        "spd": 10,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 247,
+      "name": "CHARACTER_0xf7",
+      "name_text_id": 614,
+      "default_class": 112,
+      "default_class_name": "CIVILIAN_F2",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 2,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 25,
+        "skl": 60,
+        "spd": 10,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 248,
+      "name": "CHARACTER_0xf8",
+      "name_text_id": 614,
+      "default_class": 109,
+      "default_class_name": "CIVILIAN_M1",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 2,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 25,
+        "skl": 60,
+        "spd": 10,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 249,
+      "name": "CHARACTER_0xf9",
+      "name_text_id": 613,
+      "default_class": 110,
+      "default_class_name": "CIVILIAN_F1",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 2,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 25,
+        "skl": 60,
+        "spd": 10,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 250,
+      "name": "CHARACTER_0xfa",
+      "name_text_id": 613,
+      "default_class": 113,
+      "default_class_name": "CIVILIAN_M3",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 2,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 25,
+        "skl": 60,
+        "spd": 10,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 251,
+      "name": "CHARACTER_0xfb",
+      "name_text_id": 613,
+      "default_class": 114,
+      "default_class_name": "CIVILIAN_F3",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 2,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 25,
+        "skl": 60,
+        "spd": 10,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 16384,
+      "attribute_flags": [
+        "FEMALE"
+      ],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 252,
+      "name": "CITIZEN",
+      "name_text_id": 612,
+      "default_class": 113,
+      "default_class_name": "CIVILIAN_M3",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 2,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 85,
+        "pow": 25,
+        "skl": 60,
+        "spd": 10,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 253,
+      "name": "ARENA_OPPONENT",
+      "name_text_id": 615,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 254,
+      "name": "WALL",
+      "name_text_id": 616,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 255,
+      "name": "SNAG",
+      "name_text_id": 617,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 0,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {}
+    },
+    {
+      "id": 0,
+      "name": "NONE",
+      "name_text_id": 37,
+      "default_class": 65,
+      "default_class_name": "BRIGAND",
+      "affinity": 0,
+      "affinity_name": null,
+      "base_level": 1,
+      "bases": {
+        "hp": 0,
+        "pow": 0,
+        "skl": 0,
+        "spd": 0,
+        "def": 0,
+        "res": 0,
+        "lck": 0,
+        "con": 0
+      },
+      "growths": {
+        "hp": 60,
+        "pow": 20,
+        "skl": 30,
+        "spd": 35,
+        "def": 15,
+        "res": 15,
+        "lck": 25
+      },
+      "attributes": 0,
+      "attribute_flags": [],
+      "weapon_ranks": {
+        "sword": {
+          "wexp": 31,
+          "rank": "D"
+        }
+      }
+    }
+  ]
+}

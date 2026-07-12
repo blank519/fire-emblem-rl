@@ -112,6 +112,80 @@ Situational modifiers (weapon triangle, supports, terrain, and class/S-rank
 crit bonuses) are omitted since they depend on the opponent and tile. Returns
 `None` when no weapon is equipped (e.g. staff-only or itemless units).
 
+## Extraction tool (`src/extract.py`)
+
+Dumps the raw data needed to build a data-driven FE8 simulator. Two subcommands
+with two different sources.
+
+### `tables` — static ROM parse (no emulator)
+
+Reads a FE8 (U) `.gba` file directly and writes `classes.json`, `items.json`,
+and `characters.json`:
+
+```bash
+python src/extract.py tables --rom data/fe8.gba --out outputs/tables
+```
+
+Each output file records the `address`, `stride`, and `count` it used plus an
+`entries` array. Every encoded id is annotated with its decomp name (from
+`src/fe8_names.py`):
+
+- **`classes.json`** — bases, maxes, growths, `promotion`, `attributes`,
+  `weapon_ranks`, and each class's **resolved per-terrain-type tables**
+  (`move_cost`, `terrain_defense`, `terrain_avoid`, `terrain_resistance`;
+  65 entries, `-1` = impassable/none).
+- **`items.json`** — weapon type (+name), decoded `attribute_flags`, `might`,
+  `hit`, `weight`, `crit`, `max_uses`, `range_min`/`range_max`, `is_weapon` /
+  `is_staff` / `is_magic`, cost, and `required_rank` (+`required_rank_letter`).
+- **`characters.json`** — default class (+name), affinity (+name), base level,
+  bases, growths, `attributes`, and `weapon_ranks`.
+
+**Id alignment.** `gClassData`/`gCharacterData` use the FEGBA `table[id - 1]`
+convention (there is no stored entry for id 0), so each entry's real id is read
+from its own `number` field (offset `0x04`) rather than the loop index — this is
+what previously caused names to be off by one. `gItemData` is indexed directly
+(entry 0 = `ITEM_NONE`).
+
+**Field meanings.**
+- `promotion` (class, offset `0x05`): FE7-legacy *single* promotion target. Only
+  reported (`promotion_name`) for unpromoted classes, and even then it lists only
+  ONE branch — FE8's real branching promotions live in a separate data table.
+  Promoted classes store a stale back-reference, so `promotion_name` is `null`.
+- `attributes` (class & character, offset `0x28`): a 32-bit `CA_*` flag bitfield.
+  A unit's effective attributes are its class flags OR'd with its character
+  flags. Decoded into `attribute_flags` (e.g. `PROMOTED`, `MOUNTED`, `FLYER`
+  components, `BOSS`, `FEMALE`, `LORD`, `STEAL`, `CANTO`, lethality/lock flags).
+- `weapon_ranks`: usable weapon types keyed by weapon type, each with the raw
+  weapon-exp (`wexp`) and its letter `rank`. A unit's real usable weapons combine
+  its class ranks with its character rank bonuses. An item is wieldable when the
+  unit's wexp for that weapon type >= the item's `required_rank`
+  (both use the same `E/D/C/B/A/S` = `1/31/71/121/181/251` threshold encoding).
+
+**Addresses default to vanilla FE8 US.** For another region or a ROM hack,
+override per table with `--classes-addr ADDR:STRIDE:COUNT` (likewise
+`--items-addr`, `--characters-addr`), e.g. `--classes-addr 0x8807164:0x54:128`.
+Verify the printed `address/stride/count` produces sane names/stats; the
+class table sits immediately before `gItemData`, so if your `count` overruns it
+the last entry(ies) will be garbage — trim the count if so.
+
+### `chapter` — live snapshot via the bridge
+
+With the ROM running in mGBA (bridge loaded) and stopped **at turn 1 of a
+chapter before moving**, capture that chapter's terrain grid + initial unit
+placements:
+
+```bash
+python src/extract.py chapter --name ch01_border_mulan --objective Rout \
+    --out outputs/chapters
+```
+
+Output `outputs/chapters/<name>.json` contains `map` (`w`, `h`, and the
+`[y][x]` terrain-type grid), and `units` (per-faction placements with character
+/ class / item names, level, HP, position). `--objective` is free text you
+supply — FE8 win conditions live in each chapter's **event scripts**, not a
+single RAM field, so there is no clean enum to read. Repeat once per chapter to
+build a corpus under `outputs/chapters/`.
+
 ## FE8 (U) reference
 
 Unit arrays in EWRAM (from the `fireemblem8u` decomp symbol map), struct stride
@@ -135,7 +209,9 @@ Inventory: `0x1E` holds 5 x `u16` (low byte = item id, high byte = uses).
 
 Item table `gItemData` = `0x08809B10`, stride `0x24`. `struct ItemData`
 offsets: `0x07` weapon type, `0x08` attributes (u32; bit 0 = `IA_WEAPON`),
-`0x14` max uses, `0x15` might, `0x16` hit, `0x17` weight, `0x18` crit.
+`0x14` max uses, `0x15` might, `0x16` hit, `0x17` weight, `0x18` crit,
+`0x1C` required weapon-exp (rank), `0x20` wexp gained per use.
+`baseRanks[8]` live at `0x14` (`CharacterData`) and `0x2C` (`ClassData`).
 (Related tables: `gCharacterData` `0x08803D64`, `gClassData` `0x08807164`.)
 
 ## Notes / tuning
