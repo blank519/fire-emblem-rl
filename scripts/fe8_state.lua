@@ -56,6 +56,11 @@ local STATE_NOT_DEPLOYED  = 0x08
 local ID_OFFSET = 0x04
 local ROM_BASE  = 0x08000000
 
+-- GBA EWRAM range. Heap-allocated buffers (e.g. the map's row-pointer
+-- tables) live here, as opposed to ROM_BASE-relative static data tables.
+local EWRAM_BASE = 0x02000000
+local EWRAM_END  = 0x02040000
+
 -- Item table (gItemData) and struct ItemData layout (fireemblem8u, US build).
 local ITEM_TABLE = 0x08809B10
 local ITEM_SIZE  = 0x24
@@ -69,6 +74,29 @@ local IO = {
   crit       = 0x18,
 }
 local IA_WEAPON = 0x01 -- IA_WEAPON attribute bit
+local IO_RANGE  = 0x19 -- ItemData.encodedRange (min = hi nibble, max = lo nibble)
+
+-- struct ClassData terrain-table pointers (fireemblem8u, US build). Each field
+-- is a pointer to an s8 table indexed by terrain id.
+local CD = {
+  baseCon = 0x11, -- s8 base constitution (unit stores only a bonus)
+  baseMov = 0x12, -- s8 base movement    (unit stores only a bonus)
+  movCost = 0x38, -- pMovCostTable[0] (standard weather; [1]=rain, [2]=snow)
+  avo     = 0x44, -- pTerrainAvoidLookup
+  def     = 0x48, -- pTerrainDefenseLookup
+  res     = 0x4C, -- pTerrainResistanceLookup
+}
+
+-- Map buffers (EWRAM). Vec2 gBmMapSize {s16 x, s16 y}; the others are u8**
+-- (pointer to an array of per-row u8* pointers), indexed [y][x].
+local MAP = {
+  size    = 0x0202E4D4,
+  unit    = 0x0202E4D8,
+  terrain = 0x0202E4DC,
+}
+local ACTIVE_UNIT_ID    = 0x0202BE44 -- gActiveUnitId (u8)
+local TERRAIN_COUNT     = 0x41       -- 65 terrain ids
+local TERRAIN_HEAL_ADDR = 0x0880C744 -- TerrainTable_HealAmount (u8[terrain])
 
 -- ---------------------------------------------------------------------------
 -- Memory helpers
@@ -76,6 +104,11 @@ local IA_WEAPON = 0x01 -- IA_WEAPON attribute bit
 local function u8(a)  return emu:read8(a)  end
 local function u16(a) return emu:read16(a) end
 local function u32(a) return emu:read32(a) end
+local function s8(a)
+  local v = emu:read8(a)
+  if v >= 0x80 then v = v - 0x100 end
+  return v
+end
 
 -- ---------------------------------------------------------------------------
 -- Minimal JSON encoder (numbers, booleans, strings, arrays, objects)
@@ -119,39 +152,106 @@ end
 -- ---------------------------------------------------------------------------
 -- Item / weapon reading
 -- ---------------------------------------------------------------------------
+-- Read a single item's static data from gItemData. The `encodedRange` byte
+-- packs range as (min = high nibble, max = low nibble); a low nibble of 0 marks
+-- a dynamic magic range (1..Mag/2), reported here as range_max = 0.
+local function read_item_data(itemId)
+  local p = ITEM_TABLE + itemId * ITEM_SIZE
+  local attr = u32(p + IO.attributes)
+  local rng  = u8(p + IO_RANGE)
+  return {
+    id        = itemId,
+    type      = u8(p + IO.weaponType),
+    might     = u8(p + IO.might),
+    hit       = u8(p + IO.hit),
+    weight    = u8(p + IO.weight),
+    crit      = u8(p + IO.crit),
+    range_min = (rng >> 4) & 0xF,
+    range_max = rng & 0xF,
+    is_weapon = (attr & IA_WEAPON) ~= 0,
+  }
+end
+
 local function read_items(base)
   local items = {}
   for i = 0, 4 do
     local v = u16(base + O.items + i * 2)
     local id = v & 0xFF
     if id ~= 0 then
-      items[#items + 1] = { id = id, uses = (v >> 8) & 0xFF, slot = i }
+      local it = read_item_data(id)
+      it.uses = (v >> 8) & 0xFF
+      it.slot = i
+      items[#items + 1] = it
     end
   end
   return items
- end
-
-local function read_weapon(itemId)
-  local p = ITEM_TABLE + itemId * ITEM_SIZE
-  return {
-    id     = itemId,
-    type   = u8(p + IO.weaponType),
-    might  = u8(p + IO.might),
-    hit    = u8(p + IO.hit),
-    weight = u8(p + IO.weight),
-    crit   = u8(p + IO.crit),
-  }
 end
 
 -- The equipped weapon is the first inventory item flagged as a weapon.
 local function resolve_weapon(items)
   for _, it in ipairs(items) do
-    local attr = u32(ITEM_TABLE + it.id * ITEM_SIZE + IO.attributes)
-    if (attr & IA_WEAPON) ~= 0 then
-      return read_weapon(it.id)
-    end
+    if it.is_weapon then return it end
   end
   return nil
+end
+
+-- ---------------------------------------------------------------------------
+-- Map / terrain reading
+-- ---------------------------------------------------------------------------
+-- Read an s8 terrain lookup (indexed by terrain id) pointed to by a ClassData
+-- field. Returns nil when the pointer is not in ROM (class not loaded).
+local function read_terrain_vector(ptr)
+  if ptr == nil or ptr < ROM_BASE then return nil end
+  local t = {}
+  for i = 0, TERRAIN_COUNT - 1 do t[i + 1] = s8(ptr + i) end
+  return t
+end
+
+-- Per-class terrain tables: movement cost, defense/avoid/res bonuses.
+local function read_class_terrain(pClass)
+  return {
+    move_cost = read_terrain_vector(u32(pClass + CD.movCost)),
+    def       = read_terrain_vector(u32(pClass + CD.def)),
+    avo       = read_terrain_vector(u32(pClass + CD.avo)),
+    res       = read_terrain_vector(u32(pClass + CD.res)),
+  }
+end
+
+-- Global heal amount per terrain id (e.g. fort/throne regen).
+local function read_terrain_heal()
+  local t = {}
+  for i = 0, TERRAIN_COUNT - 1 do t[i + 1] = u8(TERRAIN_HEAL_ADDR + i) end
+  return t
+end
+
+-- Full map: dimensions plus [y][x] grids of terrain ids and tile occupants
+-- (gBmMapUnit stores each occupant's unit index; 0 = empty). Returns nil when
+-- no map is loaded (e.g. on menus / world map).
+local function read_map()
+  local w = u16(MAP.size)
+  local h = u16(MAP.size + 2)
+  local tBase = u32(MAP.terrain)
+  local uBase = u32(MAP.unit)
+  -- gBmMapTerrain/gBmMapUnit are u8** into heap-allocated EWRAM buffers, not
+  -- ROM, so they must be validated against EWRAM's range (not ROM_BASE).
+  if w <= 0 or h <= 0 or w > 64 or h > 64
+      or tBase < EWRAM_BASE or tBase >= EWRAM_END
+      or uBase < EWRAM_BASE or uBase >= EWRAM_END then
+    return nil
+  end
+  local terrain, occ = {}, {}
+  for y = 0, h - 1 do
+    local tRow = u32(tBase + y * 4)
+    local uRow = u32(uBase + y * 4)
+    local tl, ul = {}, {}
+    for x = 0, w - 1 do
+      tl[x + 1] = u8(tRow + x)
+      ul[x + 1] = u8(uRow + x)
+    end
+    terrain[y + 1] = tl
+    occ[y + 1] = ul
+  end
+  return { w = w, h = h, terrain = terrain, unit = occ }
 end
 
 -- ---------------------------------------------------------------------------
@@ -165,8 +265,13 @@ local function read_unit(base)
   local pClass = u32(base + O.pClass)
 
   local charId, classId = 0, 0
+  local baseCon, baseMov = 0, 0
   if pChar >= ROM_BASE  then charId  = u8(pChar  + ID_OFFSET) end
-  if pClass >= ROM_BASE then classId = u8(pClass + ID_OFFSET) end
+  if pClass >= ROM_BASE then
+    classId = u8(pClass + ID_OFFSET)
+    baseCon = s8(pClass + CD.baseCon)
+    baseMov = s8(pClass + CD.baseMov)
+  end
 
   local items = read_items(base)
 
@@ -187,10 +292,13 @@ local function read_unit(base)
     def      = u8(base + O.def),
     res      = u8(base + O.res),
     luk      = u8(base + O.luk),
-    con      = u8(base + O.con),
-    move     = u8(base + O.move),
+    con      = baseCon + s8(base + O.con),  -- class base + per-unit bonus
+    con_bonus = s8(base + O.con),
+    move     = baseMov + s8(base + O.move), -- class base + per-unit bonus
+    mov_bonus = s8(base + O.move),
     items    = items,
     weapon   = resolve_weapon(items),
+    class_ptr = pClass,
     state    = state,
     dead     = (state & STATE_DEAD) ~= 0,
     deployed = (state & STATE_NOT_DEPLOYED) == 0,
@@ -201,17 +309,43 @@ local function read_all()
   local snapshot = { units = {} }
   local ok, frame = pcall(function() return emu:currentFrame() end)
   if ok then snapshot.frame = frame end
+
+  snapshot.active_unit_id = u8(ACTIVE_UNIT_ID)
+  snapshot.map = read_map()
+  -- Diagnostic: raw map globals so a nil `map` can be explained (a zeroed
+  -- gBmMapTerrain pointer or 0x0 size means no chapter map is loaded).
+  snapshot.map_debug = {
+    size_w        = u16(MAP.size),
+    size_h        = u16(MAP.size + 2),
+    gBmMapTerrain = string.format("0x%08X", u32(MAP.terrain)),
+    gBmMapUnit    = string.format("0x%08X", u32(MAP.unit)),
+  }
+  snapshot.terrain_heal = read_terrain_heal()
+
+  -- Per-class terrain tables, keyed by class_id and deduplicated across units
+  -- (many units share a class, so we resolve each class only once).
+  local classes = {}
+  local seen = {}
+
   for _, f in ipairs(FACTIONS) do
     local units = {}
     for i = 0, f.count - 1 do
       local u = read_unit(f.base + i * UNIT_SIZE)
       if u then
         u.faction = f.name
+        if u.class_ptr and u.class_ptr >= ROM_BASE and not seen[u.class_id] then
+          seen[u.class_id] = true
+          local ct = read_class_terrain(u.class_ptr)
+          ct.class_id = u.class_id
+          classes[#classes + 1] = ct
+        end
+        u.class_ptr = nil -- internal only; keep it out of the JSON
         units[#units + 1] = u
       end
     end
     snapshot.units[f.name] = units
   end
+  snapshot.classes = classes
   return snapshot
 end
 
