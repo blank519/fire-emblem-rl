@@ -130,8 +130,8 @@ Each output file records the `address`, `stride`, and `count` it used plus an
 `entries` array. Every encoded id is annotated with its decomp name (from
 `src/fe8_names.py`):
 
-- **`classes.json`** — bases, maxes, growths, `promotion`, `attributes`,
-  `weapon_ranks`, and each class's **resolved per-terrain-type tables**
+- **`classes.json`** — bases, maxes, growths, `attributes`, `attribute_flags`,
+  `skills`, `weapon_ranks`, and each class's **resolved per-terrain-type tables**
   (`move_cost`, `terrain_defense`, `terrain_avoid`, `terrain_resistance`;
   65 entries, `-1` = impassable/none).
 - **`items.json`** — weapon type (+name), decoded `attribute_flags`, `might`,
@@ -147,14 +147,29 @@ what previously caused names to be off by one. `gItemData` is indexed directly
 (entry 0 = `ITEM_NONE`).
 
 **Field meanings.**
-- `promotion` (class, offset `0x05`): FE7-legacy *single* promotion target. Only
-  reported (`promotion_name`) for unpromoted classes, and even then it lists only
-  ONE branch — FE8's real branching promotions live in a separate data table.
-  Promoted classes store a stale back-reference, so `promotion_name` is `null`.
+- **Promotion is intentionally omitted.** `ClassData` offset `0x05` is an
+  FE7-legacy *single* promotion pointer: it lists only one branch (Myrmidon
+  would show Swordmaster but not Assassin) and holds garbage for promoted /
+  non-promoting classes (e.g. Manakete pointed at "Wyvern Rider"). FE8's real
+  branching promotions live in the separate `gPromoJidLut` table (`u8[class][2]`,
+  giving both options per class); extract that if promotion actions are needed.
 - `attributes` (class & character, offset `0x28`): a 32-bit `CA_*` flag bitfield.
   A unit's effective attributes are its class flags OR'd with its character
-  flags. Decoded into `attribute_flags` (e.g. `PROMOTED`, `MOUNTED`, `FLYER`
-  components, `BOSS`, `FEMALE`, `LORD`, `STEAL`, `CANTO`, lethality/lock flags).
+  flags. Decoded into `attribute_flags` (e.g. `PROMOTED`, `MOUNTED`, `WYVERN` /
+  `PEGASUS`, `BOSS`, `FEMALE`, `LORD`, `STEAL`, `CANTO`, `SUMMON`, and the
+  `LOCK_*` weapon locks below).
+- `skills` (class): the class's combat abilities. Most are data-driven from
+  `CA_*` bits (`Silencer` = `CA_ASSASSIN`, `Critical +15` = `CA_CRITBONUS`,
+  `Summon` = `CA_SUMMON`); a couple (`Great Shield` on General, `Pierce` on
+  Wyvern Knight) are hardcoded by class id in the battle code with no ROM-table
+  representation and are supplied from a small curated map in `extract.py`.
+- **Weapon locks** (`LOCK_0`..`LOCK_7`): a restricted weapon carries an
+  `IA_LOCK_n` bit (see `items.json` `attribute_flags`) and can only be wielded
+  by a unit whose class/character carries the matching `CA_LOCK_n`. So `LOCK_2`
+  on a generic Myrmidon is *permission*, not a restriction: it lets the myrmidon
+  line use `LOCK_2` weapons (e.g. `SWORD_SHAMSIR`). `LOCK_3` = monster/dragon
+  lock (monster weapons ↔ Manakete/monster classes); `LOCK_4`/`LOCK_5` gate the
+  Eirika/Ephraim personal weapons (Rapier/Sieglinde, Reginleif/Siegmund).
 - `weapon_ranks`: usable weapon types keyed by weapon type, each with the raw
   weapon-exp (`wexp`) and its letter `rank`. A unit's real usable weapons combine
   its class ranks with its character rank bonuses. An item is wieldable when the
@@ -185,6 +200,56 @@ Output `outputs/chapters/<name>.json` contains `map` (`w`, `h`, and the
 supply — FE8 win conditions live in each chapter's **event scripts**, not a
 single RAM field, so there is no clean enum to read. Repeat once per chapter to
 build a corpus under `outputs/chapters/`.
+
+### `all-chapters` — static ROM parse of every chapter (no emulator)
+
+Reconstructs each chapter's terrain grid and initial unit placements directly
+from the ROM, writing one `NN_<internal>.json` per chapter (all 44 at once):
+
+```bash
+python src/extract.py all-chapters --rom data/fe8.gba --out outputs/chapters
+```
+
+Each file has `index`, `internal_name` (e.g. `L01`, `E15`, `T03`),
+`title_text_id`, `map` (`w`, `h`, `[y][x]` terrain grid), `stacked_units` (see
+caveat), and `units` (`faction`, `char`/`class` + ids, `x`/`y`, `level`,
+`autolevel`, `item_drop`, `gen_monster`, `items`, `ai`).
+
+`ai` is the unit's starting AI setup from `UnitDefinition.ai[4]` (offset `0x10`):
+`a` = `gAi1ScriptTable` index (primary doctrine — stationary, attack-in-range,
+charge, guard throne/boss, …), `b` = `gAi2ScriptTable` index (secondary
+behavior — heal, steal, flee, …), and `config` = the `[low, high]` bytes of the
+`ai_config` bitmask (movement-restriction zones, aggression triggers, …).
+
+**How it works.** `gChapterDataTable` (`0x088B0890`, stride `0x94`, 44 entries)
+gives each chapter's `mainLayerId`/`tileConfigId`/`mapEventDataId`, which index
+`gChapterDataAssetTable` (`0x088B363C`). Terrain rebuilds the game's own load
+path: LZ77-decompress the main layer (`[w, h]` then `w*h` u16 base tiles) and
+the tileset config, then `terrain[y][x] = tilesetTerrainLookup[baseTile >> 2]`
+(the lookup is the `u8[0x400]` block at byte `0x2000` of the decompressed
+config). Units come from walking the chapter's `beginningSceneEvents` script
+(each command spans `2 * (LSB >> 4)` bytes, bounded by the next event-script
+pointer in ROM) and parsing every `UnitDefinition` array (`0x14`-byte entries,
+charIndex-0 terminated) referenced by a load-units command.
+
+**Caveat — a unit's *roster* is reliable, its *position* is not always the
+turn-1 tile.** Each entry's `char`/`class`/`level`/`items`/`ai` are read
+straight from its `UnitDefinition` and are correct. Positions are trickier: the
+opening event loads a mix of (a) real battle placements, (b) **cutscene
+tableaus** — whole factions stacked on one staging tile that in-event `MOVE`
+commands then reposition (this is why e.g. Chapter 1's Breguet and the Grado
+soldiers all report `(2,9)`/`(1,9)` even though only the fighters start in the
+SW corner), and (c) **reinforcement groups** that share a spawn tile because
+they enter on later turns. The parser can't tell these apart statically since
+they use identical load commands, so it keeps them all. `stacked_units` counts
+how many entries share a tile with another entry (0 = every unit on a distinct
+tile); a non-zero value means those positions are staging/spawn tiles, not
+distinct turn-1 placements. Out-of-map false positives from non-load commands
+are already dropped by a map-bounds check. Mid-battle reinforcements from
+turn/region events are *not* included (only opening loads are). For exact turn-1
+positions, use the live `chapter` bridge snapshot. Terrain grids are exact.
+Override the tables for a ROM hack with `--chapters-addr ADDR:STRIDE:COUNT` and
+`--asset-table ADDR`.
 
 ## FE8 (U) reference
 

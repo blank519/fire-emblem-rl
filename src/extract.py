@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """Extraction tool for building a data-driven FE8 simulator.
 
-Two data sources, two subcommands:
+Three subcommands across two data sources (ROM file vs live emulator):
 
   * ``tables`` -- parses static data tables straight out of a FE8 (U) ROM file
     (no emulator needed): ClassData (with each class's resolved terrain
     movement/def/avoid/res tables), ItemData, and CharacterData. Encoded byte
     ids are annotated with decomp names via ``fe8_names``.
+
+  * ``all-chapters`` -- statically reconstructs every chapter's terrain grid
+    (LZ77-decompressed map layer + tileset terrain lookup) and initial unit
+    placements (UnitDefinition arrays loaded by the opening event), writing one
+    JSON per chapter. No emulator needed.
 
   * ``chapter`` -- snapshots the *currently loaded* chapter over the live
     ``fe8_state.lua`` bridge: terrain-type grid, dimensions, and initial unit
@@ -38,19 +43,50 @@ DEFAULT_CHARACTERS = (0x08803D64, 0x34, 0x100)
 DEFAULT_CLASSES = (0x08807164, 0x54, 0x7F)
 DEFAULT_ITEMS = (0x08809B10, 0x24, 0xCE)
 
+# Chapter data (vanilla FE8 US). `gChapterDataTable` is an array of
+# `struct ROMChapterData` (stride 0x94); `gChapterDataAssetTable` is a flat
+# array of asset pointers that the chapter's ChapterMap ids index into.
+DEFAULT_CHAPTERS = (0x088B0890, 0x94, 44)
+CHAPTER_ASSET_TABLE = 0x088B363C
+
+# struct ROMChapterData offsets.
+CH_INTERNAL_NAME = 0x00   # const char*
+CH_TILE_CONFIG_ID = 0x07  # -> asset table (compressed tileset config)
+CH_MAIN_LAYER_ID = 0x08   # -> asset table (compressed map tile layer)
+CH_EVENT_DATA_ID = 0x74   # -> asset table (ChapterEventGroup*)
+CH_TITLE_TEXT_ID = 0x70   # u16 text id
+
+# struct ChapterEventGroup: script pointers; beginningSceneEvents loads the
+# chapter's initial units (player/enemy/ally) via LOU commands.
+CEG_PLAYER_UNITS = 0x28
+CEG_BEGINNING_SCENE = 0x48
+CEG_FIELD_COUNT = 20      # number of pointer fields (used to bound scripts)
+
+# Event-script LOU (load-units) command: u16 code (0x2C40/0x2C41), u16 arg,
+# then a u32 UnitDefinition* pointer. Command length in bytes = 2 * (LSB >> 4).
+LOU_CODES = (0x2C40, 0x2C41)
+UNITDEF_STRIDE = 0x14     # struct UnitDefinition size
+
+FACTION_NAMES = {0: "blue", 1: "green", 2: "red", 3: "purple"}
+
 ITYPE_NAMES = {
     0: "SWORD", 1: "LANCE", 2: "AXE", 3: "BOW", 4: "STAFF", 5: "ANIMA",
     6: "LIGHT", 7: "DARK", 8: "BALLISTA", 9: "ITEM", 10: "DRAGON",
     11: "MONSTER", 12: "DANCE",
 }
 
-# ItemData.attributes bits (include/bmitem.h)
+# ItemData.attributes bits (include/bmitem.h). The LOCK_n bits mark a weapon as
+# restricted: only a unit whose class/character carries the matching CA_LOCK_n
+# attribute may wield it (e.g. the Wo Dao is IA_LOCK_2, usable by myrmidon-line
+# classes; monster weapons are IA_LOCK_3).
 IA_FLAGS = [
     (1 << 0, "WEAPON"), (1 << 1, "MAGIC"), (1 << 2, "STAFF"),
     (1 << 3, "UNBREAKABLE"), (1 << 4, "UNSELLABLE"), (1 << 5, "BRAVE"),
     (1 << 6, "MAGICDAMAGE"), (1 << 7, "UNCOUNTERABLE"), (1 << 8, "REVERTTRIANGLE"),
-    (1 << 14, "NEGATE_FLYING"), (1 << 15, "NEGATE_CRIT"), (1 << 16, "UNUSABLE"),
-    (1 << 17, "NEGATE_DEFENSE"),
+    (1 << 9, "HAMMERNE"), (1 << 10, "LOCK_3"), (1 << 11, "LOCK_1"), (1 << 12, "LOCK_2"),
+    (1 << 13, "LOCK_0"), (1 << 14, "NEGATE_FLYING"), (1 << 15, "NEGATE_CRIT"),
+    (1 << 16, "UNUSABLE"), (1 << 17, "NEGATE_DEFENSE"), (1 << 18, "LOCK_4"),
+    (1 << 19, "LOCK_5"), (1 << 20, "LOCK_6"), (1 << 21, "LOCK_7"),
 ]
 
 # Character/Class attributes (CA_* bits, include/bmunit.h). Shared flag set:
@@ -78,6 +114,28 @@ WEXP_THRESHOLDS = [(251, "S"), (181, "A"), (121, "B"), (71, "C"), (31, "D"), (1,
 AFFINITY_NAMES = {
     1: "FIRE", 2: "THUNDER", 3: "WIND", 4: "ICE", 5: "DARK", 6: "LIGHT", 7: "ANIMA",
 }
+
+# Class combat skills. Most FE8 class abilities are data-driven via CA_* bits
+# (mapped here to readable skill names); the rest (Great Shield, Pierce) are
+# hardcoded by class id in the battle code with no ROM-table representation, so
+# they are supplied from this curated map keyed by class name.
+CA_SKILL_NAMES = [
+    (1 << 6, "Critical +15"),   # CA_CRITBONUS (swordmaster, berserker)
+    (1 << 25, "Silencer"),      # CA_ASSASSIN
+    (1 << 27, "Summon"),        # CA_SUMMON
+]
+CLASS_SKILLS = {
+    "GENERAL": ["Great Shield"], "GENERAL_F": ["Great Shield"],
+    "WYVERN_KNIGHT": ["Pierce"], "WYVERN_KNIGHT_F": ["Pierce"],
+}
+
+
+def _class_skills(class_name: str, attributes: int) -> List[str]:
+    skills = list(CLASS_SKILLS.get(class_name, []))
+    for bit, name in CA_SKILL_NAMES:
+        if attributes & bit and name not in skills:
+            skills.append(name)
+    return skills
 
 
 # ---------------------------------------------------------------------------
@@ -118,6 +176,45 @@ class Rom:
             return None
         return [self.s8(ptr + i) for i in range(n)]
 
+    def lz77(self, addr: int) -> Optional[bytes]:
+        """Decompress GBA BIOS LZ77 (LZ10) data at a ROM address.
+
+        Header: byte 0 = 0x10, bytes 1-3 = decompressed size (LE). Then flag
+        bytes (MSB first): a 1-bit means a (length, disp) back-reference pair.
+        """
+        if not self.in_rom(addr):
+            return None
+        o = self._off(addr)
+        if self.data[o] != 0x10:
+            return None
+        size = self.u32(addr) >> 8
+        out = bytearray()
+        i = o + 4
+        n = len(self.data)
+        while len(out) < size and i < n:
+            flags = self.data[i]
+            i += 1
+            for bit in range(8):
+                if len(out) >= size:
+                    break
+                if flags & (0x80 >> bit):
+                    if i + 1 >= n:
+                        return bytes(out)
+                    b0, b1 = self.data[i], self.data[i + 1]
+                    i += 2
+                    count = (b0 >> 4) + 3
+                    disp = (((b0 & 0xF) << 8) | b1) + 1
+                    if disp > len(out):
+                        return bytes(out)
+                    for _ in range(count):
+                        out.append(out[-disp])
+                else:
+                    if i >= n:
+                        break
+                    out.append(self.data[i])
+                    i += 1
+        return bytes(out)
+
 
 def _decode_flags(value: int) -> List[str]:
     return [name for bit, name in IA_FLAGS if value & bit]
@@ -157,21 +254,17 @@ def parse_classes(rom: Rom, addr: int, stride: int, count: int) -> List[Dict[str
     for i in range(count):
         b = addr + i * stride
         cid = rom.u8(b + 0x04)  # authoritative id (table uses the id-1 convention)
-        promo = rom.u8(b + 0x05)
         attrs = rom.u32(b + 0x28)
-        is_promoted = bool(attrs & (1 << 8))  # CA_PROMOTED
-        # `promotion` is the FE7-legacy single promotion target. It is only
-        # meaningful for unpromoted classes (and even then only lists ONE of the
-        # possible branches -- FE8's real promotion branching lives in a
-        # separate data table). Promoted classes store a stale back-reference,
-        # so we surface a target only for unpromoted classes.
-        promo_valid = promo if (promo and not is_promoted) else 0
+        cname = names.class_name(cid)
+        # NOTE: ClassData offset 0x05 is an FE7-legacy single-promotion pointer.
+        # It is unreliable in FE8 (lists only one branch, and holds garbage for
+        # promoted/non-promoting classes), so it is intentionally NOT emitted.
+        # FE8's real branching promotions live in the separate `gPromoJidLut`
+        # table (u8[class][2]); extract that if promotion actions are needed.
         out.append({
             "id": cid,
-            "name": names.class_name(cid),
+            "name": cname,
             "name_text_id": rom.u16(b + 0x00),
-            "promotion": promo,
-            "promotion_name": names.class_name(promo_valid) if promo_valid else None,
             "base_mov": rom.s8(b + 0x12),
             "base_con": rom.s8(b + 0x11),
             "bases": {
@@ -190,6 +283,7 @@ def parse_classes(rom: Rom, addr: int, stride: int, count: int) -> List[Dict[str
             },
             "attributes": attrs,
             "attribute_flags": _decode_ca(attrs),
+            "skills": _class_skills(cname, attrs),
             # Usable weapon ranks for this class (baseRanks[8] at 0x2C).
             "weapon_ranks": _base_ranks(rom, b + 0x2C),
             # Resolved per-terrain-type tables (65 entries; -1 = impassable/none)
@@ -355,6 +449,236 @@ def cmd_chapter(args: argparse.Namespace) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Subcommand: all-chapters (static ROM parse of terrain + unit placement)
+# ---------------------------------------------------------------------------
+def _asset_ptr(rom: Rom, table: int, index: int) -> int:
+    return rom.u32(table + index * 4)
+
+
+def decode_terrain(rom: Rom, ch_base: int, asset_table: int) -> Optional[Dict[str, Any]]:
+    """Rebuild a chapter's terrain grid the way the game does at load time.
+
+    The main layer decompresses to [w, h] followed by w*h u16 base-tile values;
+    terrain[y][x] = tilesetTerrainLookup[baseTile >> 2], where the lookup is the
+    u8[0x400] block at byte offset 0x2000 of the decompressed tileset config.
+    """
+    layer = rom.lz77(_asset_ptr(rom, asset_table, rom.u8(ch_base + CH_MAIN_LAYER_ID)))
+    cfg = rom.lz77(_asset_ptr(rom, asset_table, rom.u8(ch_base + CH_TILE_CONFIG_ID)))
+    if not layer or not cfg or len(layer) < 2:
+        return None
+    w, h = layer[0], layer[1]
+    need = 2 + 2 * w * h
+    if w == 0 or h == 0 or len(layer) < need or len(cfg) < 0x2400:
+        return None
+    lookup = cfg[0x2000:0x2400]
+    grid = []
+    for y in range(h):
+        row = []
+        for x in range(w):
+            off = 2 + (y * w + x) * 2
+            tile = layer[off] | (layer[off + 1] << 8)
+            row.append(lookup[(tile >> 2) & 0x3FF])
+        grid.append(row)
+    return {"w": w, "h": h, "terrain": grid}
+
+
+def _parse_unit_def(rom: Rom, addr: int) -> Dict[str, Any]:
+    b = rom._off(addr)
+    d = rom.data
+    char_id, class_id = d[b], d[b + 1]
+    packed = d[b + 3]
+    pos = d[b + 4] | (d[b + 5] << 8)
+    faction = (packed >> 1) & 0x3
+    items = [it for it in (d[b + 0x0C + i] for i in range(4)) if it]
+    return {
+        "faction": FACTION_NAMES[faction],
+        "char_id": char_id,
+        "char": names.character_name(char_id),
+        "class_id": class_id,
+        "class": names.class_name(class_id),
+        "x": pos & 0x3F,
+        "y": (pos >> 6) & 0x3F,
+        "level": (packed >> 3) & 0x1F,
+        "autolevel": bool(packed & 0x1),
+        "gen_monster": bool((pos >> 12) & 0x1),
+        "item_drop": bool((pos >> 13) & 0x1),
+        "items": [{"id": it, "name": names.item_name(it)} for it in items],
+        # UnitDefinition.ai[4] (offset 0x10): the unit's starting AI setup.
+        #   a       -> gAi1ScriptTable index: primary doctrine (stationary,
+        #              attack-in-range, charge, guard throne/boss, ...).
+        #   b       -> gAi2ScriptTable index: secondary behavior (heal, steal,
+        #              flee, item use, ...).
+        #   config  -> [low, high] bytes of the ai_config bitmask (movement
+        #              restriction zones, aggression triggers, etc.).
+        "ai": {
+            "a": d[b + 0x10],
+            "b": d[b + 0x11],
+            "config": [d[b + 0x12], d[b + 0x13]],
+        },
+    }
+
+
+def _valid_unit_array(rom: Rom, addr: int, valid_classes: set,
+                      map_w: int, map_h: int, max_units: int = 64) -> int:
+    """Return the unit count if addr is a well-formed UnitDefinition array.
+
+    An array is a run of 0x14-byte entries ending in a charIndex-0 terminator;
+    every entry's classIndex must be a real class id AND its (x, y) must fall
+    inside the chapter's map bounds. Returns 0 (falsy) when the data does not
+    look like a unit array. The map-bounds test is essential: several non-load
+    event commands (e.g. 0x0A40) carry a u32 that happens to satisfy the class
+    check, but their "positions" land far outside the map (e.g. (36, 61)), so
+    bounding by (map_w, map_h) rejects that garbage.
+    """
+    count = 0
+    while count < max_units:
+        entry = addr + count * UNITDEF_STRIDE
+        if not rom.in_rom(entry) or rom.in_rom(entry + UNITDEF_STRIDE) is False:
+            return 0
+        char_id = rom.u8(entry)
+        if char_id == 0:
+            break
+        class_id = rom.u8(entry + 1)
+        if class_id == 0 or class_id not in valid_classes:
+            return 0
+        pos = rom.u8(entry + 4) | (rom.u8(entry + 5) << 8)
+        if (pos & 0x3F) >= map_w or ((pos >> 6) & 0x3F) >= map_h:
+            return 0
+        count += 1
+    return count
+
+
+def collect_chapter_units(rom: Rom, event_group: int, script_ptrs: List[int],
+                          valid_classes: set, map_w: int, map_h: int) -> List[Dict[str, Any]]:
+    """Parse the chapter's opening-event unit loads.
+
+    Walks beginningSceneEvents command-by-command (each command spans
+    2 * (LSB >> 4) bytes) up to the next event-script pointer in ROM, and treats
+    any 8-byte command whose u32 argument points at an in-bounds, well-formed
+    UnitDefinition array as a unit load. This captures every LOU variant
+    (0x2C40/0x2C41/0x0540/...) without following CALLs (which would pull in
+    unrelated scene units), while the map-bounds check in `_valid_unit_array`
+    rejects the false positives from non-load commands.
+    """
+    if not rom.in_rom(event_group):
+        return []
+    begin = rom.u32(event_group + CEG_BEGINNING_SCENE)
+    if not rom.in_rom(begin):
+        return []
+    import bisect
+    j = bisect.bisect_right(script_ptrs, begin)
+    bound = script_ptrs[j] if j < len(script_ptrs) else begin + 0x2000
+
+    units: List[Dict[str, Any]] = []
+    seen = set()
+    addr = begin
+    while addr < bound:
+        code = rom.u16(addr)
+        length = 2 * ((code & 0xFF) >> 4)
+        if length < 4:
+            break
+        if length == 8:
+            ptr = rom.u32(addr + 4)
+            if rom.in_rom(ptr) and ptr not in seen:
+                n = _valid_unit_array(rom, ptr, valid_classes, map_w, map_h)
+                if n:
+                    seen.add(ptr)
+                    for k in range(n):
+                        units.append(_parse_unit_def(rom, ptr + k * UNITDEF_STRIDE))
+        addr += length
+    return units
+
+
+def _stacked_tile_count(units: List[Dict[str, Any]]) -> int:
+    """Number of unit entries that share a tile with another entry.
+
+    A real turn-1 deployment places one unit per tile, so any stacking means
+    those entries are staging positions (cutscene tableau) or reinforcement
+    spawns rather than distinct turn-1 tiles. Reported per chapter as a data
+    caveat; it is a signal, not a clean classifier (a scripted opening can still
+    place its tableau on distinct tiles, e.g. the prologue).
+    """
+    from collections import Counter
+    counts = Counter((u["x"], u["y"]) for u in units)
+    return sum(c for c in counts.values() if c > 1)
+
+
+def _build_script_bounds(rom: Rom, addr: int, stride: int, count: int,
+                         asset_table: int) -> List[int]:
+    """Sorted set of every event-script pointer across all chapters.
+
+    Scripts are laid out contiguously, so the next pointer above a script's
+    start is a tight, reliable upper bound for walking it.
+    """
+    ptrs = set()
+    for i in range(count):
+        eg = _asset_ptr(rom, asset_table, rom.u8(addr + i * stride + CH_EVENT_DATA_ID))
+        if not rom.in_rom(eg):
+            continue
+        for k in range(CEG_FIELD_COUNT):
+            p = rom.u32(eg + k * 4)
+            if rom.in_rom(p):
+                ptrs.add(p)
+    return sorted(ptrs)
+
+
+def cmd_all_chapters(args: argparse.Namespace) -> None:
+    with open(args.rom, "rb") as f:
+        rom = Rom(f.read())
+    addr, stride, count = args.chapters_addr
+    asset_table = args.asset_table
+
+    # Precompute the set of real class ids (for validating unit arrays) and the
+    # sorted list of every event-script pointer (for bounding script walks).
+    ca_addr, ca_stride, ca_count = DEFAULT_CLASSES
+    valid_classes = {rom.u8(ca_addr + j * ca_stride + 0x04) for j in range(ca_count)}
+    valid_classes.discard(0)
+    script_ptrs = _build_script_bounds(rom, addr, stride, count, asset_table)
+
+    written = 0
+    for i in range(count):
+        b = addr + i * stride
+        name_ptr = rom.u32(b + CH_INTERNAL_NAME)
+        internal = ""
+        if rom.in_rom(name_ptr):
+            o = rom._off(name_ptr)
+            end = rom.data.find(b"\x00", o)
+            internal = rom.data[o:end].decode("latin1", "replace")
+
+        terrain = decode_terrain(rom, b, asset_table)
+        if terrain is None:
+            continue  # non-map chapter slot (e.g. cutscene-only entries)
+
+        event_group = _asset_ptr(rom, asset_table, rom.u8(b + CH_EVENT_DATA_ID))
+        units = collect_chapter_units(rom, event_group, script_ptrs, valid_classes,
+                                      terrain["w"], terrain["h"])
+        stacked = _stacked_tile_count(units)
+
+        chapter = {
+            "index": i,
+            "internal_name": internal,
+            "title_text_id": rom.u16(b + CH_TITLE_TEXT_ID),
+            "map": terrain,
+            # `units` is the roster loaded by the opening event: each entry's
+            # char/class/level/items/ai are reliable, but POSITION is not always
+            # the turn-1 tile. Openings mix real battle placements with cutscene
+            # tableaus (units stacked on a staging tile, then moved by in-event
+            # MOVE commands) and reinforcement groups (shared spawn tiles). When
+            # `stacked_units` > 0, at least that many entries share a tile with
+            # another and cannot all be turn-1 occupants; for exact turn-1 state
+            # use the live `chapter` bridge snapshot. Terrain is exact.
+            "stacked_units": stacked,
+            "units": units,
+        }
+        label = internal or f"chapter_{i:02d}"
+        _write_json(os.path.join(args.out, f"{i:02d}_{label}.json"), chapter)
+        flag = f"  [{stacked} stacked]" if stacked else ""
+        print(f"  ch{i:02d} {label}: {terrain['w']}x{terrain['h']}, {len(units)} unit(s){flag}")
+        written += 1
+    print(f"wrote {written} chapter file(s) to {args.out}")
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 def _addr_triple(s: str) -> tuple:
@@ -386,6 +710,16 @@ def main() -> None:
     c.add_argument("--host", default="127.0.0.1")
     c.add_argument("--port", type=int, default=8888)
     c.set_defaults(func=cmd_chapter)
+
+    a = sub.add_parser("all-chapters",
+                       help="statically dump terrain + unit placement for every chapter from a ROM file")
+    a.add_argument("--rom", required=True, help="path to the FE8 (U) .gba ROM")
+    a.add_argument("--out", default="outputs/chapters", help="output directory")
+    a.add_argument("--chapters-addr", type=_addr_triple, default=DEFAULT_CHAPTERS,
+                   metavar="ADDR:STRIDE:COUNT")
+    a.add_argument("--asset-table", type=lambda s: int(s, 0), default=CHAPTER_ASSET_TABLE,
+                   metavar="ADDR", help="gChapterDataAssetTable address")
+    a.set_defaults(func=cmd_all_chapters)
 
     args = p.parse_args()
     args.func(args)
