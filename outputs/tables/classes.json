@@ -8,8 +8,6 @@
       "id": 1,
       "name": "EPHRAIM_LORD",
       "name_text_id": 703,
-      "promotion": 3,
-      "promotion_name": "EPHRAIM_MASTER_LORD",
       "base_mov": 5,
       "base_con": 8,
       "bases": {
@@ -43,6 +41,7 @@
         "LORD",
         "LOCK_5"
       ],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 31,
@@ -322,8 +321,6 @@
       "id": 2,
       "name": "EIRIKA_LORD",
       "name_text_id": 703,
-      "promotion": 4,
-      "promotion_name": "EIRIKA_MASTER_LORD",
       "base_mov": 5,
       "base_con": 5,
       "bases": {
@@ -358,6 +355,7 @@
         "LOCK_2",
         "LOCK_4"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 1,
@@ -637,8 +635,6 @@
       "id": 3,
       "name": "EPHRAIM_MASTER_LORD",
       "name_text_id": 704,
-      "promotion": 1,
-      "promotion_name": null,
       "base_mov": 7,
       "base_con": 10,
       "bases": {
@@ -676,6 +672,7 @@
         "LORD",
         "LOCK_5"
       ],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 71,
@@ -955,8 +952,6 @@
       "id": 4,
       "name": "EIRIKA_MASTER_LORD",
       "name_text_id": 704,
-      "promotion": 2,
-      "promotion_name": null,
       "base_mov": 7,
       "base_con": 7,
       "bases": {
@@ -995,6 +990,7 @@
         "LOCK_2",
         "LOCK_4"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 71,
@@ -1274,8 +1270,6 @@
       "id": 5,
       "name": "CAVALIER",
       "name_text_id": 705,
-      "promotion": 7,
-      "promotion_name": "PALADIN",
       "base_mov": 7,
       "base_con": 9,
       "bases": {
@@ -1310,6 +1304,7 @@
         "CANTO",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 1,
@@ -1593,8 +1588,6 @@
       "id": 6,
       "name": "CAVALIER_F",
       "name_text_id": 705,
-      "promotion": 8,
-      "promotion_name": "PALADIN_F",
       "base_mov": 7,
       "base_con": 9,
       "bases": {
@@ -1629,6 +1622,7 @@
         "CANTO",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 1,
@@ -1912,8 +1906,6 @@
       "id": 7,
       "name": "PALADIN",
       "name_text_id": 706,
-      "promotion": 5,
-      "promotion_name": null,
       "base_mov": 8,
       "base_con": 11,
       "bases": {
@@ -1949,6 +1941,7 @@
         "PROMOTED",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 31,
@@ -2232,8 +2225,6 @@
       "id": 8,
       "name": "PALADIN_F",
       "name_text_id": 706,
-      "promotion": 6,
-      "promotion_name": null,
       "base_mov": 8,
       "base_con": 9,
       "bases": {
@@ -2269,6 +2260,7 @@
         "PROMOTED",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 31,
@@ -2552,8 +2544,6 @@
       "id": 9,
       "name": "ARMOR_KNIGHT",
       "name_text_id": 707,
-      "promotion": 11,
-      "promotion_name": "GENERAL",
       "base_mov": 4,
       "base_con": 13,
       "bases": {
@@ -2584,6 +2574,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 31,
@@ -2863,8 +2854,6 @@
       "id": 10,
       "name": "ARMOR_KNIGHT_F",
       "name_text_id": 707,
-      "promotion": 12,
-      "promotion_name": "GENERAL_F",
       "base_mov": 4,
       "base_con": 10,
       "bases": {
@@ -2895,6 +2884,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 31,
@@ -3174,8 +3164,6 @@
       "id": 11,
       "name": "GENERAL",
       "name_text_id": 708,
-      "promotion": 9,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 15,
       "bases": {
@@ -3207,6 +3195,9 @@
       "attributes": 256,
       "attribute_flags": [
         "PROMOTED"
+      ],
+      "skills": [
+        "Great Shield"
       ],
       "weapon_ranks": {
         "sword": {
@@ -3495,8 +3486,6 @@
       "id": 12,
       "name": "GENERAL_F",
       "name_text_id": 708,
-      "promotion": 10,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 11,
       "bases": {
@@ -3528,6 +3517,9 @@
       "attributes": 256,
       "attribute_flags": [
         "PROMOTED"
+      ],
+      "skills": [
+        "Great Shield"
       ],
       "weapon_ranks": {
         "sword": {
@@ -3816,8 +3808,6 @@
       "id": 13,
       "name": "THIEF",
       "name_text_id": 709,
-      "promotion": 23,
-      "promotion_name": "ASSASSIN",
       "base_mov": 6,
       "base_con": 6,
       "bases": {
@@ -3851,6 +3841,7 @@
         "STEAL",
         "THIEF"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 1,
@@ -4130,8 +4121,6 @@
       "id": 14,
       "name": "MANAKETE",
       "name_text_id": 727,
-      "promotion": 31,
-      "promotion_name": "WYVERN_RIDER",
       "base_mov": 8,
       "base_con": 5,
       "bases": {
@@ -4164,6 +4153,7 @@
       "attribute_flags": [
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -4438,8 +4428,6 @@
       "id": 15,
       "name": "MERCENARY",
       "name_text_id": 710,
-      "promotion": 17,
-      "promotion_name": "HERO",
       "base_mov": 5,
       "base_con": 9,
       "bases": {
@@ -4470,6 +4458,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 31,
@@ -4749,8 +4738,6 @@
       "id": 16,
       "name": "MERCENARY_F",
       "name_text_id": 710,
-      "promotion": 18,
-      "promotion_name": "HERO_F",
       "base_mov": 5,
       "base_con": 8,
       "bases": {
@@ -4781,6 +4768,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 31,
@@ -5060,8 +5048,6 @@
       "id": 17,
       "name": "HERO",
       "name_text_id": 711,
-      "promotion": 15,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 11,
       "bases": {
@@ -5094,6 +5080,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 71,
@@ -5377,8 +5364,6 @@
       "id": 18,
       "name": "HERO_F",
       "name_text_id": 711,
-      "promotion": 16,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 9,
       "bases": {
@@ -5411,6 +5396,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 71,
@@ -5694,8 +5680,6 @@
       "id": 19,
       "name": "MYRMIDON",
       "name_text_id": 712,
-      "promotion": 21,
-      "promotion_name": "SWORDMASTER",
       "base_mov": 5,
       "base_con": 8,
       "bases": {
@@ -5728,6 +5712,7 @@
       "attribute_flags": [
         "LOCK_2"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 31,
@@ -6007,8 +5992,6 @@
       "id": 20,
       "name": "MYRMIDON_F",
       "name_text_id": 712,
-      "promotion": 22,
-      "promotion_name": "SWORDMASTER_F",
       "base_mov": 5,
       "base_con": 5,
       "bases": {
@@ -6041,6 +6024,7 @@
       "attribute_flags": [
         "LOCK_2"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 31,
@@ -6320,8 +6304,6 @@
       "id": 21,
       "name": "SWORDMASTER",
       "name_text_id": 713,
-      "promotion": 19,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 9,
       "bases": {
@@ -6355,6 +6337,9 @@
         "CRITBONUS",
         "PROMOTED",
         "LOCK_2"
+      ],
+      "skills": [
+        "Critical +15"
       ],
       "weapon_ranks": {
         "sword": {
@@ -6635,8 +6620,6 @@
       "id": 22,
       "name": "SWORDMASTER_F",
       "name_text_id": 713,
-      "promotion": 20,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 7,
       "bases": {
@@ -6670,6 +6653,9 @@
         "CRITBONUS",
         "PROMOTED",
         "LOCK_2"
+      ],
+      "skills": [
+        "Critical +15"
       ],
       "weapon_ranks": {
         "sword": {
@@ -6950,8 +6936,6 @@
       "id": 23,
       "name": "ASSASSIN",
       "name_text_id": 714,
-      "promotion": 13,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 8,
       "bases": {
@@ -6986,6 +6970,9 @@
         "PROMOTED",
         "LOCK_2",
         "ASSASSIN"
+      ],
+      "skills": [
+        "Silencer"
       ],
       "weapon_ranks": {
         "sword": {
@@ -7266,8 +7253,6 @@
       "id": 24,
       "name": "ASSASSIN_F",
       "name_text_id": 714,
-      "promotion": 13,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 6,
       "bases": {
@@ -7302,6 +7287,9 @@
         "PROMOTED",
         "LOCK_2",
         "ASSASSIN"
+      ],
+      "skills": [
+        "Silencer"
       ],
       "weapon_ranks": {
         "sword": {
@@ -7582,8 +7570,6 @@
       "id": 25,
       "name": "ARCHER",
       "name_text_id": 715,
-      "promotion": 27,
-      "promotion_name": "SNIPER",
       "base_mov": 5,
       "base_con": 7,
       "bases": {
@@ -7616,6 +7602,7 @@
       "attribute_flags": [
         "BALLISTAE"
       ],
+      "skills": [],
       "weapon_ranks": {
         "bow": {
           "wexp": 31,
@@ -7895,8 +7882,6 @@
       "id": 26,
       "name": "ARCHER_F",
       "name_text_id": 715,
-      "promotion": 28,
-      "promotion_name": "SNIPER_F",
       "base_mov": 5,
       "base_con": 5,
       "bases": {
@@ -7929,6 +7914,7 @@
       "attribute_flags": [
         "BALLISTAE"
       ],
+      "skills": [],
       "weapon_ranks": {
         "bow": {
           "wexp": 31,
@@ -8208,8 +8194,6 @@
       "id": 27,
       "name": "SNIPER",
       "name_text_id": 716,
-      "promotion": 25,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 8,
       "bases": {
@@ -8243,6 +8227,7 @@
         "BALLISTAE",
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "bow": {
           "wexp": 71,
@@ -8522,8 +8507,6 @@
       "id": 28,
       "name": "SNIPER_F",
       "name_text_id": 716,
-      "promotion": 26,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 6,
       "bases": {
@@ -8557,6 +8540,7 @@
         "BALLISTAE",
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "bow": {
           "wexp": 71,
@@ -8836,8 +8820,6 @@
       "id": 29,
       "name": "RANGER",
       "name_text_id": 717,
-      "promotion": 25,
-      "promotion_name": null,
       "base_mov": 7,
       "base_con": 9,
       "bases": {
@@ -8873,6 +8855,7 @@
         "PROMOTED",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 31,
@@ -9156,8 +9139,6 @@
       "id": 30,
       "name": "RANGER_F",
       "name_text_id": 717,
-      "promotion": 26,
-      "promotion_name": null,
       "base_mov": 7,
       "base_con": 8,
       "bases": {
@@ -9193,6 +9174,7 @@
         "PROMOTED",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 31,
@@ -9476,8 +9458,6 @@
       "id": 31,
       "name": "WYVERN_RIDER",
       "name_text_id": 718,
-      "promotion": 33,
-      "promotion_name": "WYVERN_LORD",
       "base_mov": 7,
       "base_con": 10,
       "bases": {
@@ -9512,6 +9492,7 @@
         "CANTO",
         "WYVERN"
       ],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 31,
@@ -9791,8 +9772,6 @@
       "id": 32,
       "name": "WYVERN_RIDER_F",
       "name_text_id": 718,
-      "promotion": 34,
-      "promotion_name": "WYVERN_LORD_F",
       "base_mov": 7,
       "base_con": 9,
       "bases": {
@@ -9827,6 +9806,7 @@
         "CANTO",
         "WYVERN"
       ],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 31,
@@ -10106,8 +10086,6 @@
       "id": 33,
       "name": "WYVERN_LORD",
       "name_text_id": 719,
-      "promotion": 31,
-      "promotion_name": null,
       "base_mov": 8,
       "base_con": 11,
       "bases": {
@@ -10143,6 +10121,7 @@
         "PROMOTED",
         "WYVERN"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 31,
@@ -10426,8 +10405,6 @@
       "id": 34,
       "name": "WYVERN_LORD_F",
       "name_text_id": 719,
-      "promotion": 32,
-      "promotion_name": null,
       "base_mov": 8,
       "base_con": 10,
       "bases": {
@@ -10463,6 +10440,7 @@
         "PROMOTED",
         "WYVERN"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 31,
@@ -10746,8 +10724,6 @@
       "id": 35,
       "name": "WYVERN_KNIGHT",
       "name_text_id": 720,
-      "promotion": 31,
-      "promotion_name": null,
       "base_mov": 8,
       "base_con": 10,
       "bases": {
@@ -10782,6 +10758,9 @@
         "CANTO",
         "PROMOTED",
         "WYVERN"
+      ],
+      "skills": [
+        "Pierce"
       ],
       "weapon_ranks": {
         "lance": {
@@ -11062,8 +11041,6 @@
       "id": 36,
       "name": "WYVERN_KNIGHT_F",
       "name_text_id": 720,
-      "promotion": 32,
-      "promotion_name": null,
       "base_mov": 8,
       "base_con": 9,
       "bases": {
@@ -11098,6 +11075,9 @@
         "CANTO",
         "PROMOTED",
         "WYVERN"
+      ],
+      "skills": [
+        "Pierce"
       ],
       "weapon_ranks": {
         "lance": {
@@ -11378,8 +11358,6 @@
       "id": 37,
       "name": "MAGE",
       "name_text_id": 721,
-      "promotion": 39,
-      "promotion_name": "SAGE",
       "base_mov": 5,
       "base_con": 6,
       "bases": {
@@ -11410,6 +11388,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "anima": {
           "wexp": 31,
@@ -11689,8 +11668,6 @@
       "id": 38,
       "name": "MAGE_F",
       "name_text_id": 721,
-      "promotion": 40,
-      "promotion_name": "SAGE_F",
       "base_mov": 5,
       "base_con": 3,
       "bases": {
@@ -11721,6 +11698,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "anima": {
           "wexp": 31,
@@ -12000,8 +11978,6 @@
       "id": 39,
       "name": "SAGE",
       "name_text_id": 722,
-      "promotion": 37,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 7,
       "bases": {
@@ -12034,6 +12010,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 31,
@@ -12321,8 +12298,6 @@
       "id": 40,
       "name": "SAGE_F",
       "name_text_id": 722,
-      "promotion": 38,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 4,
       "bases": {
@@ -12355,6 +12330,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 31,
@@ -12642,8 +12618,6 @@
       "id": 41,
       "name": "MAGE_KNIGHT",
       "name_text_id": 723,
-      "promotion": 37,
-      "promotion_name": null,
       "base_mov": 7,
       "base_con": 8,
       "bases": {
@@ -12679,6 +12653,7 @@
         "PROMOTED",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 31,
@@ -12962,8 +12937,6 @@
       "id": 42,
       "name": "MAGE_KNIGHT_F",
       "name_text_id": 723,
-      "promotion": 38,
-      "promotion_name": null,
       "base_mov": 7,
       "base_con": 6,
       "bases": {
@@ -12999,6 +12972,7 @@
         "PROMOTED",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 31,
@@ -13282,8 +13256,6 @@
       "id": 43,
       "name": "BISHOP",
       "name_text_id": 724,
-      "promotion": 69,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 7,
       "bases": {
@@ -13316,6 +13288,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 71,
@@ -13599,8 +13572,6 @@
       "id": 44,
       "name": "BISHOP_F",
       "name_text_id": 724,
-      "promotion": 74,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 5,
       "bases": {
@@ -13633,6 +13604,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 71,
@@ -13916,8 +13888,6 @@
       "id": 45,
       "name": "SHAMAN",
       "name_text_id": 737,
-      "promotion": 47,
-      "promotion_name": "DRUID",
       "base_mov": 5,
       "base_con": 7,
       "bases": {
@@ -13948,6 +13918,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "dark": {
           "wexp": 31,
@@ -14227,8 +14198,6 @@
       "id": 46,
       "name": "SHAMAN_F",
       "name_text_id": 737,
-      "promotion": 48,
-      "promotion_name": "DRUID_F",
       "base_mov": 5,
       "base_con": 3,
       "bases": {
@@ -14259,6 +14228,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "dark": {
           "wexp": 31,
@@ -14538,8 +14508,6 @@
       "id": 47,
       "name": "DRUID",
       "name_text_id": 738,
-      "promotion": 45,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 8,
       "bases": {
@@ -14572,6 +14540,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 1,
@@ -14859,8 +14828,6 @@
       "id": 48,
       "name": "DRUID_F",
       "name_text_id": 738,
-      "promotion": 46,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 4,
       "bases": {
@@ -14893,6 +14860,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 1,
@@ -15180,8 +15148,6 @@
       "id": 49,
       "name": "SUMMONER",
       "name_text_id": 739,
-      "promotion": 45,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 8,
       "bases": {
@@ -15214,6 +15180,9 @@
       "attribute_flags": [
         "PROMOTED",
         "SUMMON"
+      ],
+      "skills": [
+        "Summon"
       ],
       "weapon_ranks": {
         "staff": {
@@ -15498,8 +15467,6 @@
       "id": 50,
       "name": "SUMMONER_F",
       "name_text_id": 739,
-      "promotion": 46,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 4,
       "bases": {
@@ -15532,6 +15499,9 @@
       "attribute_flags": [
         "PROMOTED",
         "SUMMON"
+      ],
+      "skills": [
+        "Summon"
       ],
       "weapon_ranks": {
         "staff": {
@@ -15816,8 +15786,6 @@
       "id": 51,
       "name": "ROGUE",
       "name_text_id": 731,
-      "promotion": 13,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 7,
       "bases": {
@@ -15852,6 +15820,7 @@
         "THIEF",
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 1,
@@ -16131,8 +16100,6 @@
       "id": 52,
       "name": "GORGONEGG2",
       "name_text_id": 768,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 0,
       "base_con": 6,
       "bases": {
@@ -16163,6 +16130,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": null,
       "terrain_avoid": [
@@ -16371,8 +16339,6 @@
       "id": 53,
       "name": "GREAT_KNIGHT",
       "name_text_id": 736,
-      "promotion": 9,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 13,
       "bases": {
@@ -16408,6 +16374,7 @@
         "PROMOTED",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 1,
@@ -16695,8 +16662,6 @@
       "id": 54,
       "name": "GREAT_KNIGHT_F",
       "name_text_id": 736,
-      "promotion": 10,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 10,
       "bases": {
@@ -16732,6 +16697,7 @@
         "PROMOTED",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 1,
@@ -17019,8 +16985,6 @@
       "id": 55,
       "name": "RECRUIT_T1",
       "name_text_id": 730,
-      "promotion": 58,
-      "promotion_name": "RECRUIT_T2",
       "base_mov": 5,
       "base_con": 6,
       "bases": {
@@ -17051,6 +17015,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 31,
@@ -17330,8 +17295,6 @@
       "id": 56,
       "name": "JOURNEYMAN_T2",
       "name_text_id": 728,
-      "promotion": 126,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 8,
       "bases": {
@@ -17364,6 +17327,9 @@
       "attribute_flags": [
         "CRITBONUS",
         "PROMOTED"
+      ],
+      "skills": [
+        "Critical +15"
       ],
       "weapon_ranks": {
         "axe": {
@@ -17644,8 +17610,6 @@
       "id": 57,
       "name": "PUPIL_T2",
       "name_text_id": 729,
-      "promotion": 127,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 5,
       "bases": {
@@ -17678,6 +17642,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "anima": {
           "wexp": 71,
@@ -17965,8 +17930,6 @@
       "id": 58,
       "name": "RECRUIT_T2",
       "name_text_id": 730,
-      "promotion": 55,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 6,
       "bases": {
@@ -17999,6 +17962,9 @@
       "attribute_flags": [
         "CRITBONUS",
         "PROMOTED"
+      ],
+      "skills": [
+        "Critical +15"
       ],
       "weapon_ranks": {
         "lance": {
@@ -18279,8 +18245,6 @@
       "id": 59,
       "name": "MANAKETE_2",
       "name_text_id": 727,
-      "promotion": 31,
-      "promotion_name": null,
       "base_mov": 3,
       "base_con": 25,
       "bases": {
@@ -18314,6 +18278,7 @@
         "PROMOTED",
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -18588,8 +18553,6 @@
       "id": 60,
       "name": "MANAKETE_MYRRH",
       "name_text_id": 727,
-      "promotion": 32,
-      "promotion_name": "WYVERN_RIDER_F",
       "base_mov": 6,
       "base_con": 5,
       "bases": {
@@ -18622,6 +18585,7 @@
       "attribute_flags": [
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -18896,8 +18860,6 @@
       "id": 61,
       "name": "JOURNEYMAN",
       "name_text_id": 728,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 4,
       "base_con": 8,
       "bases": {
@@ -18930,6 +18892,7 @@
       "attribute_flags": [
         "MAXLEVEL10"
       ],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 1,
@@ -19209,8 +19172,6 @@
       "id": 62,
       "name": "PUPIL",
       "name_text_id": 729,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 4,
       "base_con": 5,
       "bases": {
@@ -19243,6 +19204,7 @@
       "attribute_flags": [
         "MAXLEVEL10"
       ],
+      "skills": [],
       "weapon_ranks": {
         "anima": {
           "wexp": 1,
@@ -19522,8 +19484,6 @@
       "id": 63,
       "name": "FIGHTER",
       "name_text_id": 732,
-      "promotion": 64,
-      "promotion_name": "WARRIOR",
       "base_mov": 5,
       "base_con": 11,
       "bases": {
@@ -19554,6 +19514,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 31,
@@ -19833,8 +19794,6 @@
       "id": 64,
       "name": "WARRIOR",
       "name_text_id": 733,
-      "promotion": 63,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 13,
       "bases": {
@@ -19867,6 +19826,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 71,
@@ -20150,8 +20110,6 @@
       "id": 65,
       "name": "BRIGAND",
       "name_text_id": 734,
-      "promotion": 67,
-      "promotion_name": "BERSERKER",
       "base_mov": 5,
       "base_con": 12,
       "bases": {
@@ -20182,6 +20140,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 31,
@@ -20461,8 +20420,6 @@
       "id": 66,
       "name": "PIRATE",
       "name_text_id": 750,
-      "promotion": 67,
-      "promotion_name": "BERSERKER",
       "base_mov": 5,
       "base_con": 10,
       "bases": {
@@ -20493,6 +20450,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 31,
@@ -20772,8 +20730,6 @@
       "id": 67,
       "name": "BERSERKER",
       "name_text_id": 735,
-      "promotion": 66,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 13,
       "bases": {
@@ -20806,6 +20762,9 @@
       "attribute_flags": [
         "CRITBONUS",
         "PROMOTED"
+      ],
+      "skills": [
+        "Critical +15"
       ],
       "weapon_ranks": {
         "axe": {
@@ -21086,8 +21045,6 @@
       "id": 68,
       "name": "MONK",
       "name_text_id": 740,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 6,
       "bases": {
@@ -21118,6 +21075,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "light": {
           "wexp": 1,
@@ -21397,8 +21355,6 @@
       "id": 69,
       "name": "PRIEST",
       "name_text_id": 742,
-      "promotion": 39,
-      "promotion_name": "SAGE",
       "base_mov": 5,
       "base_con": 5,
       "bases": {
@@ -21429,6 +21385,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 31,
@@ -21708,8 +21665,6 @@
       "id": 70,
       "name": "BARD",
       "name_text_id": 741,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 6,
       "bases": {
@@ -21742,6 +21697,7 @@
       "attribute_flags": [
         "PLAY"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -22016,8 +21972,6 @@
       "id": 71,
       "name": "RECRUIT",
       "name_text_id": 730,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 4,
       "base_con": 6,
       "bases": {
@@ -22050,6 +22004,7 @@
       "attribute_flags": [
         "MAXLEVEL10"
       ],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 1,
@@ -22329,8 +22284,6 @@
       "id": 72,
       "name": "PEGASUS_KNIGHT",
       "name_text_id": 743,
-      "promotion": 73,
-      "promotion_name": "FALCON_KNIGHT",
       "base_mov": 7,
       "base_con": 5,
       "bases": {
@@ -22365,6 +22318,7 @@
         "CANTO",
         "PEGASUS"
       ],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 31,
@@ -22644,8 +22598,6 @@
       "id": 73,
       "name": "FALCON_KNIGHT",
       "name_text_id": 744,
-      "promotion": 72,
-      "promotion_name": null,
       "base_mov": 8,
       "base_con": 6,
       "bases": {
@@ -22681,6 +22633,7 @@
         "PROMOTED",
         "PEGASUS"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 1,
@@ -22964,8 +22917,6 @@
       "id": 74,
       "name": "CLERIC",
       "name_text_id": 745,
-      "promotion": 44,
-      "promotion_name": "BISHOP_F",
       "base_mov": 5,
       "base_con": 4,
       "bases": {
@@ -22996,6 +22947,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 31,
@@ -23275,8 +23227,6 @@
       "id": 75,
       "name": "TROUBADOUR",
       "name_text_id": 746,
-      "promotion": 76,
-      "promotion_name": "VALKYRIE",
       "base_mov": 6,
       "base_con": 5,
       "bases": {
@@ -23311,6 +23261,7 @@
         "CANTO",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 31,
@@ -23590,8 +23541,6 @@
       "id": 76,
       "name": "VALKYRIE",
       "name_text_id": 747,
-      "promotion": 75,
-      "promotion_name": null,
       "base_mov": 7,
       "base_con": 6,
       "bases": {
@@ -23627,6 +23576,7 @@
         "PROMOTED",
         "MOUNTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "staff": {
           "wexp": 31,
@@ -23910,8 +23860,6 @@
       "id": 77,
       "name": "DANCER",
       "name_text_id": 748,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 4,
       "bases": {
@@ -23944,6 +23892,7 @@
       "attribute_flags": [
         "DANCE"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -24218,8 +24167,6 @@
       "id": 78,
       "name": "SOLDIER",
       "name_text_id": 749,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 6,
       "bases": {
@@ -24250,6 +24197,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 1,
@@ -24529,8 +24477,6 @@
       "id": 79,
       "name": "NECROMANCER",
       "name_text_id": 751,
-      "promotion": 45,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 7,
       "bases": {
@@ -24563,6 +24509,9 @@
       "attribute_flags": [
         "PROMOTED",
         "SUMMON"
+      ],
+      "skills": [
+        "Summon"
       ],
       "weapon_ranks": {
         "staff": {
@@ -24847,8 +24796,6 @@
       "id": 80,
       "name": "FLEET",
       "name_text_id": 752,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 3,
       "base_con": 25,
       "bases": {
@@ -24879,6 +24826,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "bow": {
           "wexp": 71,
@@ -25158,8 +25106,6 @@
       "id": 81,
       "name": "PHANTOM",
       "name_text_id": 753,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 11,
       "bases": {
@@ -25190,6 +25136,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 71,
@@ -25469,8 +25416,6 @@
       "id": 82,
       "name": "REVENANT",
       "name_text_id": 754,
-      "promotion": 83,
-      "promotion_name": "ENTOUMBED",
       "base_mov": 4,
       "base_con": 6,
       "bases": {
@@ -25503,6 +25448,7 @@
       "attribute_flags": [
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -25777,8 +25723,6 @@
       "id": 83,
       "name": "ENTOUMBED",
       "name_text_id": 755,
-      "promotion": 82,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 6,
       "bases": {
@@ -25812,6 +25756,7 @@
         "PROMOTED",
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -26086,8 +26031,6 @@
       "id": 84,
       "name": "BONEWALKER",
       "name_text_id": 756,
-      "promotion": 86,
-      "promotion_name": "WIGHT",
       "base_mov": 5,
       "base_con": 7,
       "bases": {
@@ -26120,6 +26063,7 @@
       "attribute_flags": [
         "LOCK_2"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 71,
@@ -26403,8 +26347,6 @@
       "id": 85,
       "name": "BONEWALKER_BOW",
       "name_text_id": 756,
-      "promotion": 87,
-      "promotion_name": "WIGHT_BOW",
       "base_mov": 5,
       "base_con": 6,
       "bases": {
@@ -26435,6 +26377,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "bow": {
           "wexp": 71,
@@ -26714,8 +26657,6 @@
       "id": 86,
       "name": "WIGHT",
       "name_text_id": 757,
-      "promotion": 84,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 9,
       "bases": {
@@ -26749,6 +26690,7 @@
         "PROMOTED",
         "LOCK_2"
       ],
+      "skills": [],
       "weapon_ranks": {
         "sword": {
           "wexp": 181,
@@ -27032,8 +26974,6 @@
       "id": 87,
       "name": "WIGHT_BOW",
       "name_text_id": 757,
-      "promotion": 85,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 8,
       "bases": {
@@ -27066,6 +27006,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "bow": {
           "wexp": 181,
@@ -27345,8 +27286,6 @@
       "id": 88,
       "name": "BAEL",
       "name_text_id": 758,
-      "promotion": 89,
-      "promotion_name": "ELDER_BAEL",
       "base_mov": 5,
       "base_con": 12,
       "bases": {
@@ -27379,6 +27318,7 @@
       "attribute_flags": [
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -27653,8 +27593,6 @@
       "id": 89,
       "name": "ELDER_BAEL",
       "name_text_id": 759,
-      "promotion": 88,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 15,
       "bases": {
@@ -27688,6 +27626,7 @@
         "PROMOTED",
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -27962,8 +27901,6 @@
       "id": 90,
       "name": "CYCLOPS",
       "name_text_id": 760,
-      "promotion": 9,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 16,
       "bases": {
@@ -27996,6 +27933,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 181,
@@ -28275,8 +28213,6 @@
       "id": 91,
       "name": "MAUTHEDOOG",
       "name_text_id": 761,
-      "promotion": 92,
-      "promotion_name": "GWYLLGI",
       "base_mov": 7,
       "base_con": 6,
       "bases": {
@@ -28309,6 +28245,7 @@
       "attribute_flags": [
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -28583,8 +28520,6 @@
       "id": 92,
       "name": "GWYLLGI",
       "name_text_id": 762,
-      "promotion": 91,
-      "promotion_name": null,
       "base_mov": 8,
       "base_con": 8,
       "bases": {
@@ -28618,6 +28553,7 @@
         "PROMOTED",
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -28892,8 +28828,6 @@
       "id": 93,
       "name": "TARVOS",
       "name_text_id": 763,
-      "promotion": 94,
-      "promotion_name": "MAELDUIN",
       "base_mov": 7,
       "base_con": 10,
       "bases": {
@@ -28924,6 +28858,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 71,
@@ -29203,8 +29138,6 @@
       "id": 94,
       "name": "MAELDUIN",
       "name_text_id": 764,
-      "promotion": 93,
-      "promotion_name": null,
       "base_mov": 8,
       "base_con": 12,
       "bases": {
@@ -29237,6 +29170,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 181,
@@ -29520,8 +29454,6 @@
       "id": 95,
       "name": "MOGALL",
       "name_text_id": 765,
-      "promotion": 96,
-      "promotion_name": "ARCH_MOGALL",
       "base_mov": 5,
       "base_con": 4,
       "bases": {
@@ -29554,6 +29486,7 @@
       "attribute_flags": [
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {
         "dark": {
           "wexp": 71,
@@ -29833,8 +29766,6 @@
       "id": 96,
       "name": "ARCH_MOGALL",
       "name_text_id": 766,
-      "promotion": 95,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 5,
       "bases": {
@@ -29868,6 +29799,7 @@
         "PROMOTED",
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {
         "dark": {
           "wexp": 181,
@@ -30147,8 +30079,6 @@
       "id": 97,
       "name": "GORGON",
       "name_text_id": 767,
-      "promotion": 95,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 11,
       "bases": {
@@ -30182,6 +30112,7 @@
         "PROMOTED",
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {
         "dark": {
           "wexp": 181,
@@ -30461,8 +30392,6 @@
       "id": 98,
       "name": "GORGONEGG",
       "name_text_id": 768,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 0,
       "base_con": 6,
       "bases": {
@@ -30493,6 +30422,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": null,
       "terrain_avoid": [
@@ -30701,8 +30631,6 @@
       "id": 99,
       "name": "GARGOYLE",
       "name_text_id": 769,
-      "promotion": 100,
-      "promotion_name": "DEATHGOYLE",
       "base_mov": 6,
       "base_con": 8,
       "bases": {
@@ -30733,6 +30661,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 71,
@@ -31012,8 +30941,6 @@
       "id": 100,
       "name": "DEATHGOYLE",
       "name_text_id": 770,
-      "promotion": 99,
-      "promotion_name": null,
       "base_mov": 7,
       "base_con": 11,
       "bases": {
@@ -31046,6 +30973,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "lance": {
           "wexp": 181,
@@ -31325,8 +31253,6 @@
       "id": 101,
       "name": "DRACO_ZOMBIE",
       "name_text_id": 771,
-      "promotion": 31,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 25,
       "bases": {
@@ -31360,6 +31286,7 @@
         "PROMOTED",
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -31634,8 +31561,6 @@
       "id": 102,
       "name": "DEMON_KING",
       "name_text_id": 772,
-      "promotion": 31,
-      "promotion_name": null,
       "base_mov": 2,
       "base_con": 25,
       "bases": {
@@ -31669,6 +31594,7 @@
         "PROMOTED",
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -31943,8 +31869,6 @@
       "id": 103,
       "name": "BLST_REGULAR_USED",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 0,
       "base_con": 0,
       "bases": {
@@ -31975,6 +31899,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": null,
       "terrain_avoid": [
@@ -32183,8 +32108,6 @@
       "id": 104,
       "name": "BLST_LONG_USED",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 0,
       "base_con": 0,
       "bases": {
@@ -32215,6 +32138,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": null,
       "terrain_avoid": [
@@ -32423,8 +32347,6 @@
       "id": 105,
       "name": "BLST_KILLER_USED",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 0,
       "base_con": 0,
       "bases": {
@@ -32455,6 +32377,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": null,
       "terrain_avoid": [
@@ -32663,8 +32586,6 @@
       "id": 106,
       "name": "BLST_REGULAR_EMPTY",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 0,
       "base_con": 0,
       "bases": {
@@ -32695,6 +32616,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": null,
       "terrain_avoid": [
@@ -32903,8 +32825,6 @@
       "id": 107,
       "name": "BLST_LONG_EMPTY",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 0,
       "base_con": 0,
       "bases": {
@@ -32935,6 +32855,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": null,
       "terrain_avoid": [
@@ -33143,8 +33064,6 @@
       "id": 108,
       "name": "BLST_KILLER_EMPTY",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 0,
       "base_con": 0,
       "bases": {
@@ -33175,6 +33094,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": null,
       "terrain_avoid": [
@@ -33383,8 +33303,6 @@
       "id": 109,
       "name": "CIVILIAN_M1",
       "name_text_id": 773,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 4,
       "bases": {
@@ -33415,6 +33333,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -33689,8 +33608,6 @@
       "id": 110,
       "name": "CIVILIAN_F1",
       "name_text_id": 773,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 3,
       "bases": {
@@ -33721,6 +33638,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -33995,8 +33913,6 @@
       "id": 111,
       "name": "CIVILIAN_M2",
       "name_text_id": 773,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 6,
       "bases": {
@@ -34027,6 +33943,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -34301,8 +34218,6 @@
       "id": 112,
       "name": "CIVILIAN_F2",
       "name_text_id": 773,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 4,
       "bases": {
@@ -34333,6 +34248,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -34607,8 +34523,6 @@
       "id": 113,
       "name": "CIVILIAN_M3",
       "name_text_id": 773,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 7,
       "bases": {
@@ -34639,6 +34553,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -34913,8 +34828,6 @@
       "id": 114,
       "name": "CIVILIAN_F3",
       "name_text_id": 773,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 5,
       "bases": {
@@ -34945,6 +34858,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -35219,8 +35133,6 @@
       "id": 115,
       "name": "PEER",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 8,
       "bases": {
@@ -35251,6 +35163,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -35525,8 +35438,6 @@
       "id": 116,
       "name": "QUEEN",
       "name_text_id": 775,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 5,
       "bases": {
@@ -35557,6 +35468,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -35831,8 +35743,6 @@
       "id": 117,
       "name": "PRINCE",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 7,
       "bases": {
@@ -35863,6 +35773,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -36137,8 +36048,6 @@
       "id": 118,
       "name": "QUEEN_2",
       "name_text_id": 775,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 6,
       "bases": {
@@ -36169,6 +36078,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -36443,8 +36353,6 @@
       "id": 119,
       "name": "UNK77",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 0,
       "base_con": 0,
       "bases": {
@@ -36475,6 +36383,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": null,
       "terrain_avoid": [
@@ -36683,8 +36592,6 @@
       "id": 120,
       "name": "FALLEN_PRINCE",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 25,
       "bases": {
@@ -36715,6 +36622,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -36989,8 +36897,6 @@
       "id": 121,
       "name": "TENT",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 0,
       "base_con": 25,
       "bases": {
@@ -37024,6 +36930,7 @@
         "SUPPLY",
         "UNSELECTABLE"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -37298,8 +37205,6 @@
       "id": 122,
       "name": "PONTIFEX",
       "name_text_id": 774,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 8,
       "bases": {
@@ -37330,6 +37235,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -37604,8 +37510,6 @@
       "id": 123,
       "name": "FALLEN_PEER",
       "name_text_id": 0,
-      "promotion": 0,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 25,
       "bases": {
@@ -37636,6 +37540,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -37910,8 +37815,6 @@
       "id": 124,
       "name": "CYCLOPS_2",
       "name_text_id": 760,
-      "promotion": 9,
-      "promotion_name": null,
       "base_mov": 5,
       "base_con": 16,
       "bases": {
@@ -37944,6 +37847,7 @@
       "attribute_flags": [
         "PROMOTED"
       ],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 251,
@@ -38223,8 +38127,6 @@
       "id": 125,
       "name": "ELDER_BAEL_2",
       "name_text_id": 759,
-      "promotion": 88,
-      "promotion_name": null,
       "base_mov": 6,
       "base_con": 15,
       "bases": {
@@ -38258,6 +38160,7 @@
         "PROMOTED",
         "LOCK_3"
       ],
+      "skills": [],
       "weapon_ranks": {},
       "move_cost": [
         -1,
@@ -38532,8 +38435,6 @@
       "id": 126,
       "name": "JOURNEYMAN_T1",
       "name_text_id": 728,
-      "promotion": 56,
-      "promotion_name": "JOURNEYMAN_T2",
       "base_mov": 5,
       "base_con": 8,
       "bases": {
@@ -38564,6 +38465,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "axe": {
           "wexp": 31,
@@ -38843,8 +38745,6 @@
       "id": 127,
       "name": "PUPIL_T1",
       "name_text_id": 729,
-      "promotion": 57,
-      "promotion_name": "PUPIL_T2",
       "base_mov": 5,
       "base_con": 5,
       "bases": {
@@ -38875,6 +38775,7 @@
       },
       "attributes": 0,
       "attribute_flags": [],
+      "skills": [],
       "weapon_ranks": {
         "anima": {
           "wexp": 31,

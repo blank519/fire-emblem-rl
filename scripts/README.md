@@ -204,16 +204,30 @@ build a corpus under `outputs/chapters/`.
 ### `all-chapters` — static ROM parse of every chapter (no emulator)
 
 Reconstructs each chapter's terrain grid and initial unit placements directly
-from the ROM, writing one `NN_<internal>.json` per chapter (all 44 at once):
+from the ROM, writing one `NN_<tag>.json` per chapter (60 real maps):
 
 ```bash
 python src/extract.py all-chapters --rom data/fe8.gba --out outputs/chapters
 ```
 
-Each file has `index`, `internal_name` (e.g. `L01`, `E15`, `T03`),
-`title_text_id`, `map` (`w`, `h`, `[y][x]` terrain grid), `stacked_units` (see
-caveat), and `units` (`faction`, `char`/`class` + ids, `x`/`y`, `level`,
-`autolevel`, `item_drop`, `gen_monster`, `items`, `ai`).
+Each file has `index` (raw `gChapterDataTable` id), `chapter` (authoritative
+identity, e.g. `Eirika Ch11: Creeping Darkness`), `internal_name` (the ROM's raw
+label string), `title_text_id`, `map` (`w`, `h`, `[y][x]` terrain grid),
+`stacked_units` (see caveat), and `units` (`faction`, `char`/`class` + ids,
+`x`/`y`, `level`, `autolevel`, `item_drop`, `gen_monster`, `items`, `ai`).
+
+**Trust `chapter`, not `internal_name`.** The ROM's `internalName` strings are
+naively sequential (`E09, E10, E11, E12, …`) and *skip nothing*, so from index
+`0x0C` on they are **off by one** from the real chapter: the entry the ROM calls
+`E11` is actually **Ch12 Village of Silence**, and `E20`/`E20B` are actually the
+two-part finale **Ch21/Ch21x**. The `chapter` field is the correct mapping,
+taken from the fireemblem8u `enum chapter_idx`.
+
+**Both Chapter 11s live at the end of the table.** Eirika's *Creeping Darkness*
+(`0x3D`, 22×18) and Ephraim's *Phantom Ship* (`0x3E`, 21×19) have no world-map
+node — they occur while traveling — so the ROM stores them out of sequence,
+after the Tower of Valni and Lagdou Ruins. Extraction therefore reads `0x3F`
+table entries (not 44) and skips the empty gap slots (`0x2C`, `0x2D`, `0x3A`).
 
 `ai` is the unit's starting AI setup from `UnitDefinition.ai[4]` (offset `0x10`):
 `a` = `gAi1ScriptTable` index (primary doctrine — stationary, attack-in-range,
@@ -221,8 +235,8 @@ charge, guard throne/boss, …), `b` = `gAi2ScriptTable` index (secondary
 behavior — heal, steal, flee, …), and `config` = the `[low, high]` bytes of the
 `ai_config` bitmask (movement-restriction zones, aggression triggers, …).
 
-**How it works.** `gChapterDataTable` (`0x088B0890`, stride `0x94`, 44 entries)
-gives each chapter's `mainLayerId`/`tileConfigId`/`mapEventDataId`, which index
+**How it works.** `gChapterDataTable` (`0x088B0890`, stride `0x94`, `0x3F`
+entries scanned) gives each chapter's `mainLayerId`/`tileConfigId`/`mapEventDataId`, which index
 `gChapterDataAssetTable` (`0x088B363C`). Terrain rebuilds the game's own load
 path: LZ77-decompress the main layer (`[w, h]` then `w*h` u16 base tiles) and
 the tileset config, then `terrain[y][x] = tilesetTerrainLookup[baseTile >> 2]`

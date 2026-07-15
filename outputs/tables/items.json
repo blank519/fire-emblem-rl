@@ -246,7 +246,8 @@
       "attributes": 262161,
       "attribute_flags": [
         "WEAPON",
-        "UNSELLABLE"
+        "UNSELLABLE",
+        "LOCK_4"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -273,7 +274,8 @@
       "attributes": 1048593,
       "attribute_flags": [
         "WEAPON",
-        "UNSELLABLE"
+        "UNSELLABLE",
+        "LOCK_6"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -326,7 +328,8 @@
       "weapon_type_name": "SWORD",
       "attributes": 4097,
       "attribute_flags": [
-        "WEAPON"
+        "WEAPON",
+        "LOCK_2"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -2313,7 +2316,8 @@
       "weapon_type_name": "STAFF",
       "attributes": 516,
       "attribute_flags": [
-        "STAFF"
+        "STAFF",
+        "HAMMERNE"
       ],
       "is_weapon": false,
       "is_staff": true,
@@ -3117,7 +3121,8 @@
       "attributes": 524305,
       "attribute_flags": [
         "WEAPON",
-        "UNSELLABLE"
+        "UNSELLABLE",
+        "LOCK_5"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -3241,7 +3246,9 @@
       "weapon_type": 12,
       "weapon_type_name": "DANCE",
       "attributes": 512,
-      "attribute_flags": [],
+      "attribute_flags": [
+        "HAMMERNE"
+      ],
       "is_weapon": false,
       "is_staff": false,
       "is_magic": false,
@@ -3265,7 +3272,9 @@
       "weapon_type": 12,
       "weapon_type_name": "DANCE",
       "attributes": 512,
-      "attribute_flags": [],
+      "attribute_flags": [
+        "HAMMERNE"
+      ],
       "is_weapon": false,
       "is_staff": false,
       "is_magic": false,
@@ -3289,7 +3298,9 @@
       "weapon_type": 12,
       "weapon_type_name": "DANCE",
       "attributes": 512,
-      "attribute_flags": [],
+      "attribute_flags": [
+        "HAMMERNE"
+      ],
       "is_weapon": false,
       "is_staff": false,
       "is_magic": false,
@@ -3313,7 +3324,9 @@
       "weapon_type": 12,
       "weapon_type_name": "DANCE",
       "attributes": 512,
-      "attribute_flags": [],
+      "attribute_flags": [
+        "HAMMERNE"
+      ],
       "is_weapon": false,
       "is_staff": false,
       "is_magic": false,
@@ -3443,7 +3456,8 @@
       "attributes": 262161,
       "attribute_flags": [
         "WEAPON",
-        "UNSELLABLE"
+        "UNSELLABLE",
+        "LOCK_4"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -3596,7 +3610,8 @@
       "attributes": 1033,
       "attribute_flags": [
         "WEAPON",
-        "UNBREAKABLE"
+        "UNBREAKABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -3732,6 +3747,7 @@
       "attribute_flags": [
         "WEAPON",
         "UNBREAKABLE",
+        "LOCK_3",
         "NEGATE_DEFENSE"
       ],
       "is_weapon": true,
@@ -3786,7 +3802,8 @@
       "attributes": 524305,
       "attribute_flags": [
         "WEAPON",
-        "UNSELLABLE"
+        "UNSELLABLE",
+        "LOCK_5"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -4312,7 +4329,8 @@
       "attributes": 1033,
       "attribute_flags": [
         "WEAPON",
-        "UNBREAKABLE"
+        "UNBREAKABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -4339,7 +4357,8 @@
       "attributes": 1033,
       "attribute_flags": [
         "WEAPON",
-        "UNBREAKABLE"
+        "UNBREAKABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -4366,7 +4385,8 @@
       "attributes": 1033,
       "attribute_flags": [
         "WEAPON",
-        "UNBREAKABLE"
+        "UNBREAKABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -4393,7 +4413,8 @@
       "attributes": 1041,
       "attribute_flags": [
         "WEAPON",
-        "UNSELLABLE"
+        "UNSELLABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -4476,7 +4497,8 @@
       "attributes": 1033,
       "attribute_flags": [
         "WEAPON",
-        "UNBREAKABLE"
+        "UNBREAKABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -4503,7 +4525,8 @@
       "attributes": 1033,
       "attribute_flags": [
         "WEAPON",
-        "UNBREAKABLE"
+        "UNBREAKABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -4530,7 +4553,8 @@
       "attributes": 1033,
       "attribute_flags": [
         "WEAPON",
-        "UNBREAKABLE"
+        "UNBREAKABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -4557,7 +4581,8 @@
       "attributes": 1033,
       "attribute_flags": [
         "WEAPON",
-        "UNBREAKABLE"
+        "UNBREAKABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -4584,7 +4609,8 @@
       "attributes": 1033,
       "attribute_flags": [
         "WEAPON",
-        "UNBREAKABLE"
+        "UNBREAKABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,
@@ -4611,7 +4637,8 @@
       "attributes": 1033,
       "attribute_flags": [
         "WEAPON",
-        "UNBREAKABLE"
+        "UNBREAKABLE",
+        "LOCK_3"
       ],
       "is_weapon": true,
       "is_staff": false,

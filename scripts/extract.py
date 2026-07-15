@@ -25,6 +25,7 @@ for other regions or ROM hacks. See scripts/README.md for the workflow.
 from __future__ import annotations
 
 import argparse
+import glob
 import json
 import os
 from typing import Any, Callable, Dict, List, Optional
@@ -46,8 +47,83 @@ DEFAULT_ITEMS = (0x08809B10, 0x24, 0xCE)
 # Chapter data (vanilla FE8 US). `gChapterDataTable` is an array of
 # `struct ROMChapterData` (stride 0x94); `gChapterDataAssetTable` is a flat
 # array of asset pointers that the chapter's ChapterMap ids index into.
-DEFAULT_CHAPTERS = (0x088B0890, 0x94, 44)
+#
+# Count is 0x3F, not 44: the story block (0x00-0x23), Tower of Valni (0x24-0x2B),
+# Lagdou Ruins (0x2E-0x37), and the two "in-transit" Chapter 11s are all real
+# maps. Both Chapter 11s (Eirika "Creeping Darkness" @0x3D, Ephraim "Phantom
+# Ship" @0x3E) sit at the END of the table -- they have no world-map node and
+# occur while traveling, so the ROM stores them out of sequence. Their ROM
+# `internalName` strings are "E10x"/"I10x". Reading only 44 entries misses them.
+DEFAULT_CHAPTERS = (0x088B0890, 0x94, 0x3F)
 CHAPTER_ASSET_TABLE = 0x088B363C
+
+# Canonical chapter identity per gChapterDataTable index, from the fireemblem8u
+# `enum chapter_idx`. This is authoritative and fixes a subtle trap: the ROM's
+# `internalName` strings are naively sequential ("E09,E10,E11,E12,...") and DO
+# NOT skip Chapter 11, so from index 0x0C on every string is off by one vs the
+# real chapter (the entry the ROM labels "E11" is actually Ch12; "E20"/"E20B"
+# are actually Ch21/Ch21x, the two-part finale). The true Chapter 11s live at
+# 0x3D/0x3E. Indices absent here (0x2C, 0x2D, 0x3A, gaps) are unused slots.
+CANONICAL_CHAPTERS = {
+    0x00: ("Prologue", "Prologue: The Fall of Renais"),
+    0x01: ("Ch1", "Ch1: Escape!"),
+    0x02: ("Ch2", "Ch2: The Protected"),
+    0x03: ("Ch3", "Ch3: The Bandits of Borgo"),
+    0x04: ("Ch4", "Ch4: Ancient Horrors"),
+    0x05: ("Ch5x", "Ch5x: Unbroken Heart"),
+    0x06: ("Ch5", "Ch5: The Empire's Reach"),
+    0x07: ("Ch6", "Ch6: Victims of War"),
+    0x08: ("Ch7", "Ch7: Waterside Renvall"),
+    0x09: ("Ch8", "Ch8: It's a Trap!"),
+    0x0A: ("E9", "Eirika Ch9: Distant Blade"),
+    0x0B: ("E10", "Eirika Ch10: Revolt at Carcino"),
+    0x0C: ("E12", "Eirika Ch12: Village of Silence"),
+    0x0D: ("E13", "Eirika Ch13: Hamill Canyon"),
+    0x0E: ("E14", "Eirika Ch14: Queen of White Dunes"),
+    0x0F: ("E15", "Eirika Ch15: Scorched Sand"),
+    0x10: ("E16", "Eirika Ch16: Ruled by Madness"),
+    0x11: ("E17", "Eirika Ch17: River of Regrets"),
+    0x12: ("E18", "Eirika Ch18: Two Faces of Evil"),
+    0x13: ("E19", "Eirika Ch19: Last Hope"),
+    0x14: ("E20", "Eirika Ch20: Darkling Woods"),
+    0x15: ("E21", "Eirika Ch21: Sacred Stone (Finale pt1)"),
+    0x16: ("E21x", "Eirika Ch21x: Sacred Stone (Finale pt2)"),
+    0x17: ("I9", "Ephraim Ch9: Fort Rigwald"),
+    0x18: ("I10", "Ephraim Ch10: Turning Traitor"),
+    0x19: ("I12", "Ephraim Ch12: Landing at Taizel"),
+    0x1A: ("I13", "Ephraim Ch13: Fluorspar's Oath"),
+    0x1B: ("I14", "Ephraim Ch14: Father and Son"),
+    0x1C: ("I15", "Ephraim Ch15: Scorched Sand"),
+    0x1D: ("I16", "Ephraim Ch16: Ruled by Madness"),
+    0x1E: ("I17", "Ephraim Ch17: River of Regrets"),
+    0x1F: ("I18", "Ephraim Ch18: Two Faces of Evil"),
+    0x20: ("I19", "Ephraim Ch19: Last Hope"),
+    0x21: ("I20", "Ephraim Ch20: Darkling Woods"),
+    0x22: ("I21", "Ephraim Ch21: Sacred Stone (Finale pt1)"),
+    0x23: ("I21x", "Ephraim Ch21x: Sacred Stone (Finale pt2)"),
+    0x24: ("T1", "Tower of Valni 1"),
+    0x25: ("T2", "Tower of Valni 2"),
+    0x26: ("T3", "Tower of Valni 3"),
+    0x27: ("T4", "Tower of Valni 4"),
+    0x28: ("T5", "Tower of Valni 5"),
+    0x29: ("T6", "Tower of Valni 6"),
+    0x2A: ("T7", "Tower of Valni 7"),
+    0x2B: ("T8", "Tower of Valni 8"),
+    0x2E: ("R1", "Lagdou Ruins 1"),
+    0x2F: ("R2", "Lagdou Ruins 2"),
+    0x30: ("R3", "Lagdou Ruins 3"),
+    0x31: ("R4", "Lagdou Ruins 4"),
+    0x32: ("R5", "Lagdou Ruins 5"),
+    0x33: ("R6", "Lagdou Ruins 6"),
+    0x34: ("R7", "Lagdou Ruins 7"),
+    0x35: ("R8", "Lagdou Ruins 8"),
+    0x36: ("R9", "Lagdou Ruins 9"),
+    0x37: ("R10", "Lagdou Ruins 10"),
+    0x38: ("CastleFrelia", "Castle Frelia"),
+    0x39: ("MalkaenCoast", "Malkaen Coast"),
+    0x3D: ("E11", "Eirika Ch11: Creeping Darkness"),
+    0x3E: ("I11", "Ephraim Ch11: Phantom Ship"),
+}
 
 # struct ROMChapterData offsets.
 CH_INTERNAL_NAME = 0x00   # const char*
@@ -635,6 +711,13 @@ def cmd_all_chapters(args: argparse.Namespace) -> None:
     valid_classes.discard(0)
     script_ptrs = _build_script_bounds(rom, addr, stride, count, asset_table)
 
+    # Regenerate cleanly: drop any stale chapter JSON from a previous run so the
+    # relabeled/renamed files don't leave duplicates behind (the filename scheme
+    # now uses canonical chapter tags, not the ROM's off-by-one internal names).
+    if os.path.isdir(args.out):
+        for stale in glob.glob(os.path.join(args.out, "*.json")):
+            os.remove(stale)
+
     written = 0
     for i in range(count):
         b = addr + i * stride
@@ -645,9 +728,16 @@ def cmd_all_chapters(args: argparse.Namespace) -> None:
             end = rom.data.find(b"\x00", o)
             internal = rom.data[o:end].decode("latin1", "replace")
 
+        # Skip unused table slots (gaps between the story/tower/ruins blocks):
+        # they have no internalName and aren't in the canonical map.
+        if not internal and i not in CANONICAL_CHAPTERS:
+            continue
+
         terrain = decode_terrain(rom, b, asset_table)
         if terrain is None:
             continue  # non-map chapter slot (e.g. cutscene-only entries)
+
+        canon_tag, canon_name = CANONICAL_CHAPTERS.get(i, (internal, internal))
 
         event_group = _asset_ptr(rom, asset_table, rom.u8(b + CH_EVENT_DATA_ID))
         units = collect_chapter_units(rom, event_group, script_ptrs, valid_classes,
@@ -656,6 +746,10 @@ def cmd_all_chapters(args: argparse.Namespace) -> None:
 
         chapter = {
             "index": i,
+            # `chapter` is the authoritative identity (fireemblem8u enum);
+            # `internal_name` is the ROM's raw label string, which is off by one
+            # from the real chapter number for indices >= 0x0C (see CANONICAL_CHAPTERS).
+            "chapter": canon_name,
             "internal_name": internal,
             "title_text_id": rom.u16(b + CH_TITLE_TEXT_ID),
             "map": terrain,
@@ -670,10 +764,11 @@ def cmd_all_chapters(args: argparse.Namespace) -> None:
             "stacked_units": stacked,
             "units": units,
         }
-        label = internal or f"chapter_{i:02d}"
+        label = canon_tag or internal or f"chapter_{i:02d}"
         _write_json(os.path.join(args.out, f"{i:02d}_{label}.json"), chapter)
         flag = f"  [{stacked} stacked]" if stacked else ""
-        print(f"  ch{i:02d} {label}: {terrain['w']}x{terrain['h']}, {len(units)} unit(s){flag}")
+        print(f"  {i:#04x} {label:14} {canon_name}: "
+              f"{terrain['w']}x{terrain['h']}, {len(units)} unit(s){flag}")
         written += 1
     print(f"wrote {written} chapter file(s) to {args.out}")
 
