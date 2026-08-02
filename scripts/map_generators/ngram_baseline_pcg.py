@@ -1,7 +1,10 @@
 """ Baseline, Non-ML method: use N-gram statistics from existing maps to generate new maps """
 
 import numpy as np
+import time
 from pathlib import Path
+
+from terrain_viz import save_grid_panels
 
 def pad_grid(grid, radius):
     return np.pad(grid, radius, mode='constant', constant_values=0)
@@ -63,14 +66,17 @@ def sample_from_ngrams(combined_ngrams, radius, width, height, rng=np.random.def
                 
                 # Choose a random matching ngram based on frequency and fill in the center tile
                 if matches:
-                    print(f"Match found for window at ({i}, {j})")
-                    chosen_ngram = rng.choice(list(matches.keys()))
+                    # Transform counts into probabilities
+                    total_count = sum(matches.values())
+                    probabilities = [count / total_count for count in matches.values()]
+                    
+                    chosen_ngram = rng.choice(list(matches.keys()), p=probabilities)
                     padded_grid[i, j] = chosen_ngram[center]
                     matched = True
                 else:
-                    print(f"No matching ngram found for window at ({i}, {j})")
-                    # If no match was found, retry by turning one random tile to a wildcard (-1)
-                    random_index = rng.integers(low=0, high=len(flattened_window) - 1)
+                    # If no match was found, retry by turning one random non-wildcard tile to a wildcard (-1)
+                    flippable_indices = [k for k in range(len(flattened_window)) if flattened_window[k] != -1]
+                    random_index = rng.choice(flippable_indices)
                     flattened_window[random_index] = -1
 
     grid = padded_grid[radius:-radius, radius:-radius]
@@ -82,21 +88,41 @@ def main():
     dir_path = Path("data/terrain_grids")
     grid_files = [str(file) for file in dir_path.glob("*.npy")]
     original_files = [file for file in grid_files if "_rot" not in file and "_flip" not in file]
-    
-    # Create 2 ngram models: one for original grids and one including augmented grids
-    ngram_model_original = create_ngram_model(original_files, radius=1)
-    ngram_model_all = create_ngram_model(grid_files, radius=1)
 
-    # Sample a new map
-    rng = np.random.default_rng(seed=42)
-    print("Sampling from original ngram model...")
-    new_map_original = sample_from_ngrams(ngram_model_original, radius=1, width=10, height=10, rng=rng)
-    print("Sampling from all ngram model...")
-    new_map_all = sample_from_ngrams(ngram_model_all, radius=1, width=10, height=10, rng=rng)
-    
-    # Save the new maps
-    np.savetxt("outputs/grids/new_map_original.txt", new_map_original, fmt="%d")
-    np.savetxt("outputs/grids/new_map_all.txt", new_map_all, fmt="%d")
+    # Create models and sample a new map for radius sizes 1, 2, and 3
+    for radius in range(1, 4):    
+        # Create 2 ngram models: one for original grids and one including augmented grids
+        print(f"Creating ngram models with radius {radius}")
+        ngram_model_original = create_ngram_model(original_files, radius=radius)
+        ngram_model_all = create_ngram_model(grid_files, radius=radius)
+
+        start_time = time.perf_counter()
+        print(f"Sampling with radius {radius}")
+        rng = np.random.default_rng(seed=42)
+        print("Sampling from original ngram model...")
+        new_map_original = sample_from_ngrams(ngram_model_original, radius=radius, width=20, height=20, rng=rng)
+        end_time = time.perf_counter()
+        print(f"Time taken for original ngram model: {end_time - start_time:.2f} seconds")
+        print("Sampling from all ngram model...")
+        new_map_all = sample_from_ngrams(ngram_model_all, radius=radius, width=20, height=20, rng=rng)
+        end_time = time.perf_counter()
+        print(f"Time taken for all ngram model: {end_time - start_time:.2f} seconds")
+        
+        # Save the new maps
+        out_dir = Path("outputs/grids")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        np.savetxt(out_dir / "new_map_original.txt", new_map_original, fmt="%d")
+        np.savetxt(out_dir / "new_map_all.txt", new_map_all, fmt="%d")
+
+        # Save a colored, labeled visualization of both maps for easy inspection
+        # (written into outputs/grids/grid_visuals/ by terrain_viz).
+        viz_path = save_grid_panels(
+            [("original ngram model", new_map_original),
+            ("all (augmented) ngram model", new_map_all)],
+            f"new_maps_radius_{radius}.png",
+            suptitle=f"N-gram generated terrain (radius={radius})",
+        )
+        print(f"Saved visualization to {viz_path}")
 
 if __name__ == "__main__":
     main()
