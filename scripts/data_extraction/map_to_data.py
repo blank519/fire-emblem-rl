@@ -21,6 +21,10 @@ for file_path in dir_path.glob("*.json"):
 
     # Convert to numpy array
     numpy_grid = np.array(terrain_grid)
+    # # Pad grid so all maps are 32x32 tiles
+    # height_padding = 32 - numpy_grid.shape[0]
+    # width_padding = 32 - numpy_grid.shape[1]
+    # numpy_grid = np.pad(numpy_grid, ((0, height_padding), (0, width_padding)), mode='constant', constant_values=0)
     
     # For every numpy grid, save as .npy file
     np.save(data_path / file_name, numpy_grid)

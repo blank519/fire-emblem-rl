@@ -213,8 +213,10 @@ python src/extract.py all-chapters --rom data/fe8.gba --out outputs/chapters
 Each file has `index` (raw `gChapterDataTable` id), `chapter` (authoritative
 identity, e.g. `Eirika Ch11: Creeping Darkness`), `internal_name` (the ROM's raw
 label string), `title_text_id`, `map` (`w`, `h`, `[y][x]` terrain grid),
-`stacked_units` (see caveat), and `units` (`faction`, `char`/`class` + ids,
-`x`/`y`, `level`, `autolevel`, `item_drop`, `gen_monster`, `items`, `ai`).
+`position` (turn-1-position reliability summary, see below), and `units`
+(`faction`, `char`/`class` + ids, `x`/`y`, `load_x`/`load_y`, `pos_source`,
+`hidden`, `walks_in`, `level`, `autolevel`, `item_drop`, `gen_monster`, `items`,
+`ai`).
 
 **Trust `chapter`, not `internal_name`.** The ROM's `internalName` strings are
 naively sequential (`E09, E10, E11, E12, …`) and *skip nothing*, so from index
@@ -229,11 +231,23 @@ node — they occur while traveling — so the ROM stores them out of sequence,
 after the Tower of Valni and Lagdou Ruins. Extraction therefore reads `0x3F`
 table entries (not 44) and skips the empty gap slots (`0x2C`, `0x2D`, `0x3A`).
 
-`ai` is the unit's starting AI setup from `UnitDefinition.ai[4]` (offset `0x10`):
-`a` = `gAi1ScriptTable` index (primary doctrine — stationary, attack-in-range,
-charge, guard throne/boss, …), `b` = `gAi2ScriptTable` index (secondary
-behavior — heal, steal, flee, …), and `config` = the `[low, high]` bytes of the
-`ai_config` bitmask (movement-restriction zones, aggression triggers, …).
+`ai` is the unit's starting AI setup from `UnitDefinition.ai[4]` (offset `0x10`),
+decoded into readable fields: `a`/`b` are the raw `gAi1ScriptTable` /
+`gAi2ScriptTable` indices (combat doctrine + movement doctrine), `ai1_name` /
+`ai2_name` name them, `config` = the `[low, high]` bytes of the `ai_config`
+bitmask, and two derived fields summarise behaviour for consumers:
+
+- `behavior` — a single high-level slug: `active` (charge the nearest foe and
+  attack), `attack_in_range` (hold position but strike anything that enters
+  range), `guard_tile` (never move; only hit adjacent/in-range foes),
+  `do_nothing`, `raid_villages`, `heal`, `steal`, `escape`, `wander`, or
+  `scripted_move` (walk toward a specific lord/throne).
+- `moves_toward_player` — `true` when the unit advances on the player, `false`
+  when it holds its tile.
+
+Value meanings come from the FEU *Official FE8 AI Documentation* thread and the
+Event Assembler standard library (`AI_Helpers.h`), cross-checked against the
+decomp `gAi1`/`gAi2` script tables.
 
 **How it works.** `gChapterDataTable` (`0x088B0890`, stride `0x94`, `0x3F`
 entries scanned) gives each chapter's `mainLayerId`/`tileConfigId`/`mapEventDataId`, which index
@@ -241,29 +255,58 @@ entries scanned) gives each chapter's `mainLayerId`/`tileConfigId`/`mapEventData
 path: LZ77-decompress the main layer (`[w, h]` then `w*h` u16 base tiles) and
 the tileset config, then `terrain[y][x] = tilesetTerrainLookup[baseTile >> 2]`
 (the lookup is the `u8[0x400]` block at byte `0x2000` of the decompressed
-config). Units come from walking the chapter's `beginningSceneEvents` script
-(each command spans `2 * (LSB >> 4)` bytes, bounded by the next event-script
-pointer in ROM) and parsing every `UnitDefinition` array (`0x14`-byte entries,
-charIndex-0 terminated) referenced by a load-units command.
+config).
 
-**Caveat — a unit's *roster* is reliable, its *position* is not always the
-turn-1 tile.** Each entry's `char`/`class`/`level`/`items`/`ai` are read
-straight from its `UnitDefinition` and are correct. Positions are trickier: the
-opening event loads a mix of (a) real battle placements, (b) **cutscene
-tableaus** — whole factions stacked on one staging tile that in-event `MOVE`
-commands then reposition (this is why e.g. Chapter 1's Breguet and the Grado
-soldiers all report `(2,9)`/`(1,9)` even though only the fighters start in the
-SW corner), and (c) **reinforcement groups** that share a spawn tile because
-they enter on later turns. The parser can't tell these apart statically since
-they use identical load commands, so it keeps them all. `stacked_units` counts
-how many entries share a tile with another entry (0 = every unit on a distinct
-tile); a non-zero value means those positions are staging/spawn tiles, not
-distinct turn-1 placements. Out-of-map false positives from non-load commands
-are already dropped by a map-bounds check. Mid-battle reinforcements from
-turn/region events are *not* included (only opening loads are). For exact turn-1
-positions, use the live `chapter` bridge snapshot. Terrain grids are exact.
-Override the tables for a ROM hack with `--chapters-addr ADDR:STRIDE:COUNT` and
-`--asset-table ADDR`.
+**Turn-1 positions are recovered by interpreting the opening event.** A
+chapter's opening (`beginningSceneEvents`) is a cutscene, and a unit's real
+turn-1 tile is the end state of a short sequence the engine runs, so the
+extractor executes that script command-by-command (each command spans
+`2 * (LSB >> 4)` bytes, bounded by the next event-script pointer in ROM) rather
+than just scraping load commands:
+
+1. **Load** (`LOU` `0x2C40..0x2C43`, and `SVAL` `0x0540` when its slot holds an
+   array pointer): parse the `UnitDefinition` array (`0x14`-byte entries,
+   charIndex-0 terminated). The unit's packed `(x, y)` at offset `0x04` is only
+   its *loading* tile (kept as `load_x`/`load_y`) — often an off-screen edge or
+   staging square.
+2. **REDA intro-walk**: if the unit has a `REDA` move script (`redaCount` at
+   `0x07`, `redas` at `0x08`) it walks to the **last REDA waypoint**, the way
+   `GenUnitDefinitionFinalPosition` (`muctrl.c`) computes it. Each `REDA` is
+   **8 bytes** (bytes 0-2 pack 6-bit `x`/`y`/`flags`, byte 3 a move-dependency
+   char id, bytes 4-5 `b`, 6-7 `delayFrames`).
+3. **Event `MOVE`** (`0x2F40..0x2F4F`): the real repositioning step. `charId`
+   addresses a named unit directly; `charId 0xFFFE` addresses "the unit at the
+   coordinate most recently stashed in slotB" (`SVAL` slot `0x0B`), which the
+   script sets to the unit's current tile — so we resolve it by position. A
+   `MOVE` to `(0,0)` or off the map edge **hides** the unit (walks it off-screen
+   to despawn for the cutscene).
+
+A reload of an already-present *named* unit (`charId < 0x80`) updates it in place
+(this is how the engine keeps one Eirika/Seth across a multi-phase intro);
+autofill minions (`charId >= 0x80`) may legitimately repeat and are kept
+distinct. Each unit's **`pos_source`** records which step won — `"move"` (an
+event MOVE set it, the most reliable), `"reda"` (ended its intro-walk there),
+`"load"` (never moved), or `"hidden"` — and **`walks_in`** flags a unit whose
+tile differs from its load tile. This is what fixes the old errors: Chapter 1's
+Breguet now reports `(2,2)` and the Grado soldiers/fighters their real spread
+(`(1,3) (3,3) (8,3)` / `(2,8) (4,7) (9,5)`) instead of a cutscene-march cluster.
+
+**The `position` block flags where this can't be exact.** `confidence` is
+`"high"` when every unit sits on a distinct, MOVE/REDA-resolved tile; `"medium"`
+when some units share a tile (a reinforcement group on one spawn tile, or a
+cutscene move the interpreter couldn't bind); and `"low"` when one or more units
+are **`hidden`** — moved off-map during the opening. Hidden units' turn-1 tiles
+are **not statically recoverable** (the game sets them after the cutscene, e.g.
+the Prologue tutorial parks Eirika/Seth off-map before placing them); their
+`x`/`y` is the off-map hide tile, not a battle position. `hidden_units` /
+`stacked_units` give counts and `warnings` explains each in prose. **For exact
+positions on a `low`-confidence map, use the live `chapter` bridge snapshot.**
+Branches/difficulty conditionals aren't evaluated (every command runs in order)
+and CALLs aren't followed, so a rare hard-mode-only MOVE could apply — another
+reason to treat flagged chapters with care. Mid-battle reinforcements from
+turn/region events are *not* included (only the opening). Terrain grids are
+exact regardless. Override the tables for a ROM hack with
+`--chapters-addr ADDR:STRIDE:COUNT` and `--asset-table ADDR`.
 
 ## FE8 (U) reference
 

@@ -7,7 +7,7 @@ from pathlib import Path
 from terrain_viz import save_grid_panels
 
 def pad_grid(grid, radius):
-    return np.pad(grid, radius, mode='constant', constant_values=0)
+    return np.pad(grid, radius, mode='constant', constant_values=99) # use 99 as padding ID 
 
 def generate_ngrams(file_path, radius=1):
     """ Generates a dictionary of n-gram counts from a grid file """
@@ -69,7 +69,7 @@ def sample_from_ngrams(combined_ngrams, radius, width, height, rng=np.random.def
                     # Transform counts into probabilities
                     total_count = sum(matches.values())
                     probabilities = [count / total_count for count in matches.values()]
-                    
+
                     chosen_ngram = rng.choice(list(matches.keys()), p=probabilities)
                     padded_grid[i, j] = chosen_ngram[center]
                     matched = True
@@ -98,7 +98,7 @@ def main():
 
         start_time = time.perf_counter()
         print(f"Sampling with radius {radius}")
-        rng = np.random.default_rng(seed=42)
+        rng = np.random.default_rng() # seed=42
         print("Sampling from original ngram model...")
         new_map_original = sample_from_ngrams(ngram_model_original, radius=radius, width=20, height=20, rng=rng)
         end_time = time.perf_counter()

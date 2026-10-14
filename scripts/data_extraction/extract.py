@@ -138,12 +138,109 @@ CEG_PLAYER_UNITS = 0x28
 CEG_BEGINNING_SCENE = 0x48
 CEG_FIELD_COUNT = 20      # number of pointer fields (used to bound scripts)
 
-# Event-script LOU (load-units) command: u16 code (0x2C40/0x2C41), u16 arg,
-# then a u32 UnitDefinition* pointer. Command length in bytes = 2 * (LSB >> 4).
-LOU_CODES = (0x2C40, 0x2C41)
+# Beginning-scene event opcodes the unit interpreter understands. Every command
+# spans 2 * (LSB >> 4) bytes; all of these are the 8-byte form:
+#   LOU   (0x2C40..0x2C43) "LOAD1/2/..": u16 code, u16 arg, u32 UnitDefinition*.
+#         Loads a unit array; each unit first walks to its REDA tile.
+#   SVAL  (0x0540) "set event slot": u16 code, u16 slot, u32 value. When slot is
+#         0x0B (slotB) the value is a packed (x, y) coordinate that the next
+#         coordinate-targeted MOVE consumes.
+#   MOVE  (0x2F40..0x2F4F) MOVE/MOVEONTO/MOVE_1STEP/MOVEFORCED: u16 code,
+#         u16 speed, u16 charId, u16 coord (x = low byte, y = high byte). This is
+#         what actually places cutscene-repositioned units on their turn-1 tile.
+SVAL_CODE = 0x0540
+SVAL_COORD_SLOT = 0x0B    # slotB: holds a (x, y) for coordinate-targeted MOVEs
+MOVE_CODE_BASE = 0x2F40   # MOVE family is 0x2F40..0x2F4F (same 8-byte layout)
+MOVE_COORD_REF = 0xFFFE   # MOVE charId sentinel: target the unit at slotB's coord
+GENERIC_CHAR_BASE = 0x80  # charId >= this = reusable autofill minion (dups allowed)
+HIDE_TILE = (0, 0)        # MOVE destination that hides/despawns a unit mid-cutscene
 UNITDEF_STRIDE = 0x14     # struct UnitDefinition size
 
+# struct UnitDefinition fields past the packed position word (offset 0x04):
+#   0x07 u8  redaCount   -- number of REDA move-script entries for this unit
+#   0x08 u32 redas       -- pointer to that REDA array (0 if redaCount == 0)
+UNITDEF_REDA_COUNT = 0x07
+UNITDEF_REDA_PTR = 0x08
+
+# struct REDA (include/muctrl.h): one movement waypoint, 8 bytes as laid out in
+# ROM. Bytes 0-2 pack three 6-bit bitfields (x, y, flags); byte 3 is `a` (a
+# move-dependency character id, e.g. 0x46 = Breguet: "wait for this unit before
+# moving"); bytes 4-5 are `b` (u16, 0xFFFF = no dependency) and bytes 6-7 are
+# `delayFrames`. x/y live in the low bits of the first u32, so masking that word
+# is layout-safe. A unit's real turn-1 tile is the LAST waypoint's (x, y) -- see
+# the position note on `_parse_unit_def`.
+REDA_STRIDE = 0x08
+
 FACTION_NAMES = {0: "blue", 1: "green", 2: "red", 3: "purple"}
+
+# --- Enemy AI interpretation -------------------------------------------------
+# A UnitDefinition's ai[4] bytes (offset 0x10) drive enemy behaviour. ai[0]
+# indexes gAi1ScriptTable (the combat doctrine: how/whether the unit fights)
+# and ai[1] indexes gAi2ScriptTable (the movement doctrine: whether and how it
+# approaches targets). ai[2]/ai[3] are a config bitmask. Value meanings are
+# from the FEU "Official FE8 AI Documentation" thread and the Event Assembler
+# standard library (AI_Helpers.h); verified against the decomp gAi1/2 tables.
+AI1_NAMES = {
+    0x00: "act_in_range",       # move within range and act, 100%
+    0x01: "act_in_range_80",    # as 0x00, 80% (else waits that turn)
+    0x02: "act_in_range_50",    # as 0x00, 50%
+    0x03: "act_in_place",       # act only without moving, 100%
+    0x04: "act_in_place_80",
+    0x05: "act_in_place_50",
+    0x06: "no_action",          # never initiates combat
+    0x07: "spare_natasha",      # act, but never attack Natasha
+    0x08: "spare_char_fc",
+    0x09: "spare_char_0",
+    0x0A: "attack_only_if_deployed",
+    0x0B: "act_in_range",       # duplicate of 0x00
+    0x0C: "attack_if_close",    # act only if a foe is within Mov/2 + range
+    0x0D: "move_with_leader",   # act once the unit's leader has a target
+    0x0E: "heal_injured_allies",
+    0x0F: "staff_then_act_in_place",
+    0x10: "steal_then_escape",
+    0x11: "pick_locks_steal",
+    0x12: "spare_char_variant",
+    0x13: "spare_char_variant",
+    0x14: "demon_king_action",  # nightmare/summon, then act_in_range
+}
+AI2_NAMES = {
+    0x00: "pursue",             # move toward foes; stop if blocked
+    0x01: "pursue_except_char_0",
+    0x02: "pursue_except_char_0",
+    0x03: "no_move",            # hold position
+    0x04: "loot_then_pursue",   # raid villages/chests, then pursue
+    0x05: "loot_then_escape",
+    0x06: "approach_if_reachable_in_two_turns",
+    0x07: "approach_if_reachable_in_two_turns",
+    0x08: "no_move",
+    0x09: "random_move",
+    0x0A: "move_to_eirika",
+    0x0B: "move_to_ephraim",
+    0x0C: "escape",             # flee to an escape point
+    0x0D: "move_to_throne",
+    0x0E: "attack_walls",
+    0x0F: "pursue_close_as_possible",
+    0x10: "move_to_area",
+    0x11: "wait_then_loot",
+    0x12: "wait_then_pursue",
+}
+
+# High-level behaviour slug for a (ai1, ai2) pair -- the single most useful
+# label for an RL/PCG consumer. Keyed by the vanilla/EA-stdlib combos; anything
+# else is synthesised by `_interpret_ai` from the movement doctrine (ai2).
+AI_BEHAVIOR_PRESETS = {
+    (0x00, 0x00): "active",          # pursue the nearest foe and attack
+    (0x00, 0x03): "attack_in_range", # hold, but attack anything that enters range
+    (0x03, 0x03): "guard_tile",      # never move; only strike adjacent/in-range foes
+    (0x06, 0x03): "do_nothing",
+    (0x00, 0x04): "raid_villages",
+    (0x03, 0x04): "raid_villages",
+    (0x00, 0x0C): "escape",
+    (0x06, 0x0C): "escape",
+}
+
+# ai2 doctrines that mean "this unit stays put" (vs. moving toward the player).
+AI2_STATIONARY = {0x03, 0x08}
 
 ITYPE_NAMES = {
     0: "SWORD", 1: "LANCE", 2: "AXE", 3: "BOW", 4: "STAFF", 5: "ANIMA",
@@ -558,7 +655,87 @@ def decode_terrain(rom: Rom, ch_base: int, asset_table: int) -> Optional[Dict[st
     return {"w": w, "h": h, "terrain": grid}
 
 
-def _parse_unit_def(rom: Rom, addr: int) -> Dict[str, Any]:
+def _reda_final_position(rom: Rom, reda_count: int, reda_ptr: int,
+                         map_w: int, map_h: int) -> Optional[tuple]:
+    """Resolve a unit's real turn-1 tile from its REDA move script.
+
+    This mirrors the game's own `GenUnitDefinitionFinalPosition` (muctrl.c): a
+    UnitDefinition's packed (x, y) at offset 0x04 is only the *loading* tile --
+    where the unit first blinks onto the map, frequently an off-screen edge or a
+    cutscene staging square. If the unit has a REDA array (`redaCount != 0`) it
+    then walks to the LAST waypoint, and THAT tile is where it actually fights
+    from on turn 1. We read the final REDA entry's packed position word the same
+    way (6-bit x, 6-bit y).
+
+    Returns None (caller falls back to the loading tile) when there is no REDA
+    or the resolved tile lands off the map -- the latter happens for the handful
+    of cutscene-only actors whose final waypoint walks them off an edge to
+    despawn (e.g. a third, red "Selena" on Ephraim Ch10). Those are never turn-1
+    combatants, so keeping the on-map loading tile is both safer for consumers
+    that index the terrain grid and closer to the truth.
+    """
+    if reda_count <= 0 or not rom.in_rom(reda_ptr):
+        return None
+    last = reda_ptr + (reda_count - 1) * REDA_STRIDE
+    if not rom.in_rom(last):
+        return None
+    word = rom.u32(last)
+    x, y = word & 0x3F, (word >> 6) & 0x3F
+    if x >= map_w or y >= map_h:
+        return None
+    return x, y
+
+
+def _interpret_ai(ai1: int, ai2: int, config: List[int]) -> Dict[str, Any]:
+    """Turn the raw ai[4] bytes into readable behaviour fields.
+
+    `behavior` is a single high-level slug an RL/PCG consumer can switch on; it
+    distinguishes the cases the game actually plays out -- a unit that holds its
+    tile until a target wanders into range (`attack_in_range`/`guard_tile`) vs.
+    one that charges the nearest foe (`active`) vs. looters, healers, thieves,
+    fleers, and scripted movers. `moves_toward_player` is the key boolean: does
+    the unit advance (ai2 is a pursue doctrine) or sit still?
+    """
+    ai1_name = AI1_NAMES.get(ai1, f"ai1_{ai1:#04x}")
+    ai2_name = AI2_NAMES.get(ai2, f"ai2_{ai2:#04x}")
+
+    behavior = AI_BEHAVIOR_PRESETS.get((ai1, ai2))
+    if behavior is None:
+        if ai1 in (0x0E, 0x0F):
+            behavior = "heal"
+        elif ai1 in (0x10, 0x11):
+            behavior = "steal"
+        elif ai2 in (0x04, 0x05, 0x11):
+            behavior = "raid_villages"
+        elif ai2 == 0x0C:
+            behavior = "escape"
+        elif ai2 == 0x09:
+            behavior = "wander"
+        elif ai2 in (0x0A, 0x0B, 0x0D, 0x10):
+            behavior = "scripted_move"
+        elif ai2 in AI2_STATIONARY:
+            # Holds its tile. Whether it still swings at adjacent foes depends
+            # on ai1 (act_in_place strikes in range; no_action never does).
+            behavior = "do_nothing" if ai1 == 0x06 else "attack_in_range"
+        else:
+            behavior = "active"
+
+    moves_toward_player = (
+        behavior in ("active", "raid_villages", "scripted_move", "wander")
+        or ai2 in (0x00, 0x01, 0x02, 0x06, 0x07, 0x0F, 0x12)
+    )
+    return {
+        "a": ai1,
+        "b": ai2,
+        "config": list(config),
+        "ai1_name": ai1_name,
+        "ai2_name": ai2_name,
+        "behavior": behavior,
+        "moves_toward_player": moves_toward_player,
+    }
+
+
+def _parse_unit_def(rom: Rom, addr: int, map_w: int, map_h: int) -> Dict[str, Any]:
     b = rom._off(addr)
     d = rom.data
     char_id, class_id = d[b], d[b + 1]
@@ -566,31 +743,50 @@ def _parse_unit_def(rom: Rom, addr: int) -> Dict[str, Any]:
     pos = d[b + 4] | (d[b + 5] << 8)
     faction = (packed >> 1) & 0x3
     items = [it for it in (d[b + 0x0C + i] for i in range(4)) if it]
+
+    # Loading tile straight from the UnitDefinition (offset 0x04).
+    load_x, load_y = pos & 0x3F, (pos >> 6) & 0x3F
+    # Real turn-1 tile: the last REDA waypoint if the unit has a move script,
+    # else the loading tile (the game's GenUnitDefinitionFinalPosition path).
+    reda_count = d[b + UNITDEF_REDA_COUNT]
+    reda_ptr = rom.u32(addr + UNITDEF_REDA_PTR)
+    final = _reda_final_position(rom, reda_count, reda_ptr, map_w, map_h)
+    x, y = final if final is not None else (load_x, load_y)
+    walked = final is not None and (x, y) != (load_x, load_y)
+
+    ai = _interpret_ai(d[b + 0x10], d[b + 0x11], [d[b + 0x12], d[b + 0x13]])
     return {
         "faction": FACTION_NAMES[faction],
         "char_id": char_id,
         "char": names.character_name(char_id),
         "class_id": class_id,
         "class": names.class_name(class_id),
-        "x": pos & 0x3F,
-        "y": (pos >> 6) & 0x3F,
+        # Turn-1 position. The opening event places a unit in up to three steps:
+        # load (`load_*` tile) -> REDA intro-walk -> event MOVE. `x`/`y` is the
+        # resolved tile after whichever steps apply, and `pos_source` records
+        # which one won: "move" (an event MOVE set it -- most reliable), "reda"
+        # (ended its intro-walk here), "load" (never moved), or "hidden" (moved
+        # off-map to (0,0) during a cutscene -- real tile not statically known).
+        # `collect_chapter_units` overwrites x/y/pos_source/hidden/walks_in when
+        # it executes a MOVE targeting this unit; the values here are the pre-MOVE
+        # (load + intro-walk) state.
+        "x": x,
+        "y": y,
+        "load_x": load_x,
+        "load_y": load_y,
+        "pos_source": "reda" if walked else "load",
+        "hidden": False,
+        "walks_in": walked,
         "level": (packed >> 3) & 0x1F,
         "autolevel": bool(packed & 0x1),
         "gen_monster": bool((pos >> 12) & 0x1),
         "item_drop": bool((pos >> 13) & 0x1),
         "items": [{"id": it, "name": names.item_name(it)} for it in items],
         # UnitDefinition.ai[4] (offset 0x10): the unit's starting AI setup.
-        #   a       -> gAi1ScriptTable index: primary doctrine (stationary,
-        #              attack-in-range, charge, guard throne/boss, ...).
-        #   b       -> gAi2ScriptTable index: secondary behavior (heal, steal,
-        #              flee, item use, ...).
-        #   config  -> [low, high] bytes of the ai_config bitmask (movement
-        #              restriction zones, aggression triggers, etc.).
-        "ai": {
-            "a": d[b + 0x10],
-            "b": d[b + 0x11],
-            "config": [d[b + 0x12], d[b + 0x13]],
-        },
+        #   a/b     -> gAi1/gAi2 script-table indices (combat + movement
+        #              doctrine); config = [low, high] of the ai_config mask.
+        #   behavior-> readable slug; moves_toward_player -> advances vs. holds.
+        "ai": ai,
     }
 
 
@@ -624,17 +820,45 @@ def _valid_unit_array(rom: Rom, addr: int, valid_classes: set,
     return count
 
 
+def _find_unit_at(units: List[Dict[str, Any]], coord) -> Optional[int]:
+    """Index of the first live (non-hidden) unit standing on `coord`, or None.
+
+    Used to resolve coordinate-targeted MOVEs (charId 0xFFFE): the event stores
+    the unit's current tile in slotB, so we locate the unit by position.
+    """
+    x, y = coord
+    for i, u in enumerate(units):
+        if not u["hidden"] and u["x"] == x and u["y"] == y:
+            return i
+    return None
+
+
 def collect_chapter_units(rom: Rom, event_group: int, script_ptrs: List[int],
                           valid_classes: set, map_w: int, map_h: int) -> List[Dict[str, Any]]:
-    """Parse the chapter's opening-event unit loads.
+    """Interpret beginningSceneEvents to recover each unit's turn-1 tile.
 
-    Walks beginningSceneEvents command-by-command (each command spans
-    2 * (LSB >> 4) bytes) up to the next event-script pointer in ROM, and treats
-    any 8-byte command whose u32 argument points at an in-bounds, well-formed
-    UnitDefinition array as a unit load. This captures every LOU variant
-    (0x2C40/0x2C41/0x0540/...) without following CALLs (which would pull in
-    unrelated scene units), while the map-bounds check in `_valid_unit_array`
-    rejects the false positives from non-load commands.
+    A chapter's opening is a cutscene, and a unit's real turn-1 position is the
+    end state of a small sequence the engine runs: LOAD a UnitDefinition array
+    (the unit appears and walks its REDA intro to `x`/`y`), then zero or more
+    event MOVE commands reposition it. The raw load/REDA tile is therefore only
+    correct for units that are never MOVEd afterward -- cutscene-heavy chapters
+    (e.g. Ch1's Grado enemies) MOVE units well away from where they loaded.
+
+    So we execute the script linearly rather than just scraping LOAD arrays:
+
+    - LOU (0x2C40..0x2C43): load the array. A reload of an already-present named
+      unit (charId < 0x80) updates it in place -- this is how the engine avoids
+      duplicating Eirika/Seth across a multi-phase intro -- while autofill minions
+      (charId >= 0x80) may legitimately repeat, so they are kept distinct.
+    - SVAL (0x0540) slot 0x0B: remember a coordinate in slotB.
+    - MOVE (0x2F40..0x2F4F): set the target unit's tile. A named charId addresses
+      that unit directly; charId 0xFFFE addresses "the unit at slotB" (looked up
+      by its current tile). A MOVE to (0,0) hides the unit off-map (its real
+      turn-1 tile is then not statically knowable -- flagged via `hidden`).
+
+    Branches/difficulty conditionals are not evaluated (we run every command in
+    order), so a rare hard-mode-only MOVE could be applied; callers should treat
+    chapters with `hidden` units as low-confidence. CALLs are not followed.
     """
     if not rom.in_rom(event_group):
         return []
@@ -646,37 +870,96 @@ def collect_chapter_units(rom: Rom, event_group: int, script_ptrs: List[int],
     bound = script_ptrs[j] if j < len(script_ptrs) else begin + 0x2000
 
     units: List[Dict[str, Any]] = []
-    seen = set()
+    by_char: Dict[int, int] = {}     # charId -> index of its latest loaded instance
+    seen_arrays = set()
+    slot_coord = None                # slotB: (x, y) for coordinate-targeted MOVEs
     addr = begin
     while addr < bound:
         code = rom.u16(addr)
         length = 2 * ((code & 0xFF) >> 4)
         if length < 4:
             break
-        if length == 8:
+        if length == 8 and (code & 0xFFF0) == MOVE_CODE_BASE:
+            cid = rom.u16(addr + 4)
+            crd = rom.u16(addr + 6)
+            dest = (crd & 0xFF, (crd >> 8) & 0xFF)
+            if cid >= MOVE_COORD_REF:
+                idx = _find_unit_at(units, slot_coord) if slot_coord is not None else None
+            else:
+                idx = by_char.get(cid)
+            if idx is not None:
+                u = units[idx]
+                u["x"], u["y"] = dest
+                # (0,0) is the explicit "hide" tile; a MOVE past the map edge is
+                # the same thing -- a cutscene actor walking off-screen to leave.
+                hidden = (dest == HIDE_TILE
+                          or dest[0] >= map_w or dest[1] >= map_h)
+                u["hidden"] = hidden
+                u["pos_source"] = "hidden" if hidden else "move"
+                u["walks_in"] = (not hidden) and dest != (u["load_x"], u["load_y"])
+        elif length == 8 and code == SVAL_CODE and rom.u16(addr + 2) == SVAL_COORD_SLOT:
+            val = rom.u32(addr + 4)
+            slot_coord = (val & 0xFFFF, (val >> 16) & 0xFFFF)
+        elif length == 8:
+            # Any other 8-byte command whose u32 argument points at a well-formed
+            # UnitDefinition array is a unit load. LOU uses 0x2C40..0x2C43, but
+            # 0x0540 (SVAL) doubles as a load when its slot holds an array pointer
+            # instead of a coordinate, so we key off the pointer, not the opcode.
+            # (Real MOVE coords / slotB values aren't ROM pointers, and those are
+            # already handled above, so they can't be misread as loads.)
             ptr = rom.u32(addr + 4)
-            if rom.in_rom(ptr) and ptr not in seen:
+            if rom.in_rom(ptr) and ptr not in seen_arrays:
                 n = _valid_unit_array(rom, ptr, valid_classes, map_w, map_h)
                 if n:
-                    seen.add(ptr)
+                    seen_arrays.add(ptr)
                     for k in range(n):
-                        units.append(_parse_unit_def(rom, ptr + k * UNITDEF_STRIDE))
+                        u = _parse_unit_def(rom, ptr + k * UNITDEF_STRIDE, map_w, map_h)
+                        cid = u["char_id"]
+                        if cid < GENERIC_CHAR_BASE and cid in by_char:
+                            units[by_char[cid]] = u      # engine reload -> dedup
+                        else:
+                            by_char[cid] = len(units)
+                            units.append(u)
         addr += length
     return units
 
 
 def _stacked_tile_count(units: List[Dict[str, Any]]) -> int:
-    """Number of unit entries that share a tile with another entry.
+    """Number of live (non-hidden) unit entries that share a tile with another.
 
-    A real turn-1 deployment places one unit per tile, so any stacking means
-    those entries are staging positions (cutscene tableau) or reinforcement
-    spawns rather than distinct turn-1 tiles. Reported per chapter as a data
-    caveat; it is a signal, not a clean classifier (a scripted opening can still
-    place its tableau on distinct tiles, e.g. the prologue).
+    After the MOVE interpreter runs, a clean turn-1 deployment places one unit
+    per tile, so residual stacking means those entries are reinforcement groups
+    sharing a spawn tile or a cutscene move the interpreter could not resolve.
+    Hidden units (all parked at (0,0)) are excluded so they do not inflate the
+    count. A signal, not a clean classifier.
     """
     from collections import Counter
-    counts = Counter((u["x"], u["y"]) for u in units)
+    counts = Counter((u["x"], u["y"]) for u in units if not u["hidden"])
     return sum(c for c in counts.values() if c > 1)
+
+
+def _position_flags(units: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Per-chapter turn-1-position reliability summary.
+
+    `confidence` is "low" if any unit was hidden off-map during the opening
+    cutscene (its real tile is not statically recoverable), "medium" if units
+    merely stack, else "high". `warnings` spells out why for a human reader.
+    """
+    hidden = sum(1 for u in units if u["hidden"])
+    stacked = _stacked_tile_count(units)
+    warnings: List[str] = []
+    if hidden:
+        warnings.append(
+            f"{hidden} unit(s) hidden during the opening cutscene (MOVEd to (0,0) "
+            f"or off the map edge); their turn-1 tiles are not statically "
+            f"recoverable -- use the live `chapter` bridge snapshot for this map")
+    if stacked:
+        warnings.append(
+            f"{stacked} unit entr(ies) share a tile (reinforcement group or an "
+            f"unresolved cutscene move)")
+    confidence = "low" if hidden else ("medium" if stacked else "high")
+    return {"confidence": confidence, "hidden_units": hidden,
+            "stacked_units": stacked, "warnings": warnings}
 
 
 def _build_script_bounds(rom: Rom, addr: int, stride: int, count: int,
@@ -719,6 +1002,7 @@ def cmd_all_chapters(args: argparse.Namespace) -> None:
             os.remove(stale)
 
     written = 0
+    flagged: List[tuple] = []
     for i in range(count):
         b = addr + i * stride
         name_ptr = rom.u32(b + CH_INTERNAL_NAME)
@@ -742,7 +1026,7 @@ def cmd_all_chapters(args: argparse.Namespace) -> None:
         event_group = _asset_ptr(rom, asset_table, rom.u8(b + CH_EVENT_DATA_ID))
         units = collect_chapter_units(rom, event_group, script_ptrs, valid_classes,
                                       terrain["w"], terrain["h"])
-        stacked = _stacked_tile_count(units)
+        flags = _position_flags(units)
 
         chapter = {
             "index": i,
@@ -753,24 +1037,35 @@ def cmd_all_chapters(args: argparse.Namespace) -> None:
             "internal_name": internal,
             "title_text_id": rom.u16(b + CH_TITLE_TEXT_ID),
             "map": terrain,
-            # `units` is the roster loaded by the opening event: each entry's
-            # char/class/level/items/ai are reliable, but POSITION is not always
-            # the turn-1 tile. Openings mix real battle placements with cutscene
-            # tableaus (units stacked on a staging tile, then moved by in-event
-            # MOVE commands) and reinforcement groups (shared spawn tiles). When
-            # `stacked_units` > 0, at least that many entries share a tile with
-            # another and cannot all be turn-1 occupants; for exact turn-1 state
-            # use the live `chapter` bridge snapshot. Terrain is exact.
-            "stacked_units": stacked,
+            # Turn-1 positions come from interpreting the opening event (load ->
+            # REDA intro-walk -> MOVE); see `collect_chapter_units`. Each unit's
+            # `pos_source` says which step set its tile and `hidden` flags units
+            # parked off-map by a cutscene. `position` summarises reliability:
+            # confidence "high" = every unit on a distinct, MOVE/REDA-resolved
+            # tile; "medium" = some units stack; "low" = some units are hidden
+            # (their real tiles need the live `chapter` bridge snapshot). Terrain
+            # is exact regardless.
+            "position": flags,
             "units": units,
         }
         label = canon_tag or internal or f"chapter_{i:02d}"
         _write_json(os.path.join(args.out, f"{i:02d}_{label}.json"), chapter)
-        flag = f"  [{stacked} stacked]" if stacked else ""
+        if flags["confidence"] != "high":
+            flagged.append((i, label, canon_name, flags))
+        tag = {"low": "  [LOW: %d hidden]" % flags["hidden_units"],
+               "medium": "  [%d stacked]" % flags["stacked_units"],
+               "high": ""}[flags["confidence"]]
         print(f"  {i:#04x} {label:14} {canon_name}: "
-              f"{terrain['w']}x{terrain['h']}, {len(units)} unit(s){flag}")
+              f"{terrain['w']}x{terrain['h']}, {len(units)} unit(s){tag}")
         written += 1
     print(f"wrote {written} chapter file(s) to {args.out}")
+    if flagged:
+        print(f"\n{len(flagged)} chapter(s) flagged for position reliability "
+              f"(terrain is still exact):")
+        for i, label, canon_name, flags in flagged:
+            print(f"  {i:#04x} {label:14} [{flags['confidence'].upper()}] {canon_name}")
+            for w in flags["warnings"]:
+                print(f"         - {w}")
 
 
 # ---------------------------------------------------------------------------

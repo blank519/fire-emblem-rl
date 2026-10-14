@@ -59,6 +59,20 @@ Generates maps using a simple n-gram-based approach.
    - Randomly choose 1 n-gram from all matches found based on the frequency of each n-gram
    - If no matches were found, flip 1 random tile in the window to a wildcard and try again
 
+Samples were taken from n-gram models created with radius 1, 2, and 3, with both the original and augmented (rotated/flipped) terrain grids.
+
+#### RESULTS:
+| Data Type | Radius | Time | Results |
+| -------- | -------- | -------- | -------- |
+| Original Grids | 1 | 2.35s | Simple, large chunks of same terrain. Looks alright |
+| All Grids  | 1  | 9.97s  | Simple, large chunks of same terrain. Looks alright |
+| Original Grids | 2 | 28.19s | More complicated, good results |
+| All Grids  | 2  | 171.59s  | More complicated, alright results |
+| Original Grids | 3 | 145.27s | Overly complicated/scattered |
+| All Grids  | 3  | 897.85s  | Overly complicated/scattered |
+
+N-gram models using all grids (original + augmented) take much longer to generate from and produce messier results.
+
 ### Other Ideas
 - Fully Connected CNN
 - GAN
